@@ -1,0 +1,42 @@
+##grflangid 0x39
+
+# GRF name and description
+STR_GRF_NAME                                      :韓国初期列車セット0.1.0alpha
+STR_GRF_DESC                                      :このNewGRFは大韓帝国と初期の大韓民国で使用された列車を追加します。
+
+STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
+
+# Parameters
+STR_PARA_NAME_SPEED_POWER                         :최고속도와 힘 계수
+STR_PARA_DESC_SPEED_POWER                         :모든 열차의 최고속도와 출력을 설정합니다.
+
+STR_PARA_OPT_1                                    :x1 (기본값)
+STR_PARA_OPT_1_5                                  :x1.5
+STR_PARA_OPT_2                                    :x2
+
+# Engines
+STR_PUREO8_NAME                                   :プレハ形蒸気機関車
+STR_TEOU5_NAME                                    :テホコ形蒸気機関車
+STR_TEOU6_NAME                                    :テホロ形蒸気機関車
+
+# Passenger Wagons
+STR_NAME_PASS_EARLY_WOODEN                        :初期木製客車
+STR_NAME_PASS_MIDDLE_WOODEN                       :木製客車
+STR_NAME_PASS_LATER_WOODEN                        :後期木製客車
+STR_NAME_PASS_STEEL_FRAME_WOODEN                  :鉄骨木製客車
+STR_NAME_PASS_SEMI_STEEL                          :半鋼製客車
+STR_NAME_PASS_LIGHTWEIGHT                         :半鋼製軽量客車
+
+# Cargo Wagons
+STR_NAME_BOXCAR_1941                              :有蓋車
+
+# Additional Text
+STR_ADDITIONAL_PUREO8                             :{BLACK}用途: {BLUE}旅客 /////////
+STR_ADDITIONAL_TEOU5                              :{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_TEOU6                              :{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN            :{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_PASS_SEMI_STEEL                    :{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}用途: {BLUE}特急旅客{}{BLACK}: {GREEN}最後尾のは展望車に変わります。

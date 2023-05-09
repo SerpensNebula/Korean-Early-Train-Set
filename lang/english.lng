@@ -1,0 +1,41 @@
+##grflangid 0x01
+
+# GRF name and description
+STR_GRF_NAME                                      :Korean Early Train Set 0.1.0alpha
+STR_GRF_DESC                                      :Korean Early Train Set inclues train vehicles which are used in Korean Peninsula from Empire of Korea to early Republic of Korea. It's WORING IN PROGRESS.
+STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
+
+# Parameters
+STR_PARA_NAME_SPEED_POWER                         :Max speed & power multiplier
+STR_PARA_DESC_SPEED_POWER                         :Set max speed and power of all trains.
+
+STR_PARA_OPT_1                                    :x1 (default)
+STR_PARA_OPT_1_5                                  :x1.5
+STR_PARA_OPT_2                                    :x2
+
+# Engines
+STR_PUREO8_NAME                                   :Pureo8 Class Steam Locomotive
+STR_TEOU5_NAME                                    :Teou5 Class Steam Locomotive
+STR_TEOU6_NAME                                    :Teou6 Class Steam Locomotive
+
+# Passenger Wagons
+STR_NAME_PASS_EARLY_WOODEN                        :Early Wooden Passenger Coach
+STR_NAME_PASS_MIDDLE_WOODEN                       :Wooden Passenger Coach
+STR_NAME_PASS_LATER_WOODEN                        :Later Wooden Passenger Coach
+STR_NAME_PASS_STEEL_FRAME_WOODEN                  :Steel-Frame Wooden Passenger Coach
+STR_NAME_PASS_SEMI_STEEL                          :Semi-Steel Passenger Coach
+STR_NAME_PASS_LIGHTWEIGHT                         :Semi_Steel Lightweight Coach
+
+# Cargo Wagons
+STR_NAME_BOXCAR_1941                              :Boxcar
+
+# Additional Text
+STR_ADDITIONAL_PUREO8                             :{BLACK}Usage: {BLUE}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_TEOU5                              :{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_TEOU6                              :{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}Usage: {BLUE}passengers
+STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN            :{BLACK}Usage: {BLUE}passengers
+STR_ADDITIONAL_PASS_SEMI_STEEL                    :{BLACK}Usage: {BLUE}passengers
+STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}Usage: {BLUE}Express passengers{}{BLACK}Feature: {GREEN}The last will be turned into an observation car

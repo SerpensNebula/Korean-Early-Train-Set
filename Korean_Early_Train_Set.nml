@@ -1,0 +1,825 @@
+
+    grf {
+        grfid                              :"KETS"; 
+        name                               :string(STR_GRF_NAME);
+        desc                               :string(STR_GRF_DESC);
+        url                                :string(STR_GRF_URL);
+        version                            :230507;
+        min_compatible_version             :230507;
+
+        // Parameters
+            // speed & power parameters
+                param  0    {
+                    para_speed_power {
+                        type:       int;
+                        name:       string(STR_PARA_NAME_SPEED_POWER);
+                        desc:       string(STR_PARA_DESC_SPEED_POWER);
+                        min_value:  2;
+                        max_value:  4;
+                        def_value:  2;
+                        
+                        names:    {
+                            2:    string(STR_PARA_OPT_1);
+                            3:    string(STR_PARA_OPT_1_5);
+                            4:    string(STR_PARA_OPT_2);
+                        };
+                    }
+                }
+    }
+
+// Tables
+    cargotable {
+        // TTD https://newgrf-specs.tt-wiki.net/wiki/CargoTypes#Cargo_Labels
+        PASS, COAL, MAIL, OIL_, LVST, GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, FOOD, GOLD, RUBR,
+        FRUT, MAIZ, CORE, WATR, DIAM, SUGR, BATT, BUBL, COLA, CTCD, FZDR, PLST, SWET, TOFF, TOYS,
+
+        // FIRS https://bundles.openttdcoop.org/firs/releases/LATEST/docs/html/code_reference.html
+        ACID, BEER, AORE, BEAN, BDMT, CASS, CMNT, RFPR, CHLO, CLAY, JAVA, COKE, COPR, EOIL, POWR, ENSP,
+        BOOM, FMSP, FERT, FISH, KAOL, LIME, MNO2, METL, MILK, NITR, NUTS, MNSP, PEAT, PETR, PHOS, IRON,
+        PIPE, FICR, PORE, QLME, RCYC, SALT, SAND, SCMT, SLAG, SASH, GRVL, SGBT, SULP, WDPR, VBOD, VPTS,
+        VEHI, WOOL, ZINC
+    }
+
+    railtypetable {
+        RAIL, ELRL, KRNR
+    }
+
+// Templates
+    template tmpl_purchase(x, y) {
+        [x,      y,   70,     15,   -39,   -9]
+    }
+
+    template tmpl_vehicle(x, y) {
+        [x,      y,     8,    25,    -3,  -14] // ↑
+        [x+20,   y,    21,    20,   -14,  -11] // ↗
+        [x+50,   y,    32,    15,   -16,  -11] // →
+        [x+90,   y,    21,    20,    -7,  -12] // ↘
+        [x+120,  y,     8,    25,    -3,  -14] // ↓
+        [x+140,  y,    21,    20,   -14,  -11] // ↙
+        [x+170,  y,    32,    15,   -16,  -11] // ←
+        [x+210,  y,    21,    20,    -7,  -12] // ↖
+    }
+
+// Graphics
+    // General
+        switch(FEAT_TRAINS, SELF, sw_steam_visual_effect, position_in_vehid_chain % 2) { // steam visual effect
+            0: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+            VISUAL_EFFECT_DISABLE;
+        }
+
+    // Locomotives 
+        // PUREO8
+            spriteset(set_PUREO8_purchase, "./Korean_Early_Train_Set/gfx/loco/pureo/PUREO8.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_PUREO8_engine_1, "./Korean_Early_Train_Set/gfx/loco/pureo/PUREO8.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_PUREO8_engine_2, "./Korean_Early_Train_Set/gfx/loco/pureo/PUREO8.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_PUREO8_engine_3, "./Korean_Early_Train_Set/gfx/loco/pureo/PUREO8.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            spriteset(set_PUREO8_engine_4, "./Korean_Early_Train_Set/gfx/loco/pureo/PUREO8.png") {
+                tmpl_vehicle(80, 90)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PUREO8_engine_motion, motion_counter % 4) {
+                1: set_PUREO8_engine_1;
+                2: set_PUREO8_engine_2;
+                3: set_PUREO8_engine_3;
+                set_PUREO8_engine_4;
+            }
+
+        // TEOU5
+            spriteset(set_TEOU5_purchase, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_TEOU5_engine_1, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_TEOU5_engine_2, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_TEOU5_engine_3, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            spriteset(set_TEOU5_engine_4, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
+                tmpl_vehicle(80, 90)
+            }
+
+            spriteset(set_TEOU5_tender, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
+                tmpl_vehicle(80, 120)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU5_engine_motion, motion_counter % 4) {
+                1: set_TEOU5_engine_1;
+                2: set_TEOU5_engine_2;
+                3: set_TEOU5_engine_3;
+                set_TEOU5_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU5_engine, position_in_vehid_chain % 2) {
+                1: set_TEOU5_tender;
+                sw_TEOU5_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU5_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_TEOU5;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU5_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 6;
+            }
+        // TEOU6
+            spriteset(set_TEOU6_purchase, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_TEOU6_engine_1, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_TEOU6_engine_2, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_TEOU6_engine_3, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            spriteset(set_TEOU6_engine_4, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
+                tmpl_vehicle(80, 90)
+            }
+
+            spriteset(set_TEOU6_tender, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
+                tmpl_vehicle(80, 120)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU6_engine_motion, motion_counter % 4) {
+                1: set_TEOU6_engine_1;
+                2: set_TEOU6_engine_2;
+                3: set_TEOU6_engine_3;
+                set_TEOU6_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU6_engine, position_in_vehid_chain % 2) {
+                1: set_TEOU6_tender;
+                sw_TEOU6_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU6_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_TEOU6;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU6_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 6;
+            }
+
+    // Passenger wagons
+        // Wooden
+            spriteset(set_PASS_EARLY_WOODEN_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_PASS_EARLY_WOODEN_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_PASS_MIDDLE_WOODEN_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_purchase(0, 30)
+            }
+
+            spriteset(set_PASS_MIDDLE_WOODEN_1, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(80, 30)
+            }
+         
+            spriteset(set_PASS_MIDDLE_WOODEN_2, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PASS_MIDDLE_WOODEN, random_bits % 2) {
+                1: set_PASS_MIDDLE_WOODEN_1;
+                set_PASS_MIDDLE_WOODEN_2;
+            }
+
+            spriteset(set_PASS_LATER_WOODEN_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_purchase(0, 90)
+            }
+
+            spriteset(set_PASS_LATER_WOODEN_1, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(80, 90)
+            }
+         
+            spriteset(set_PASS_LATER_WOODEN_2, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(80, 120)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PASS_LATER_WOODEN, random_bits % 2) {
+                1: set_PASS_LATER_WOODEN_1;
+                set_PASS_LATER_WOODEN_2;
+            }
+
+        // Semi-steel
+            spriteset(set_PASS_STEEL_FRAME_WOODEN_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_purchase(0, 150)
+            }
+
+            spriteset(set_PASS_STEEL_FRAME_WOODEN_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(80, 150)
+            }
+
+            spriteset(set_PASS_SEMI_STEEL_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_purchase(0, 180)
+            }
+
+            spriteset(set_PASS_SEMI_STEEL_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(80, 180)
+            }
+
+        // Lightweight
+            spriteset(set_PASS_LIGHTWEIGHT_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_PASS_LIGHTWEIGHT_GENERAL_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_PASS_LIGHTWEIGHT_OBSERVATION_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PASS_LIGHTWEIGHT_wagon, position_in_consist_from_end == 0 && num_vehs_in_consist > 1) { // obserbation 
+                1: set_PASS_LIGHTWEIGHT_OBSERVATION_wagon;
+                set_PASS_LIGHTWEIGHT_GENERAL_wagon;
+            }
+
+    // Cargo wagons
+        // BOXCAR_1941
+            spriteset(set_BOXCAR_1941_purchase, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_BOXCAR_1941_black_running, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_BOXCAR_1941_black_empty, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_BOXCAR_1941_black_half_1, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            spriteset(set_BOXCAR_1941_black_half_2, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 90)
+            }
+
+            spriteset(set_BOXCAR_1941_black_full_1, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 120)
+            }
+            
+            spriteset(set_BOXCAR_1941_black_full_2, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 150)
+            }
+
+            spriteset(set_BOXCAR_1941_brown_running, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 180)
+            }
+
+            spriteset(set_BOXCAR_1941_brown_empty, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 210)
+            }
+
+            spriteset(set_BOXCAR_1941_brown_half_1, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 240)
+            }
+
+            spriteset(set_BOXCAR_1941_brown_half_2, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 270)
+            }
+
+            spriteset(set_BOXCAR_1941_brown_full, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1941.png") {
+                tmpl_vehicle(80, 300)
+            }
+            
+            spritegroup sg_BOXCAR_1941_black_1 {
+                loading: [
+                    set_BOXCAR_1941_black_empty,
+                    set_BOXCAR_1941_black_half_1,
+                    set_BOXCAR_1941_black_full_1
+                ];
+                loaded: [
+                    set_BOXCAR_1941_black_running
+                ];
+            } 
+
+            spritegroup sg_BOXCAR_1941_black_2 {
+                loading: [
+                    set_BOXCAR_1941_black_empty,
+                    set_BOXCAR_1941_black_half_2,
+                    set_BOXCAR_1941_black_full_2
+                ];
+                loaded: [
+                    set_BOXCAR_1941_black_running
+                ];
+            } 
+
+            spritegroup sg_BOXCAR_1941_brown_1 {
+                loading: [
+                    set_BOXCAR_1941_brown_empty,
+                    set_BOXCAR_1941_brown_half_1,
+                    set_BOXCAR_1941_brown_full
+                ];
+                loaded: [
+                    set_BOXCAR_1941_brown_running
+                ];
+            } 
+
+            spritegroup sg_BOXCAR_1941_brown_2 {
+                loading: [
+                    set_BOXCAR_1941_brown_empty,
+                    set_BOXCAR_1941_brown_half_2,
+                    set_BOXCAR_1941_brown_full
+                ];
+                loaded: [
+                    set_BOXCAR_1941_brown_running
+                ];
+            } 
+
+            switch(FEAT_TRAINS, SELF, sw_BOXCAR_1941_wagon, random_bits % 4) {
+                1: sg_BOXCAR_1941_black_1;
+                2: sg_BOXCAR_1941_black_2;
+                3: sg_BOXCAR_1941_brown_1;
+                sg_BOXCAR_1941_brown_2;
+            }
+
+// Items
+    // Locomotives
+        // PUREO
+            item(FEAT_TRAINS, ko_PUREO8) {
+                property {
+                    // Common properties
+                    name:                           string(STR_PUREO8_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1932, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         6;
+
+                    // Spec
+                    speed:                          90*(para_speed_power)/2+1 km/h;
+                    power:                          700*(para_speed_power)/2*(para_speed_power)/2 kW; 
+                    weight:                         68 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    misc_flags:                     bitmask( );
+                    bitmask_vehicle_info:           0;
+                    }
+
+                graphics {
+                    default:                        sw_PUREO8_engine_motion;
+                    purchase:                       set_PUREO8_purchase;
+                    additional_text:                string(STR_ADDITIONAL_PUREO8);
+                }
+            }
+
+        // TEOU
+            item(FEAT_TRAINS, ko_TEOU5) {
+                property {
+                    // Common properties
+                    name:                           string(STR_TEOU5_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1917, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          95*(para_speed_power)/2+1 km/h;
+                    power:                          650*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         116 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_FLIP);
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_TEOU5_engine;
+                    articulated_part:               sw_TEOU5_articulated_part;
+                    purchase:                       set_TEOU5_purchase;
+                    length:                         sw_TEOU5_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_TEOU5);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_TEOU6) {
+                property {
+                    // Common properties
+                    name:                           string(STR_TEOU6_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1927, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          95*(para_speed_power)/2+1 km/h;
+                    power:                          700*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         124 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_FLIP);
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_TEOU6_engine;
+                    articulated_part:               sw_TEOU6_articulated_part;
+                    purchase:                       set_TEOU6_purchase;
+                    length:                         sw_TEOU6_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_TEOU6);
+                }
+            }
+
+    // Passenger Cars
+        // Wooden
+            item(FEAT_TRAINS, ko_PASS_EARLY_WOODEN) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_PASS_EARLY_WOODEN);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1899, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         6;
+
+                    // Spec
+                    speed:                          80*(para_speed_power)/2+1 km/h;
+                    weight:                         14 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 56; // uncertain
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            48;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        set_PASS_EARLY_WOODEN_wagon;
+                    purchase:                       set_PASS_EARLY_WOODEN_purchase;
+                    additional_text:                string(STR_ADDITIONAL_PASS_EARLY_WOODEN);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_PASS_MIDDLE_WOODEN) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_PASS_MIDDLE_WOODEN);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1905, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    speed:                          100*(para_speed_power)/2+1 km/h;
+                    weight:                         30 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 100;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            56;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_PASS_MIDDLE_WOODEN;
+                    purchase:                       set_PASS_MIDDLE_WOODEN_purchase;
+                    additional_text:                string(STR_ADDITIONAL_PASS_MIDDLE_WOODEN);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_PASS_LATER_WOODEN) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_PASS_LATER_WOODEN);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1919, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    speed:                          100*(para_speed_power)/2+1 km/h;
+                    weight:                         32 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 80;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            56;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_PASS_LATER_WOODEN;
+                    purchase:                       set_PASS_LATER_WOODEN_purchase;
+                    additional_text:                string(STR_ADDITIONAL_PASS_LATER_WOODEN);
+                }
+            }
+
+        // Semi-steel
+            item(FEAT_TRAINS, ko_PASS_STEEL_FRAME_WOODEN) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_PASS_STEEL_FRAME_WOODEN);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1927, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    speed:                          120*(para_speed_power)/2+1 km/h;
+                    weight:                         40 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 80;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        set_PASS_STEEL_FRAME_WOODEN_wagon;
+                    purchase:                       set_PASS_STEEL_FRAME_WOODEN_purchase;
+                    additional_text:                string(STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_PASS_SEMI_STEEL) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_PASS_SEMI_STEEL);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1938, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    speed:                          120*(para_speed_power)/2+1 km/h;
+                    weight:                         36 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 88;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        set_PASS_SEMI_STEEL_wagon;
+                    purchase:                       set_PASS_SEMI_STEEL_purchase;
+                    additional_text:                string(STR_ADDITIONAL_PASS_SEMI_STEEL);
+                }
+            }
+
+        // Lightweight
+            item(FEAT_TRAINS, ko_PASS_LIGHTWEIGHT) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_PASS_LIGHTWEIGHT);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1932, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    weight:                         26 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 72;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_PASS_LIGHTWEIGHT_wagon;
+                    purchase:                       set_PASS_LIGHTWEIGHT_purchase;
+                    additional_text:                string(STR_ADDITIONAL_PASS_LIGHTWEIGHT);
+                }
+            }
+
+    // Cargo
+        // Boxcar
+            item(FEAT_TRAINS, ko_BOXCAR_1941) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_BOXCAR_1941);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1941, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         6;
+
+                    // Spec
+                    speed:                          90*(para_speed_power)/2+1 km/h;
+                    weight:                         18 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 40;
+                    cargo_allow_refit:              // TTD 
+                                                    [LVST, GOOD, VALU, FOOD, GOLD, RUBR, FRUT, MAIZ, DIAM, SUGR,
+                                                    // FIRS
+                                                     ACID, BEER, BEAN, BDMT, CASS, CMNT, RFPR, CHLO, CLAY, JAVA, EOIL, POWR, ENSP, BOOM, FMSP, FERT, FISH, MILK, NUTS, MNSP,
+                                                     PETR, FICR, QLME, RCYC, SALT, SASH, SULP, VPTS, WOOL];
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    refit_cost:                     1;
+                    running_cost_factor:            64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_CARGO;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_BOXCAR_1941_wagon;
+                    purchase:                       set_BOXCAR_1941_purchase;
+                }
+            }
+
+// Sort
+    sort(FEAT_TRAINS, [
+        ko_PUREO8,
+        ko_TEOU5,
+        ko_TEOU6,
+
+        ko_PASS_EARLY_WOODEN,
+        ko_PASS_MIDDLE_WOODEN,
+        ko_PASS_LATER_WOODEN,
+        ko_PASS_STEEL_FRAME_WOODEN,
+        ko_PASS_SEMI_STEEL,
+        ko_PASS_LIGHTWEIGHT,
+
+        ko_BOXCAR_1941,
+    ]);

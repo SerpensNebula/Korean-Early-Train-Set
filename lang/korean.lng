@@ -1,0 +1,42 @@
+##grflangid 0x3A
+
+# GRF name and description
+STR_GRF_NAME                                      :한국 해방이전 열차 세트 0.1.0alpha
+STR_GRF_DESC                                      :이 GRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. 현재 작업중입니다. 
+
+STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
+
+# Parameters
+STR_PARA_NAME_SPEED_POWER                         :최고속도와 출력 계수
+STR_PARA_DESC_SPEED_POWER                         :모든 열차의 최고속도와 출력을 설정합니다. 출력은 설정한 값의 x2만큼 더 커집니다.
+
+STR_PARA_OPT_1                                    :x1 (기본값)
+STR_PARA_OPT_1_5                                  :x1.5
+STR_PARA_OPT_2                                    :x2
+
+# Engines
+STR_PUREO8_NAME                                   :푸러 8형 증기기관차
+STR_TEOU5_NAME                                    :터우 5형 증기기관차
+STR_TEOU6_NAME                                    :터우 6형 증기기관차
+
+# Passenger Wagons
+STR_NAME_PASS_EARLY_WOODEN                        :초기 목제 객차
+STR_NAME_PASS_MIDDLE_WOODEN                       :목제 객차
+STR_NAME_PASS_LATER_WOODEN                        :후기 목제 객차
+STR_NAME_PASS_STEEL_FRAME_WOODEN                  :철골목제 객차
+STR_NAME_PASS_SEMI_STEEL                          :반강제 객차
+STR_NAME_PASS_LIGHTWEIGHT                         :반강제 경량 객차
+
+# Cargo Wagons
+STR_NAME_BOXCAR_1941                              :유개화차
+
+# Additional Text
+STR_ADDITIONAL_PUREO8                             :{BLACK}용도: {GREEN}객화겸용
+STR_ADDITIONAL_TEOU5                              :{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_TEOU6                              :{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN            :{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_PASS_SEMI_STEEL                    :{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}용도: {BLUE}특급 여객{}{BLACK}특성: {GREEN}맨 끝 차량은 전망차로 변함
