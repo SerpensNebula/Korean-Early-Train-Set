@@ -7,17 +7,20 @@ STR_GRF_DESC                                      :이 GRF는 대한제국 시�
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 
 # Parameters
-STR_PARA_NAME_SPEED_POWER                         :최고속도와 출력 계수
-STR_PARA_DESC_SPEED_POWER                         :모든 열차의 최고속도와 출력을 설정합니다. 출력은 설정한 값의 x2만큼 더 커집니다.
+STR_PARA_NAME_SPEED_POWER                         :최고속력과 출력 계수
+STR_PARA_DESC_SPEED_POWER                         :모든 열차의 최고속력과 출력을 설정합니다. 출력은 설정한 값의 x2만큼 더 커집니다.
 
 STR_PARA_OPT_1                                    :x1 (기본값)
 STR_PARA_OPT_1_5                                  :x1.5
 STR_PARA_OPT_2                                    :x2
 
 # Engines
+STR_MOGA_NAME                                     :모가형 증기기관차
 STR_PUREO8_NAME                                   :푸러 8형 증기기관차
 STR_TEOU5_NAME                                    :터우 5형 증기기관차
 STR_TEOU6_NAME                                    :터우 6형 증기기관차
+STR_MIKA3_NAME                                    :미카 3형 증기기관차
+STR_MATEO1_NAME                                   :마터 1형 증기기관차
 
 # Passenger Wagons
 STR_NAME_PASS_EARLY_WOODEN                        :초기 목제 객차
@@ -29,14 +32,21 @@ STR_NAME_PASS_LIGHTWEIGHT                         :반강제 경량 객차
 
 # Cargo Wagons
 STR_NAME_BOXCAR_1941                              :유개화차
+STR_NAME_TANK_CAR_1945                            :유조차
 
 # Additional Text
-STR_ADDITIONAL_PUREO8                             :{BLACK}용도: {GREEN}객화겸용
-STR_ADDITIONAL_TEOU5                              :{BLACK}용도: {BLUE}여객
-STR_ADDITIONAL_TEOU6                              :{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_MOGA                               :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}2-6-0 {}{BLACK}용도: {GREEN}객화겸용
+STR_ADDITIONAL_PUREO8                             :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}2-6-2 {}{BLACK}용도: {GREEN}객화겸용
+STR_ADDITIONAL_TEOU5                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-0 {}{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_TEOU6                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-0 {}{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_MIKA3                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2 {}{BLACK}용도: {GREEN}객화겸용
+STR_ADDITIONAL_MATEO1                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-8-2 {}{BLACK}용도: {RED}화물
 STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN            :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_SEMI_STEEL                    :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}용도: {BLUE}특급 여객{}{BLACK}특성: {GREEN}맨 끝 차량은 전망차로 변함
+
+# Error Text
+STR_ERROR_KTS                                     :{YELLOW}알림: {SILVER}한국 초기 열차 세트는 한국 열차 세트보다 뒤/아래에 배치할 것을 권장합니다.

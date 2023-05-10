@@ -15,9 +15,12 @@ STR_PARA_OPT_1_5                                  :x1.5
 STR_PARA_OPT_2                                    :x2
 
 # Engines
+STR_MOGA_NAME                                     :モガイ形蒸気機関車
 STR_PUREO8_NAME                                   :プレハ形蒸気機関車
 STR_TEOU5_NAME                                    :テホコ形蒸気機関車
 STR_TEOU6_NAME                                    :テホロ形蒸気機関車
+STR_MIKA3_NAME                                    :ミカサ形蒸気機関車
+STR_MATEO1_NAME                                   :マテイ形蒸気機関車
 
 # Passenger Wagons
 STR_NAME_PASS_EARLY_WOODEN                        :初期木製客車
@@ -29,14 +32,21 @@ STR_NAME_PASS_LIGHTWEIGHT                         :半鋼製軽量客車
 
 # Cargo Wagons
 STR_NAME_BOXCAR_1941                              :有蓋車
+STR_NAME_TANK_CAR_1945                            :タンク車
 
 # Additional Text
-STR_ADDITIONAL_PUREO8                             :{BLACK}用途: {BLUE}旅客 /////////
-STR_ADDITIONAL_TEOU5                              :{BLACK}用途: {BLUE}旅客
-STR_ADDITIONAL_TEOU6                              :{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_MOGA                               :{BLACK}タイプ: {GOLD}タンク式 {}{BLACK}車輪配置: {GOLD}1-C   {}{BLACK}用途: {GREEN}客貨兼用
+STR_ADDITIONAL_PUREO8                             :{BLACK}タイプ: {GOLD}タンク式 {}{BLACK}車輪配置: {GOLD}1-C-1 {}{BLACK}用途: {GREEN}客貨兼用
+STR_ADDITIONAL_TEOU5                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}2-C   {}{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_TEOU6                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}2-C   {}{BLACK}用途: {BLUE}旅客
+STR_ADDITIONAL_MIKA3                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}1-D-1 {}{BLACK}用途: {GREEN}客貨兼用
+STR_ADDITIONAL_MATEO1                             :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}2-D-1 {}{BLACK}用途: {RED}貨物
 STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN            :{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_PASS_SEMI_STEEL                    :{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}用途: {BLUE}特急旅客{}{BLACK}: {GREEN}最後尾のは展望車に変わります。
+
+# Error Text
+STR_ERROR_KTS                                     :{YELLOW}警告: {SILVER}韓国初期列車セットは韓国列車セットより下に配置することをお勧めします。

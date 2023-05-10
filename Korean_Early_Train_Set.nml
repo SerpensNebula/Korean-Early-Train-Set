@@ -68,6 +68,24 @@
         }
 
     // Locomotives 
+        // MOGA
+            spriteset(set_MOGA_purchase, "./Korean_Early_Train_Set/gfx/loco/moga/MOGA.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_MOGA_engine_1, "./Korean_Early_Train_Set/gfx/loco/moga/MOGA.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_MOGA_engine_2, "./Korean_Early_Train_Set/gfx/loco/moga/MOGA.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MOGA_engine_motion, motion_counter % 2) {
+                1: set_MOGA_engine_1;
+                set_MOGA_engine_2;
+            }
+
         // PUREO8
             spriteset(set_PUREO8_purchase, "./Korean_Early_Train_Set/gfx/loco/pureo/PUREO8.png") {
                 tmpl_purchase(0, 0)
@@ -187,6 +205,100 @@
             switch(FEAT_TRAINS, SELF, sw_TEOU6_length, position_in_vehid_chain % 2) {
                 1: return 4;
                 return 6;
+            }
+
+        // MIKA3
+            spriteset(set_MIKA3_purchase, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_MIKA3_engine_1, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_MIKA3_engine_2, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_MIKA3_engine_3, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            spriteset(set_MIKA3_engine_4, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+                tmpl_vehicle(80, 90)
+            }
+
+            spriteset(set_MIKA3_tender, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+                tmpl_vehicle(80, 120)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA3_engine_motion, motion_counter % 4) {
+                1: set_MIKA3_engine_1;
+                2: set_MIKA3_engine_2;
+                3: set_MIKA3_engine_3;
+                set_MIKA3_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA3_engine, position_in_vehid_chain % 2) {
+                1: set_MIKA3_tender;
+                sw_MIKA3_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA3_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_MIKA3;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA3_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 7;
+            }
+
+        //  MATEO1
+            spriteset(set_MATEO1_purchase, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_MATEO1_engine_1, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_MATEO1_engine_2, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_MATEO1_engine_3, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            spriteset(set_MATEO1_engine_4, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+                tmpl_vehicle(80, 90)
+            }
+
+            spriteset(set_MATEO1_tender, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+                tmpl_vehicle(80, 120)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MATEO1_engine_motion, motion_counter % 4) {
+                1: set_MATEO1_engine_1;
+                2: set_MATEO1_engine_2;
+                3: set_MATEO1_engine_3;
+                set_MATEO1_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MATEO1_engine, position_in_vehid_chain % 2) {
+                1: set_MATEO1_tender;
+                sw_MATEO1_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MATEO1_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_MATEO1;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MATEO1_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 8;
             }
 
     // Passenger wagons
@@ -369,8 +481,61 @@
                 sg_BOXCAR_1941_brown_2;
             }
 
+        // TANK_CAR_1945
+            spriteset(set_TANK_CAR_1945_purchase, "./Korean_Early_Train_Set/gfx/wagon/tank_car/TANK_CAR.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_TANK_CAR_1945_wagon, "./Korean_Early_Train_Set/gfx/wagon/tank_car/TANK_CAR.png") {
+                tmpl_vehicle(80, 0)
+            }
+
 // Items
     // Locomotives
+        // MOGA
+            item(FEAT_TRAINS, ko_MOGA) {
+                property {
+                    // Common properties
+                    name:                           string(STR_MOGA_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1899, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         5;
+
+                    // Spec
+                    speed:                          55*(para_speed_power)/2+1 km/h;
+                    power:                          600*(para_speed_power)/2*(para_speed_power)/2 kW; 
+                    weight:                         34 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_MOGA_engine_motion;
+                    purchase:                       set_MOGA_purchase;
+                    additional_text:                string(STR_ADDITIONAL_MOGA);
+                }
+            }
         // PUREO
             item(FEAT_TRAINS, ko_PUREO8) {
                 property {
@@ -405,9 +570,9 @@
                     running_cost_factor:            128;
 
                     // Flags
-                    misc_flags:                     bitmask( );
+                    ai_special_flag:                AI_FLAG_PASSENGER;
                     bitmask_vehicle_info:           0;
-                    }
+                }
 
                 graphics {
                     default:                        sw_PUREO8_engine_motion;
@@ -452,7 +617,6 @@
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
-                    misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_FLIP);
                     bitmask_vehicle_info:           0;
                     visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
                 }
@@ -502,7 +666,6 @@
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
-                    misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_FLIP);
                     bitmask_vehicle_info:           0;
                     visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
                 }
@@ -514,6 +677,104 @@
                     length:                         sw_TEOU6_length;
                     visual_effect_and_powered:      sw_steam_visual_effect;
                     additional_text:                string(STR_ADDITIONAL_TEOU6);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_MIKA3) {
+                property {
+                    // Common properties
+                    name:                           string(STR_MIKA3_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1927, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          70*(para_speed_power)/2+1 km/h;
+                    power:                          726*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         156 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_MIKA3_engine;
+                    articulated_part:               sw_MIKA3_articulated_part;
+                    purchase:                       set_MIKA3_purchase;
+                    length:                         sw_MIKA3_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_MIKA3);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_MATEO1) {
+                property {
+                    // Common properties
+                    name:                           string(STR_MATEO1_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1939, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          80*(para_speed_power)/2+1 km/h;
+                    power:                          900*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         201 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_MATEO1_engine;
+                    articulated_part:               sw_MATEO1_articulated_part;
+                    purchase:                       set_MATEO1_purchase;
+                    length:                         sw_MATEO1_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_MATEO1);
                 }
             }
 
@@ -530,7 +791,7 @@
                     length:                         6;
 
                     // Spec
-                    speed:                          80*(para_speed_power)/2+1 km/h;
+                    speed:                          60*(para_speed_power)/2+1 km/h;
                     weight:                         14 ton;
 
                     // Model
@@ -570,7 +831,7 @@
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
 
                     // Spec
-                    speed:                          100*(para_speed_power)/2+1 km/h;
+                    speed:                          80*(para_speed_power)/2+1 km/h;
                     weight:                         30 ton;
 
                     // Model
@@ -784,7 +1045,7 @@
                     reliability_decay:              0;
 
                     // Cargo
-                    cargo_capacity:                 40;
+                    cargo_capacity:                 30;
                     cargo_allow_refit:              // TTD 
                                                     [LVST, GOOD, VALU, FOOD, GOLD, RUBR, FRUT, MAIZ, DIAM, SUGR,
                                                     // FIRS
@@ -807,12 +1068,60 @@
                     purchase:                       set_BOXCAR_1941_purchase;
                 }
             }
+            
+        //Tank car
+            item(FEAT_TRAINS, ko_TANK_CAR_1945) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_TANK_CAR_1945);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1945, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         5;
+
+                    // Spec
+                    speed:                          90*(para_speed_power)/2+1 km/h;
+                    weight:                         18 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 40;
+                    cargo_allow_refit:              // TTD 
+                                                    [OIL_, RUBR, WATR,
+                                                    // FIRS
+                                                     ACID, BEER, RFPR, CHLO, EOIL, KAOL, MILK, PETR, SULP];
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    refit_cost:                     1;
+                    running_cost_factor:            64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_CARGO;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        set_TANK_CAR_1945_wagon;
+                    purchase:                       set_TANK_CAR_1945_purchase;
+                }
+            }
 
 // Sort
     sort(FEAT_TRAINS, [
+        ko_MOGA,
         ko_PUREO8,
         ko_TEOU5,
         ko_TEOU6,
+        ko_MIKA3,
+        ko_MATEO1,
 
         ko_PASS_EARLY_WOODEN,
         ko_PASS_MIDDLE_WOODEN,
@@ -822,4 +1131,13 @@
         ko_PASS_LIGHTWEIGHT,
 
         ko_BOXCAR_1941,
+        ko_TANK_CAR_1945
     ]);
+
+// Disable and override vehicles
+    // default
+        disable_item(FEAT_TRAINS, 0, 53);
+
+// Errors
+    error(NOTICE, string(STR_ERROR_KTS));
+    
