@@ -1,1 +1,2 @@
-# Korean-Early-Train-Set
+# 한국 초기 열차 세트 (비공개)
+현재 작업중입니다.
