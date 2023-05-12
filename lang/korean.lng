@@ -1,7 +1,7 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME                                      :한국 해방이전 열차 세트 0.1.0alpha
+STR_GRF_NAME                                      :한국 해방이전 열차 세트 0.2.0alpha
 STR_GRF_DESC                                      :이 GRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. 현재 작업중입니다. 
 
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
@@ -17,10 +17,13 @@ STR_PARA_OPT_2                                    :x2
 # Engines
 STR_MOGA_NAME                                     :모가형 증기기관차
 STR_PUREO8_NAME                                   :푸러 8형 증기기관차
+STR_SORI2_NAME                                    :소리 2형 증기기관차
 STR_TEOU5_NAME                                    :터우 5형 증기기관차
 STR_TEOU6_NAME                                    :터우 6형 증기기관차
 STR_MIKA3_NAME                                    :미카 3형 증기기관차
+STR_PASHI5_NAME                                   :파시 5형 증기기관차
 STR_MATEO1_NAME                                   :마터 1형 증기기관차
+STR_MATEO2_NAME                                   :마터 2형 증기기관차
 
 # Passenger Wagons
 STR_NAME_PASS_EARLY_WOODEN                        :초기 목제 객차
@@ -31,16 +34,20 @@ STR_NAME_PASS_SEMI_STEEL                          :반강제 객차
 STR_NAME_PASS_LIGHTWEIGHT                         :반강제 경량 객차
 
 # Cargo Wagons
+STR_NAME_GONDOLA_1934                             :무개화차
 STR_NAME_BOXCAR_1941                              :유개화차
 STR_NAME_TANK_CAR_1945                            :유조차
 
 # Additional Text
 STR_ADDITIONAL_MOGA                               :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}2-6-0 {}{BLACK}용도: {GREEN}객화겸용
 STR_ADDITIONAL_PUREO8                             :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}2-6-2 {}{BLACK}용도: {GREEN}객화겸용
+STR_ADDITIONAL_SORI2                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-0 {}{BLACK}용도: {RED}화물
 STR_ADDITIONAL_TEOU5                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-0 {}{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_TEOU6                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-0 {}{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_MIKA3                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2 {}{BLACK}용도: {GREEN}객화겸용
+STR_ADDITIONAL_PASHI5                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-2 {}{BLACK}용도: {BLUE}특급 여객
 STR_ADDITIONAL_MATEO1                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-8-2 {}{BLACK}용도: {RED}화물
+STR_ADDITIONAL_MATEO2                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-8-2 {}{BLACK}용도: {RED}중량 화물
 STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}용도: {BLUE}여객
