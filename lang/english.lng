@@ -1,7 +1,7 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                      :Korean Early Train Set 0.2.0alpha
+STR_GRF_NAME                                      :Korean Early Train Set 1.0.0beta
 STR_GRF_DESC                                      :Korean Early Train Set inclues train vehicles which are used in Korean Peninsula from Empire of Korea to early Republic of Korea. It's WORING IN PROGRESS.
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 
@@ -20,6 +20,7 @@ STR_SORI2_NAME                                    :Sori2 Class Steam Locomotive
 STR_TEOU5_NAME                                    :Teou5 Class Steam Locomotive
 STR_TEOU6_NAME                                    :Teou6 Class Steam Locomotive
 STR_MIKA3_NAME                                    :Mika3 Class Steam Locomotive
+STR_PASHI4_NAME                                   :Pashi1~4 Class Steam Locomotive
 STR_PASHI5_NAME                                   :Pashi5 Class Steam Locomotive
 STR_SATA_NAME                                     :Sata1 Class Steam Locomotive
 STR_MATEO1_NAME                                   :Mateo1 Class Steam Locomotive
@@ -37,6 +38,7 @@ STR_NAME_PASS_LIGHTWEIGHT                         :Semi_Steel Lightweight Coach
 STR_NAME_FLATCAR_1937                             :Flatcar
 STR_NAME_GONDOLA_1934                             :Gondola
 STR_NAME_BOXCAR_1941                              :Boxcar
+STR_NAME_BAGGAGE_CAR_1921                         :Baggage Car
 STR_NAME_TANK_CAR_1945                            :Tank Car
 
 # Additional Text
@@ -46,6 +48,7 @@ STR_ADDITIONAL_SORI2                              :{BLACK}Type: {GOLD}Tender {}{
 STR_ADDITIONAL_TEOU5                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_TEOU6                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_MIKA3                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}2-8-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_PASHI4                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_PASHI5                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Express Passengers
 STR_ADDITIONAL_SATA                               :{BLACK}Type: {GOLD}Tank   {}{BLACK}Configuration: {GOLD}2-10-2 {}{BLACK}Usage: {RED}Freight
 STR_ADDITIONAL_MATEO1                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-8-2  {}{BLACK}Usage: {RED}Freight
@@ -55,7 +58,7 @@ STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}Usage: {BLUE}Passenger
 STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}Usage: {BLUE}passengers
 STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN            :{BLACK}Usage: {BLUE}passengers
 STR_ADDITIONAL_PASS_SEMI_STEEL                    :{BLACK}Usage: {BLUE}passengers
-STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}Usage: {BLUE}Express passengers{}{BLACK}Feature: {GREEN}The last will be turned into an observation car
+STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}Usage: {BLUE}Express passengers{}{BLACK}Feature: {GREEN}Some will be turned into a dining car and the last will be turned into an observation car
 
 # Error Text
 STR_ERROR_KTS                                     :{YELLOW}Notice: {SILVER}Korean Early Train Set is recommended to be loaded after Korean Train Set.

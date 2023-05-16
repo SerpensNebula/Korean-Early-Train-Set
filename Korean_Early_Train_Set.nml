@@ -4,7 +4,7 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :230513;
+        version                            :230515;
         min_compatible_version             :230507;
 
         // Parameters
@@ -18,10 +18,10 @@
                         max_value:  4;
                         def_value:  2;
                         
-                        names:    {
-                            2:    string(STR_PARA_OPT_1);
-                            3:    string(STR_PARA_OPT_1_5);
-                            4:    string(STR_PARA_OPT_2);
+                        names: {
+                            2:      string(STR_PARA_OPT_1);
+                            3:      string(STR_PARA_OPT_1_5);
+                            4:      string(STR_PARA_OPT_2);
                         };
                     }
                 }
@@ -304,6 +304,53 @@
                 return 7;
             }
 
+        // PASHI4
+            spriteset(set_PASHI4_purchase, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_PASHI4_engine_1, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_PASHI4_engine_2, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_PASHI4_engine_3, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            spriteset(set_PASHI4_engine_4, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+                tmpl_vehicle(80, 90)
+            }
+
+            spriteset(set_PASHI4_tender, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+                tmpl_vehicle(80, 120)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PASHI4_engine_motion, motion_counter % 4) {
+                1: set_PASHI4_engine_1;
+                2: set_PASHI4_engine_2;
+                3: set_PASHI4_engine_3;
+                set_PASHI4_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PASHI4_engine, position_in_vehid_chain % 2) {
+                1: set_PASHI4_tender;
+                sw_PASHI4_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PASHI4_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_PASHI4;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PASHI4_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 7;
+            }
+
         // PASHI5
             spriteset(set_PASHI5_purchase, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI5.png") {
                 tmpl_purchase(0, 0)
@@ -539,17 +586,26 @@
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_PASS_LIGHTWEIGHT_GENERAL_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
+            spriteset(set_PASS_LIGHTWEIGHT_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
                 tmpl_vehicle(80, 0)
             }
 
-            spriteset(set_PASS_LIGHTWEIGHT_OBSERVATION_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
+            spriteset(set_PASS_LIGHTWEIGHT_DINING_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
                 tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_PASS_LIGHTWEIGHT_OBSERVATION_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_PASS_LIGHTWEIGHT_GENERAL_wagon, random_bits % 5) {  
+                1 .. 4: set_PASS_LIGHTWEIGHT_wagon;
+                set_PASS_LIGHTWEIGHT_DINING_wagon;
             }
 
             switch(FEAT_TRAINS, SELF, sw_PASS_LIGHTWEIGHT_wagon, position_in_consist_from_end == 0 && num_vehs_in_consist > 1) { // obserbation 
                 1: set_PASS_LIGHTWEIGHT_OBSERVATION_wagon;
-                set_PASS_LIGHTWEIGHT_GENERAL_wagon;
+                sw_PASS_LIGHTWEIGHT_GENERAL_wagon;
             }
 
     // Cargo wagons
@@ -2950,12 +3006,30 @@
                 sg_BOXCAR_1941_brown_2;
             }
 
-        // TANK_CAR_1945
-            spriteset(set_TANK_CAR_1945_purchase, "./Korean_Early_Train_Set/gfx/wagon/tank_car/TANK_CAR.png") {
+        // BAGGAGE_CAR_1921
+            spriteset(set_BAGGAGE_CAR_1921_purchase, "./Korean_Early_Train_Set/gfx/wagon/baggage/BAGGAGE_CAR.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_TANK_CAR_1945_wagon, "./Korean_Early_Train_Set/gfx/wagon/tank_car/TANK_CAR.png") {
+            spriteset(set_BAGGAGE_CAR_1921_wagon_1, "./Korean_Early_Train_Set/gfx/wagon/baggage/BAGGAGE_CAR.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_BAGGAGE_CAR_1921_wagon_2, "./Korean_Early_Train_Set/gfx/wagon/baggage/BAGGAGE_CAR.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_BAGGAGE_CAR_1921_wagon, random_bits % 2) {
+                1: set_BAGGAGE_CAR_1921_wagon_1;
+                set_BAGGAGE_CAR_1921_wagon_2;
+            }
+
+        // TANK_CAR_1945
+            spriteset(set_TANK_CAR_1945_purchase, "./Korean_Early_Train_Set/gfx/wagon/tank/TANK_CAR.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_TANK_CAR_1945_wagon, "./Korean_Early_Train_Set/gfx/wagon/tank/TANK_CAR.png") {
                 tmpl_vehicle(80, 0)
             }
 
@@ -3115,7 +3189,7 @@
 
                     // Spec
                     speed:                          95*(para_speed_power)/2+1 km/h;
-                    power:                          650*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    power:                          588*(para_speed_power)/2*(para_speed_power)/2 kW;
                     weight:                         116 ton;
                     tractive_effort_coefficient:    0.2;
                     air_drag_coefficient:           0.01;
@@ -3164,7 +3238,7 @@
 
                     // Spec
                     speed:                          95*(para_speed_power)/2+1 km/h;
-                    power:                          700*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    power:                          650*(para_speed_power)/2*(para_speed_power)/2 kW;
                     weight:                         124 ton;
                     tractive_effort_coefficient:    0.2;
                     air_drag_coefficient:           0.01;
@@ -3214,7 +3288,7 @@
 
                     // Spec
                     speed:                          70*(para_speed_power)/2+1 km/h;
-                    power:                          726*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    power:                          872*(para_speed_power)/2*(para_speed_power)/2 kW;
                     weight:                         156 ton;
                     tractive_effort_coefficient:    0.2;
                     air_drag_coefficient:           0.01;
@@ -3251,6 +3325,55 @@
             }
 
         // PASHI
+            item(FEAT_TRAINS, ko_PASHI4, 5284) {
+                property {
+                    // Common properties
+                    name:                           string(STR_PASHI4_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1921, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          95*(para_speed_power)/2+1 km/h;
+                    power:                          700*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         159.8 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_PASHI4_engine;
+                    articulated_part:               sw_PASHI4_articulated_part;
+                    purchase:                       set_PASHI4_purchase;
+                    length:                         sw_PASHI4_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_PASHI4);
+                }
+            }
+
             item(FEAT_TRAINS, ko_PASHI5, 5302) {
                 property {
                     // Common properties
@@ -3578,7 +3701,7 @@
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
 
                     // Spec
-                    speed:                          120*(para_speed_power)/2+1 km/h;
+                    speed:                          110*(para_speed_power)/2+1 km/h;
                     weight:                         40 ton;
 
                     // Model
@@ -3618,7 +3741,7 @@
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
 
                     // Spec
-                    speed:                          120*(para_speed_power)/2+1 km/h;
+                    speed:                          110*(para_speed_power)/2+1 km/h;
                     weight:                         36 ton;
 
                     // Model
@@ -3659,6 +3782,7 @@
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
 
                     // Spec
+                    speed:                          120*(para_speed_power)/2+1 km/h;
                     weight:                         26 ton;
 
                     // Model
@@ -3701,7 +3825,7 @@
                     length:                         5;
 
                     // Spec
-                    speed:                          100*(para_speed_power)/2+1 km/h;
+                    speed:                          90*(para_speed_power)/2+1 km/h;
                     weight:                         12.5 ton;
 
                     // Model
@@ -3874,8 +3998,52 @@
                     purchase:                       set_BOXCAR_1941_purchase;
                 }
             }
+
+        // Baggage Car
+            item(FEAT_TRAINS, ko_BAGGAGE_CAR_1921, 5382) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_BAGGAGE_CAR_1921);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1921, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    speed:                          110*(para_speed_power)/2+1 km/h;
+                    weight:                         21 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 30;
+                    cargo_allow_refit:              // TTD  
+                                                    [MAIL, GOOD, GRAI, VALU, GOLD, WHEA, DIAM, SUGR, 
+                                                    // FIRS
+                                                     CMNT, FERT, SALT];
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    refit_cost:                     1;
+                    running_cost_factor:            64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_CARGO;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_BAGGAGE_CAR_1921_wagon;
+                    purchase:                       set_BAGGAGE_CAR_1921_purchase;
+                }
+            }
             
-        //Tank car
+        // Tank car
             item(FEAT_TRAINS, ko_TANK_CAR_1945, 5393) {
                 property {
                     // Common properties
@@ -3928,6 +4096,7 @@
         ko_TEOU5,                                   // 5245
         ko_TEOU6,                                   // 5246
         ko_MIKA3,                                   // 5301
+        ko_PASHI4,                                  // 5284
         ko_PASHI5,                                  // 5302   
         ko_SATA,                                    // 5291
         ko_MATEO1,                                  // 5311
@@ -3943,6 +4112,7 @@
         ko_FLATCAR_1937,                            // 5353
         ko_GONDOLA_1934,                            // 5363
         ko_BOXCAR_1941,                             // 5373
+        ko_BAGGAGE_CAR_1921,                        // 5382
         ko_TANK_CAR_1945                            // 5393
     ]);
 
