@@ -2,7 +2,7 @@
 
 # GRF name and description
 STR_GRF_NAME                                      :한국 초기 열차 세트 1.0.0beta
-STR_GRF_DESC                                      :이 GRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. 현재 작업중입니다. 
+STR_GRF_DESC                                      :이 GRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. 
 
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 

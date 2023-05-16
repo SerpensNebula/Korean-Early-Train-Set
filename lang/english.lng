@@ -2,7 +2,7 @@
 
 # GRF name and description
 STR_GRF_NAME                                      :Korean Early Train Set 1.0.0beta
-STR_GRF_DESC                                      :Korean Early Train Set inclues train vehicles which are used in Korean Peninsula from Empire of Korea to early Republic of Korea. It's WORING IN PROGRESS.
+STR_GRF_DESC                                      :Korean Early Train Set inclues train vehicles which are used in Korean Peninsula from Empire of Korea to early Republic of Korea. It's WORK IN PROGRESS.
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 
 # Parameters
