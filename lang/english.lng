@@ -1,7 +1,7 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                      :Korean Early Train Set 1.0.0beta
+STR_GRF_NAME                                      :Korean Early Train Set beta1.1.0
 STR_GRF_DESC                                      :Korean Early Train Set inclues train vehicles which are used in Korean Peninsula from Empire of Korea to early Republic of Korea. It's WORK IN PROGRESS.
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 
@@ -15,11 +15,14 @@ STR_PARA_OPT_2                                    :x2
 
 # Engines
 STR_MOGA_NAME                                     :Moga1 Class Steam Locomotive
+STR_PUREO1_NAME                                   :Pureo1 Class Steam Locomotive
 STR_PUREO8_NAME                                   :Pureo8 Class Steam Locomotive
 STR_SORI2_NAME                                    :Sori2 Class Steam Locomotive
+STR_TEOU1_NAME                                    :Teou1~2 Class Steam Locomotive
 STR_TEOU5_NAME                                    :Teou5 Class Steam Locomotive
 STR_TEOU6_NAME                                    :Teou6 Class Steam Locomotive
 STR_MIKA3_NAME                                    :Mika3 Class Steam Locomotive
+STR_MIKA7_NAME                                    :Mika7 Class Steam Locomotive
 STR_PASHI4_NAME                                   :Pashi1~4 Class Steam Locomotive
 STR_PASHI5_NAME                                   :Pashi5 Class Steam Locomotive
 STR_SATA_NAME                                     :Sata1 Class Steam Locomotive
@@ -35,24 +38,35 @@ STR_NAME_PASS_SEMI_STEEL                          :Semi-Steel Passenger Coach
 STR_NAME_PASS_LIGHTWEIGHT                         :Semi_Steel Lightweight Coach
 
 # Cargo Wagons
+STR_NAME_FLATCAR_1915                             :Flatcar
 STR_NAME_FLATCAR_1937                             :Flatcar
+STR_NAME_GONDOLA_1899                             :Gondola
+STR_NAME_GONDOLA_1917                             :Gondola
 STR_NAME_GONDOLA_1934                             :Gondola
+STR_NAME_BOXCAR_1899                              :Boxcar
+STR_NAME_BOXCAR_1921                              :Boxcar
 STR_NAME_BOXCAR_1941                              :Boxcar
+STR_NAME_BAGGAGE_CAR_1899                         :Baggage Car
+STR_NAME_BAGGAGE_CAR_1905                         :Baggage Car
 STR_NAME_BAGGAGE_CAR_1921                         :Baggage Car
+STR_NAME_TANK_CAR_1907                            :Tank Car
 STR_NAME_TANK_CAR_1945                            :Tank Car
 
 # Additional Text
-STR_ADDITIONAL_MOGA                               :{BLACK}Type: {GOLD}Tank   {}{BLACK}Configuration: {GOLD}2-6-0  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
-STR_ADDITIONAL_PUREO8                             :{BLACK}Type: {GOLD}Tank   {}{BLACK}Configuration: {GOLD}2-6-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
-STR_ADDITIONAL_SORI2                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}2-8-0  {}{BLACK}Usage: {RED}Freight
-STR_ADDITIONAL_TEOU5                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
-STR_ADDITIONAL_TEOU6                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
-STR_ADDITIONAL_MIKA3                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}2-8-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
-STR_ADDITIONAL_PASHI4                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Passengers
-STR_ADDITIONAL_PASHI5                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Express Passengers
-STR_ADDITIONAL_SATA                               :{BLACK}Type: {GOLD}Tank   {}{BLACK}Configuration: {GOLD}2-10-2 {}{BLACK}Usage: {RED}Freight
-STR_ADDITIONAL_MATEO1                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-8-2  {}{BLACK}Usage: {RED}Freight
-STR_ADDITIONAL_MATEO2                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Configuration: {GOLD}4-8-2  {}{BLACK}Usage: {RED}Heavy Freight
+STR_ADDITIONAL_MOGA                               :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel Arrangement: {GOLD}2-6-0  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_PUREO1                             :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}2-6-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_PUREO8                             :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}2-6-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_SORI2                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-0  {}{BLACK}Usage: {RED}Freight
+STR_ADDITIONAL_TEOU1                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_TEOU5                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_TEOU6                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_MIKA3                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_MIKA7                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {RED}Freight {}{BLACK}Original: {GOLD}JNR Class D51
+STR_ADDITIONAL_PASHI4                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_PASHI5                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Express Passengers
+STR_ADDITIONAL_SATA                               :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}2-10-2 {}{BLACK}Usage: {RED}Freight
+STR_ADDITIONAL_MATEO1                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-8-2  {}{BLACK}Usage: {RED}Freight
+STR_ADDITIONAL_MATEO2                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-8-2  {}{BLACK}Usage: {RED}Heavy Freight
 STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}Usage: {BLUE}passengers

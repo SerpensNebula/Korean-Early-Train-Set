@@ -1,7 +1,7 @@
 ##grflangid 0x39
 
 # GRF name and description
-STR_GRF_NAME                                      :韓国初期列車セット1.0.0beta
+STR_GRF_NAME                                      :韓国初期列車セットbeta1.1.0
 STR_GRF_DESC                                      :このNewGRFは大韓帝国と初期の大韓民国で使用された列車を追加します。
 
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
@@ -10,17 +10,20 @@ STR_GRF_URL                                       :https://github.com/SerpensNeb
 STR_PARA_NAME_SPEED_POWER                         :最高速度と出力定数
 STR_PARA_DESC_SPEED_POWER                         :すべての列車の最高速度と出力を設定します。
 
-STR_PARA_OPT_1                                    :x1 (기본값)
+STR_PARA_OPT_1                                    :x1 (デフォルト)
 STR_PARA_OPT_1_5                                  :x1.5
 STR_PARA_OPT_2                                    :x2
 
 # Engines
 STR_MOGA_NAME                                     :モガイ形蒸気機関車
+STR_PUREO1_NAME                                   :プレイ形蒸気機関車
 STR_PUREO8_NAME                                   :プレハ形蒸気機関車
 STR_SORI2_NAME                                    :ソリ２プレハ形蒸気機関車
+STR_TEOU1_NAME                                    :テホイ～二形蒸気機関車
 STR_TEOU5_NAME                                    :テホコ形蒸気機関車
 STR_TEOU6_NAME                                    :テホロ形蒸気機関車
 STR_MIKA3_NAME                                    :ミカサ形蒸気機関車
+STR_MIKA7_NAME                                    :ミカ７形蒸気機関車
 STR_PASHI4_NAME                                   :パシイ～シ形蒸気機関車
 STR_PASHI5_NAME                                   :パシコ形蒸気機関車
 STR_SATA_NAME                                     :サタイ形蒸気機関車
@@ -36,19 +39,30 @@ STR_NAME_PASS_SEMI_STEEL                          :半鋼製客車
 STR_NAME_PASS_LIGHTWEIGHT                         :半鋼製軽量客車
 
 # Cargo Wagons
+STR_NAME_FLATCAR_1915                             :長物車
 STR_NAME_FLATCAR_1937                             :長物車
+STR_NAME_GONDOLA_1899                             :無蓋車
+STR_NAME_GONDOLA_1917                             :無蓋車
 STR_NAME_GONDOLA_1934                             :無蓋車
+STR_NAME_BOXCAR_1899                              :有蓋車
+STR_NAME_BOXCAR_1921                              :有蓋車
 STR_NAME_BOXCAR_1941                              :有蓋車
+STR_NAME_BAGGAGE_CAR_1899                         :荷物車
+STR_NAME_BAGGAGE_CAR_1905                         :荷物車
 STR_NAME_BAGGAGE_CAR_1921                         :荷物車
+STR_NAME_TANK_CAR_1907                            :タンク車
 STR_NAME_TANK_CAR_1945                            :タンク車
 
 # Additional Text
 STR_ADDITIONAL_MOGA                               :{BLACK}タイプ: {GOLD}タンク式 {}{BLACK}車輪配置: {GOLD}1-C   {}{BLACK}用途: {GREEN}客貨兼用
+STR_ADDITIONAL_PUREO1                             :{BLACK}タイプ: {GOLD}タンク式 {}{BLACK}車輪配置: {GOLD}1-C-1 {}{BLACK}用途: {GREEN}客貨兼用
 STR_ADDITIONAL_PUREO8                             :{BLACK}タイプ: {GOLD}タンク式 {}{BLACK}車輪配置: {GOLD}1-C-1 {}{BLACK}用途: {GREEN}客貨兼用
 STR_ADDITIONAL_SORI2                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}1-D   {}{BLACK}用途: {RED}貨物
+STR_ADDITIONAL_TEOU1                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}2-C   {}{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_TEOU5                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}2-C   {}{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_TEOU6                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}2-C   {}{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_MIKA3                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}1-D-1 {}{BLACK}用途: {GREEN}客貨兼用
+STR_ADDITIONAL_MIKA7                              :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}1-D-1 {}{BLACK}用途: {GREEN}客貨兼用 {}{BLACK}オリジナル: {GOLD}国鉄D51形
 STR_ADDITIONAL_PASHI4                             :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}2-C-1 {}{BLACK}用途: {BLUE}旅客
 STR_ADDITIONAL_PASHI5                             :{BLACK}タイプ: {GOLD}テンダ式 {}{BLACK}車輪配置: {GOLD}2-C-1 {}{BLACK}用途: {BLUE}特急旅客
 STR_ADDITIONAL_SATA                               :{BLACK}タイプ: {GOLD}タンク式 {}{BLACK}車輪配置: {GOLD}1-E-1 {}{BLACK}用途: {RED}貨物
