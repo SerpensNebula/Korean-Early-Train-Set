@@ -4,7 +4,7 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :230521;
+        version                            :230531;
         min_compatible_version             :230507;
 
         // Parameters
@@ -28,15 +28,14 @@
 
 // Tables
     cargotable {
-        // https://newgrf-specs.tt-wiki.net/wiki/CargoTypes#Cargo_Labels
-        // TTD 
+        // TTD https://newgrf-specs.tt-wiki.net/wiki/CargoTypes#Cargo_Labels
             PASS, COAL, MAIL, OIL_, LVST, GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, FOOD, GOLD, RUBR,
-            FRUT, MAIZ, CORE, WATR, DIAM, SUGR, 
+            FRUT, MAIZ, CORE, WATR, DIAM, SUGR,
 
         // Toys
             BATT, BUBL, COLA, CTCD, FZDR, PLST, SWET, TOFF, TOYS,
 
-        // FIRS 4.15.0~
+        // FIRS 4.15.1~ https://grf.farm/firs/4.15.1/html/get_started.html
             AORE, BDMT, BEAN, BEER, BOOM, CBLK, CLAY, CMNT, COPR, CSTI, CTAR, ENSP, FECR, FERT, FICR, FISH,
             FMSP, FRVL, GRVL, JAVA, KAOL, MILK, PEAT, PETR, PHOS, PORE, POTA, RFPR, SAND, SCMT, SULP, TYRE,  
             VEHI, WDPR, WOOL, ZINC, ACID, ALUM, CASS, CHLO, COAT, COKE, EOIL, IRON, LYE_, METL, MNO2, MNSP, 
@@ -66,6 +65,331 @@
         [x+210,  y,    21,    20,    -7,  -12] // ↖
     }
 
+    template tmpl_narrow_vehicle(x, y) {
+        [x,      y,     8,    25,    -3,  -16] // ↑
+        [x+20,   y,    21,    20,   -15,  -12] // ↗
+        [x+50,   y,    32,    15,   -16,  -11] // →
+        [x+90,   y,    21,    20,    -5,  -12] // ↘
+        [x+120,  y,     8,    25,    -3,  -16] // ↓
+        [x+140,  y,    21,    20,   -14,  -12] // ↙
+        [x+170,  y,    32,    15,   -14,  -11] // ←
+        [x+210,  y,    21,    20,    -4,  -12] // ↖
+    }
+
+// Tracks
+    // MARROW 762mm
+        // GUI
+            spriteset(set_NARROW_762_gui, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,     0,       8,      18,       7,       0]   // ↕
+                [  15,     0,      20,      16,       1,       2]   // ↗
+                [  48,     0,      20,      12,       1,       6]   // ↔
+                [  80,     0,      20,      16,       1,       2]   // ↘
+                [ 112,     0,      20,      16,       1,       2]   // x
+                [ 144,     0,      20,      20,       0,       0]   // depot
+                [ 176,     0,      20,      20,       0,       0]   // tunnel
+                [ 208,     0,      20,      18,       0,       0]   // convert
+                [ 240,     0,      20,      29,       0,       0]   // ↕ cursor
+                [ 272,     0,      26,      28,       0,       0]   // ↗ cursor
+                [ 304,     0,      27,      28,       0,       0]   // ↔ cursor
+                [ 336,     0,      26,      31,       0,       0]   // ↘ cursor
+                [ 368,     0,      26,      31,       0,       0]   // x cursor
+                [ 400,     0,      32,      32,       0,       0]   // depot cursor
+                [ 445,     0,      27,      32,       0,       0]   // tunnel cursor
+                [ 480,     0,      29,      29,       0,       0]   // convert cursor
+            }
+
+        // Tracks overlay
+            spriteset(set_NARROW_762_overlay, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,    40,      64,      31,     -31,       0]   // ↗↙
+                [  70,    40,      64,      31,     -31,       0]   // ↖↘
+                [ 140,    40,      64,      31,     -31,       0]   // ↔U
+                [ 210,    40,      64,      31,     -31,       0]   // ↔D
+                [ 280,    40,      64,      31,     -31,       0]   // ↕R
+                [ 350,    40,      64,      31,     -31,       0]   // ↕L
+                [ 420,    40,      64,      39,     -31,      -8]   // ↗ slope up
+                [ 490,    40,      64,      23,     -31,       0]   // ↘ slope up 
+                [ 560,    40,      64,      23,     -31,       0]   // ↙ slope up
+                [ 630,    40,      64,      39,     -31,      -8]   // ↖ slope up
+            }
+
+            spriteset(set_NARROW_762_overlay_SNOW, "./Korean_Early_Train_Set/gfx/track/NARROW_762_SNOW.png") {
+                [   0,     0,      64,      31,     -31,       0]   // ↗↙
+                [  70,     0,      64,      31,     -31,       0]   // ↖↘
+                [ 140,     0,      64,      31,     -31,       0]   // ↔U
+                [ 210,     0,      64,      31,     -31,       0]   // ↔D
+                [ 280,     0,      64,      31,     -31,       0]   // ↕R
+                [ 350,     0,      64,      31,     -31,       0]   // ↕L
+                [ 420,     0,      64,      39,     -31,      -8]   // ↗ slope up
+                [ 490,     0,      64,      23,     -31,       0]   // ↘ slope up 
+                [ 560,     0,      64,      23,     -31,       0]   // ↙ slope up
+                [ 630,     0,      64,      39,     -31,      -8]   // ↖ slope up
+            }
+
+        // Tracks underlay
+            spriteset(set_NARROW_762_underlay, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,    80,      64,      31,     -31,       0]   // ↗↙
+                [  70,    80,      64,      31,     -31,       0]   // ↖↘
+                [ 140,    80,      64,      31,     -31,       0]   // ↔U
+                [ 210,    80,      64,      31,     -31,       0]   // ↔D
+                [ 280,    80,      64,      31,     -31,       0]   // ↕R
+                [ 350,    80,      64,      31,     -31,       0]   // ↕L
+                [ 420,    80,      64,      39,     -31,      -8]   // ↗ slope up
+                [ 490,    80,      64,      23,     -31,       0]   // ↘ slope up 
+                [ 560,    80,      64,      23,     -31,       0]   // ↙ slope up
+                [ 630,    80,      64,      39,     -31,      -8]   // ↖ slope up
+                [ 700,    80,      64,      31,     -31,       0]   // +
+                [ 770,    80,      64,      31,     -31,       0]   // combi SW
+                [ 840,    80,      64,      31,     -31,       0]   // combi NE
+                [ 910,    80,      64,      31,     -31,       0]   // combi SE
+                [ 980,    80,      64,      31,     -31,       0]   // combi NW
+                [1050,    80,      64,      31,     -31,       0]   // combi all
+            }
+
+            spriteset(set_NARROW_762_underlay_SNOW, "./Korean_Early_Train_Set/gfx/track/NARROW_762_SNOW.png") {
+                [   0,    40,      64,      31,     -31,       0]   // ↗↙
+                [  70,    40,      64,      31,     -31,       0]   // ↖↘
+                [ 140,    40,      64,      31,     -31,       0]   // ↔U
+                [ 210,    40,      64,      31,     -31,       0]   // ↔D
+                [ 280,    40,      64,      31,     -31,       0]   // ↕R
+                [ 350,    40,      64,      31,     -31,       0]   // ↕L
+                [ 420,    40,      64,      39,     -31,      -8]   // ↗ slope up
+                [ 490,    40,      64,      23,     -31,       0]   // ↘ slope up 
+                [ 560,    40,      64,      23,     -31,       0]   // ↙ slope up
+                [ 630,    40,      64,      39,     -31,      -8]   // ↖ slope up
+                [ 700,    40,      64,      31,     -31,       0]   // +
+                [ 770,    40,      64,      31,     -31,       0]   // combi SW
+                [ 840,    40,      64,      31,     -31,       0]   // combi NE
+                [ 910,    40,      64,      31,     -31,       0]   // combi SE
+                [ 980,    40,      64,      31,     -31,       0]   // combi NW
+                [1050,    40,      64,      31,     -31,       0]   // combi all
+            }
+
+        // Tunnels
+            spriteset(set_NARROW_762_tunnel_underlay, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,    120,      64,      39,     -31,      -8]   // ↙
+                [  70,    120,      64,      31,     -31,       0]   // ↖
+                [ 140,    120,      64,      31,     -31,       0]   // ↗
+                [ 210,    120,      64,      39,     -31,      -8]   // ↘
+            }
+
+            spriteset(set_NARROW_762_tunnel_underlay_desert, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,    170,      64,      39,     -31,      -8]   // ↙
+                [  70,    170,      64,      31,     -31,       0]   // ↖
+                [ 140,    170,      64,      31,     -31,       0]   // ↗
+                [ 210,    170,      64,      39,     -31,      -8]   // ↘
+            }
+
+            spriteset(set_NARROW_762_tunnel_underlay_rain, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,    220,      64,      39,     -31,      -8]   // ↙
+                [  70,    220,      64,      31,     -31,       0]   // ↖
+                [ 140,    220,      64,      31,     -31,       0]   // ↗
+                [ 210,    220,      64,      39,     -31,      -8]   // ↘
+            }
+
+            spriteset(set_NARROW_762_tunnel_underlay_SNOW, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,    270,      64,      39,     -31,      -8]   // ↙
+                [  70,    270,      64,      31,     -31,       0]   // ↖
+                [ 140,    270,      64,      31,     -31,       0]   // ↗
+                [ 210,    270,      64,      39,     -31,      -8]   // ↘
+            }
+
+        // Fences (empty)
+            spriteset(set_EMPTY_fences, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+                [   0,    0,    1,    1,    0,    0]
+            }
+
+        // Depot
+            spriteset(set_NARROW_762_depot, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [   0,    320,      64,      55,     -31,     -28]   // SE entry
+                [  70,    320,      64,      55,      -9,     -39]   // SE
+                [ 140,    320,      64,      55,     -31,     -28]   // SW entry
+                [ 210,    320,      64,      55,     -53,     -39]   // SW
+                [ 280,    320,      64,      55,     -53,     -39]   // NE
+                [ 350,    320,      64,      55,      -9,     -39]   // NW
+            }
+
+            spriteset(set_NARROW_762_depot_SNOW, "./Korean_Early_Train_Set/gfx/track/NARROW_762_SNOW.png") {
+                [   0,     80,      64,      55,     -31,     -28]   // SE entry
+                [  70,     80,      64,      55,      -9,     -39]   // SE
+                [ 140,     80,      64,      55,     -31,     -28]   // SW entry
+                [ 210,     80,      64,      55,     -53,     -39]   // SW
+                [ 280,     80,      64,      55,     -53,     -39]   // NE
+                [ 350,     80,      64,      55,      -9,     -39]   // NW
+            }
+
+        // Bridge surfaces
+            spriteset(set_NARROW_762_bridge, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [ 700,    270,      64,      31,     -31,       0]   // ↗↙
+                [ 770,    270,      64,      31,     -31,       0]   // ↖↘
+                [ 840,    270,      64,      39,     -31,      -8]   // ↗ slope up
+                [ 910,    270,      64,      23,     -31,       0]   // ↘ slope up 
+                [ 980,    270,      64,      23,     -31,       0]   // ↙ slope up
+                [1050,    270,      64,      39,     -31,      -8]   // ↖ slope up
+            }
+
+            spriteset(set_NARROW_762_bridge_SNOW, "./Korean_Early_Train_Set/gfx/track/NARROW_762_SNOW.png") {
+                [   0,     40,      64,      31,     -31,       0]   // ↗↙
+                [  70,     40,      64,      31,     -31,       0]   // ↖↘
+                [ 420,     40,      64,      39,     -31,      -8]   // ↗ slope up
+                [ 490,     40,      64,      23,     -31,       0]   // ↘ slope up 
+                [ 560,     40,      64,      23,     -31,       0]   // ↙ slope up
+                [ 630,     40,      64,      39,     -31,      -8]   // ↖ slope up
+            }
+
+        // Level crossing
+            spriteset(set_NARROW_762_level_crossing_close, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [ 700,    120,      64,      31,     -31,       0]
+                [ 770,    120,      64,      31,     -31,       0]
+                [ 840,    120,       5,      13,       0,     -10]
+                [ 850,    120,      23,      22,      -5,     -10]
+                [ 880,    120,      29,      18,     -24,     -10]
+                [ 910,    120,       5,      13,      -3,     -10]
+                [ 920,    120,      29,      16,       0,     -11]
+                [ 950,    120,       5,      13,      -3,     -10]
+                [ 960,    120,       5,      13,       0,     -10]
+                [ 970,    120,      23,      17,     -19,     -14]
+            }
+
+            spriteset(set_NARROW_762_level_crossing_open, "./Korean_Early_Train_Set/gfx/track/NARROW_762.png") {
+                [ 700,    120,      64,      31,     -31,       0]
+                [ 770,    120,      64,      31,     -31,       0]
+                [ 840,    150,       5,      13,       0,     -10]
+                [ 850,    150,       8,      27,      -6,     -22]
+                [ 880,    150,       8,      29,      -3,     -26]
+                [ 910,    150,       5,      13,      -3,     -10]
+                [ 920,    150,       8,      28,       0,     -23]
+                [ 950,    150,       5,      13,      -3,     -10]
+                [ 960,    150,       5,      13,       0,     -10]
+                [ 970,    150,       8,      29,      -3,     -26]
+            }
+
+            spriteset(set_NARROW_762_level_crossing_close_SNOW, "./Korean_Early_Train_Set/gfx/track/NARROW_762_SNOW.png") {
+                [ 700,     80,      64,      31,     -31,       0]
+                [ 770,     80,      64,      31,     -31,       0]
+                [ 840,     80,       5,      13,       0,     -10]
+                [ 850,     80,      23,      22,      -5,     -10]
+                [ 880,     80,      29,      18,     -24,     -10]
+                [ 910,     80,       5,      13,      -3,     -10]
+                [ 920,     80,      29,      16,       0,     -11]
+                [ 950,     80,       5,      13,      -3,     -10]
+                [ 960,     80,       5,      13,       0,     -10]
+                [ 970,     80,      23,      17,     -19,     -14]
+            }
+
+            spriteset(set_NARROW_762_level_crossing_open_SNOW, "./Korean_Early_Train_Set/gfx/track/NARROW_762_SNOW.png") {
+                [ 700,     80,      64,      31,     -31,       0]
+                [ 770,     80,      64,      31,     -31,       0]
+                [ 840,    110,       5,      13,       0,     -10]
+                [ 850,    110,       8,      27,      -6,     -22]
+                [ 880,    110,       8,      29,      -3,     -26]
+                [ 910,    110,       5,      13,      -3,     -10]
+                [ 920,    110,       8,      28,       0,     -23]
+                [ 950,    110,       5,      13,      -3,     -10]
+                [ 960,    110,       5,      13,       0,     -10]
+                [ 970,    110,       8,      29,      -3,     -26]
+            }
+
+        // Level crossing status
+            switch(FEAT_RAILTYPES, SELF, sw_NARROW_762_level_crossing, level_crossing_status) {
+                LEVEL_CROSSING_CLOSED:              set_NARROW_762_level_crossing_close;
+                LEVEL_CROSSING_OPEN:                set_NARROW_762_level_crossing_open;
+                set_NARROW_762_level_crossing_open;
+            }
+
+            switch(FEAT_RAILTYPES, SELF, sw_NARROW_762_level_crossing_SNOW, level_crossing_status) {
+                LEVEL_CROSSING_CLOSED:              set_NARROW_762_level_crossing_close_SNOW;
+                LEVEL_CROSSING_OPEN:                set_NARROW_762_level_crossing_open_SNOW;
+                set_NARROW_762_level_crossing_open_SNOW;
+            }
+
+        // Graphic for terrain
+            switch(FEAT_RAILTYPES, SELF, sw_NARROW_762_tunnel_underlay, terrain_type) {
+                TILETYPE_NORMAL:                    set_NARROW_762_tunnel_underlay;
+                TILETYPE_DESERT:                    set_NARROW_762_tunnel_underlay_desert;
+                TILETYPE_RAIN_FOREST:               set_NARROW_762_tunnel_underlay_rain;
+                TILETYPE_SNOW:                      set_NARROW_762_tunnel_underlay_SNOW;            
+                set_NARROW_762_tunnel_underlay;
+            }
+    
+            switch(FEAT_RAILTYPES, SELF, sw_NARROW_762_overlay, terrain_type) {
+                TILETYPE_NORMAL:                    set_NARROW_762_overlay;
+                TILETYPE_SNOW:                      set_NARROW_762_overlay_SNOW;            
+                set_NARROW_762_overlay;
+            }
+
+            switch(FEAT_RAILTYPES, SELF, sw_NARROW_762_underlay, terrain_type) {
+                TILETYPE_NORMAL:                    set_NARROW_762_underlay;
+                TILETYPE_SNOW:                      set_NARROW_762_underlay_SNOW;            
+                set_NARROW_762_underlay;
+            }
+
+            switch(FEAT_RAILTYPES, SELF, sw_NARROW_762_depot, terrain_type) {
+                TILETYPE_NORMAL:                    set_NARROW_762_depot;
+                TILETYPE_SNOW:                      set_NARROW_762_depot_SNOW;            
+                set_NARROW_762_depot;
+            }
+
+            switch(FEAT_RAILTYPES, SELF, sw_NARROW_762_bridge, terrain_type) {
+                TILETYPE_NORMAL:                    set_NARROW_762_bridge;
+                TILETYPE_SNOW:                      set_NARROW_762_bridge_SNOW;            
+                set_NARROW_762_bridge;
+            }
+
+            switch(FEAT_RAILTYPES, SELF, sw_set_NARROW_762_level_crossing, terrain_type) {
+                TILETYPE_NORMAL:                    sw_NARROW_762_level_crossing;
+                TILETYPE_SNOW:                      sw_NARROW_762_level_crossing_SNOW;            
+                sw_NARROW_762_level_crossing;
+            }
+    
+        // Define NARROW_762
+            item(FEAT_RAILTYPES, track_NARROW_762, 00) {
+                property {
+                    name:                           string(STR_NARROW_762_NAME);
+                    label:                          "KRNR";
+                    introduction_date:              date(1899, 1, 1);
+                    menu_text:                      string(STR_NARROW_762_DROPDOWN_MENU);
+                    toolbar_caption:                string(STR_NARROW_762_TOOLBAR_CAPTION);
+                    build_window_caption:           string(STR_NARROW_762_BUILD_VEHICLE_CAPTION);
+                    new_engine_text:                string(STR_NARROW_762_NEW_ENGINE);
+                    autoreplace_text:               string(STR_NARROW_762_AUTOREPLACE);
+
+                    station_graphics:               RAILTYPE_STATION_NORMAL;
+                    acceleration_model:             ACC_MODEL_RAIL;
+                    speed_limit:                    70*(para_speed_power)/2+1 km/h;
+                    construction_cost:              4;
+                    maintenance_cost:               12;
+                    sort_order:                     00;
+
+                    railtype_flags:                 bitmask();
+                }
+
+                graphics {
+                    gui:                            set_NARROW_762_gui;
+                    track_overlay:                  sw_NARROW_762_overlay;
+                    underlay:                       sw_NARROW_762_underlay;
+                    tunnels:                        sw_NARROW_762_tunnel_underlay;
+                    depots:                         sw_NARROW_762_depot;
+                    bridge_surfaces:                sw_NARROW_762_bridge;
+                    level_crossings:                sw_set_NARROW_762_level_crossing;
+                    fences:                         set_EMPTY_fences;
+                }
+            }
+
 // Graphics
     // General
         switch(FEAT_TRAINS, SELF, sw_steam_visual_effect, position_in_vehid_chain % 2) { // steam visual effect
@@ -73,17 +397,54 @@
             VISUAL_EFFECT_DISABLE;
         }
 
-    // Locomotives 
-        // MOGA
-            spriteset(set_MOGA_purchase, "./Korean_Early_Train_Set/gfx/loco/moga/MOGA.png") {
+    // Locomotives
+        // HOKEY7
+            spriteset(set_HOKEY7_purchase, "./Korean_Early_Train_Set/gfx/loco/HOKEY.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_MOGA_engine_1, "./Korean_Early_Train_Set/gfx/loco/moga/MOGA.png") {
+            spriteset(set_HOKEY7_engine_1, "./Korean_Early_Train_Set/gfx/loco/HOKEY.png") {
+                tmpl_narrow_vehicle(80, 0)
+            }
+
+            spriteset(set_HOKEY7_engine_2, "./Korean_Early_Train_Set/gfx/loco/HOKEY.png") {
+                tmpl_narrow_vehicle(80, 30)
+            }
+
+            spriteset(set_HOKEY7_tender, "./Korean_Early_Train_Set/gfx/loco/HOKEY.png") {
+                tmpl_narrow_vehicle(80, 60)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_HOKEY7_engine_motion, motion_counter % 2) {
+                1: set_HOKEY7_engine_1;
+                set_HOKEY7_engine_2;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_HOKEY7_engine, position_in_vehid_chain % 2) {
+                1: set_HOKEY7_tender;
+                sw_HOKEY7_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_HOKEY7_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_HOKEY7;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_HOKEY7_length, position_in_vehid_chain % 2) {
+                1: return 3;
+                return 5;
+            }
+
+        // MOGA
+            spriteset(set_MOGA_purchase, "./Korean_Early_Train_Set/gfx/loco/MOGA.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_MOGA_engine_1, "./Korean_Early_Train_Set/gfx/loco/MOGA.png") {
                 tmpl_vehicle(80, 0)
             }
 
-            spriteset(set_MOGA_engine_2, "./Korean_Early_Train_Set/gfx/loco/moga/MOGA.png") {
+            spriteset(set_MOGA_engine_2, "./Korean_Early_Train_Set/gfx/loco/MOGA.png") {
                 tmpl_vehicle(80, 30)
             }
 
@@ -196,27 +557,27 @@
             }
 
         // TEOU1
-            spriteset(set_TEOU1_purchase, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU1.png") {
+            spriteset(set_TEOU1_purchase, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_TEOU1_engine_1, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU1.png") {
+            spriteset(set_TEOU1_engine_1, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
                 tmpl_vehicle(80, 0)
             }
 
-            spriteset(set_TEOU1_engine_2, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU1.png") {
+            spriteset(set_TEOU1_engine_2, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
                 tmpl_vehicle(80, 30)
             }
 
-            spriteset(set_TEOU1_engine_3, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU1.png") {
+            spriteset(set_TEOU1_engine_3, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
                 tmpl_vehicle(80, 60)
             }
 
-            spriteset(set_TEOU1_engine_4, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU1.png") {
+            spriteset(set_TEOU1_engine_4, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
                 tmpl_vehicle(80, 90)
             }
 
-            spriteset(set_TEOU1_tender, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU1.png") {
+            spriteset(set_TEOU1_tender, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
                 tmpl_vehicle(80, 120)
             }
 
@@ -242,29 +603,76 @@
                 return 6;
             }
 
+        // TEOU4
+            spriteset(set_TEOU4_purchase, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_purchase(0, 150)
+            }
+
+            spriteset(set_TEOU4_engine_1, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 150)
+            }
+
+            spriteset(set_TEOU4_engine_2, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 180)
+            }
+
+            spriteset(set_TEOU4_engine_3, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 210)
+            }
+
+            spriteset(set_TEOU4_engine_4, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 240)
+            }
+
+            spriteset(set_TEOU4_tender, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 270)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU4_engine_motion, motion_counter % 4) {
+                1: set_TEOU4_engine_1;
+                2: set_TEOU4_engine_2;
+                3: set_TEOU4_engine_3;
+                set_TEOU4_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU4_engine, position_in_vehid_chain % 2) {
+                1: set_TEOU4_tender;
+                sw_TEOU4_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU4_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_TEOU4;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_TEOU4_length, position_in_vehid_chain % 2) {
+                1: return 3;
+                return 6;
+            }
+
         // TEOU5
-            spriteset(set_TEOU5_purchase, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
-                tmpl_purchase(0, 0)
+            spriteset(set_TEOU5_purchase, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_purchase(0, 300)
             }
 
-            spriteset(set_TEOU5_engine_1, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
-                tmpl_vehicle(80, 0)
+            spriteset(set_TEOU5_engine_1, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 300)
             }
 
-            spriteset(set_TEOU5_engine_2, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
-                tmpl_vehicle(80, 30)
+            spriteset(set_TEOU5_engine_2, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 330)
             }
 
-            spriteset(set_TEOU5_engine_3, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
-                tmpl_vehicle(80, 60)
+            spriteset(set_TEOU5_engine_3, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 360)
             }
 
-            spriteset(set_TEOU5_engine_4, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
-                tmpl_vehicle(80, 90)
+            spriteset(set_TEOU5_engine_4, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 390)
             }
 
-            spriteset(set_TEOU5_tender, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU5.png") {
-                tmpl_vehicle(80, 120)
+            spriteset(set_TEOU5_tender, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 420)
             }
 
             switch(FEAT_TRAINS, SELF, sw_TEOU5_engine_motion, motion_counter % 4) {
@@ -290,28 +698,28 @@
             }
 
         // TEOU6
-            spriteset(set_TEOU6_purchase, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
-                tmpl_purchase(0, 0)
+            spriteset(set_TEOU6_purchase, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_purchase(0, 450)
             }
 
-            spriteset(set_TEOU6_engine_1, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
-                tmpl_vehicle(80, 0)
+            spriteset(set_TEOU6_engine_1, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 450)
             }
 
-            spriteset(set_TEOU6_engine_2, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
-                tmpl_vehicle(80, 30)
+            spriteset(set_TEOU6_engine_2, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 480)
             }
 
-            spriteset(set_TEOU6_engine_3, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
-                tmpl_vehicle(80, 60)
+            spriteset(set_TEOU6_engine_3, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 510)
             }
 
-            spriteset(set_TEOU6_engine_4, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
-                tmpl_vehicle(80, 90)
+            spriteset(set_TEOU6_engine_4, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 540)
             }
 
-            spriteset(set_TEOU6_tender, "./Korean_Early_Train_Set/gfx/loco/teou/TEOU6.png") {
-                tmpl_vehicle(80, 120)
+            spriteset(set_TEOU6_tender, "./Korean_Early_Train_Set/gfx/loco/TEOU.png") {
+                tmpl_vehicle(80, 570)
             }
 
             switch(FEAT_TRAINS, SELF, sw_TEOU6_engine_motion, motion_counter % 4) {
@@ -336,29 +744,142 @@
                 return 6;
             }
 
-        // MIKA3
-            spriteset(set_MIKA3_purchase, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+        // BALTIC
+            spriteset(set_BALTIC_purchase, "./Korean_Early_Train_Set/gfx/loco/BALTIC.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_MIKA3_engine_1, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+            spriteset(set_BALTIC_engine_1, "./Korean_Early_Train_Set/gfx/loco/BALTIC.png") {
                 tmpl_vehicle(80, 0)
             }
 
-            spriteset(set_MIKA3_engine_2, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+            spriteset(set_BALTIC_engine_2, "./Korean_Early_Train_Set/gfx/loco/BALTIC.png") {
                 tmpl_vehicle(80, 30)
             }
 
-            spriteset(set_MIKA3_engine_3, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+            spriteset(set_BALTIC_engine_3, "./Korean_Early_Train_Set/gfx/loco/BALTIC.png") {
                 tmpl_vehicle(80, 60)
             }
 
-            spriteset(set_MIKA3_engine_4, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+            spriteset(set_BALTIC_engine_4, "./Korean_Early_Train_Set/gfx/loco/BALTIC.png") {
                 tmpl_vehicle(80, 90)
             }
 
-            spriteset(set_MIKA3_tender, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA3.png") {
+            switch(FEAT_TRAINS, SELF, sw_BALTIC_engine_motion, motion_counter % 4) {
+                1: set_BALTIC_engine_1;
+                2: set_BALTIC_engine_2;
+                3: set_BALTIC_engine_3;
+                set_BALTIC_engine_4;
+            }
+
+        // MIKA1
+            spriteset(set_MIKA1_purchase, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_MIKA1_engine_1, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_MIKA1_engine_2, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 30)
+            }
+
+            spriteset(set_MIKA1_engine_3, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 60)
+            }
+
+            spriteset(set_MIKA1_engine_4, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 90)
+            }
+
+            spriteset(set_MIKA1_tender, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
                 tmpl_vehicle(80, 120)
+            }
+
+            spriteset(set_MIKA6_engine_1, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 600)
+            }
+
+            spriteset(set_MIKA6_engine_2, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 630)
+            }
+
+            spriteset(set_MIKA6_engine_3, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 660)
+            }
+
+            spriteset(set_MIKA6_engine_4, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 690)
+            }
+
+            spriteset(set_MIKA6_tender, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 720)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA1_engine_motion, motion_counter % 4) {
+                1: set_MIKA1_engine_1;
+                2: set_MIKA1_engine_2;
+                3: set_MIKA1_engine_3;
+                set_MIKA1_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA6_engine_motion, motion_counter % 4) {
+                1: set_MIKA6_engine_1;
+                2: set_MIKA6_engine_2;
+                3: set_MIKA6_engine_3;
+                set_MIKA6_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA1_engine, position_in_vehid_chain % 2) {
+                1: set_MIKA1_tender;
+                sw_MIKA1_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA6_engine, position_in_vehid_chain % 2) {
+                1: set_MIKA6_tender;
+                sw_MIKA6_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA1_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_MIKA1;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw2_MIKA1_engine, random_bits % 3) {
+                1: sw_MIKA1_engine;
+                2: sw_MIKA1_engine;
+                sw_MIKA6_engine;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA1_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 7;
+            }
+
+        // MIKA3
+            spriteset(set_MIKA3_purchase, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_purchase(0, 150)
+            }
+
+            spriteset(set_MIKA3_engine_1, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 150)
+            }
+
+            spriteset(set_MIKA3_engine_2, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 180)
+            }
+
+            spriteset(set_MIKA3_engine_3, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 210)
+            }
+
+            spriteset(set_MIKA3_engine_4, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 240)
+            }
+
+            spriteset(set_MIKA3_tender, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 270)
             }
 
             switch(FEAT_TRAINS, SELF, sw_MIKA3_engine_motion, motion_counter % 4) {
@@ -383,29 +904,123 @@
                 return 7;
             }
 
+        // MIKA4
+            spriteset(set_MIKA4_purchase, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_purchase(0, 300)
+            }
+
+            spriteset(set_MIKA4_engine_1, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 300)
+            }
+
+            spriteset(set_MIKA4_engine_2, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 330)
+            }
+
+            spriteset(set_MIKA4_engine_3, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 360)
+            }
+
+            spriteset(set_MIKA4_engine_4, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 390)
+            }
+
+            spriteset(set_MIKA4_tender, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 420)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA4_engine_motion, motion_counter % 4) {
+                1: set_MIKA4_engine_1;
+                2: set_MIKA4_engine_2;
+                3: set_MIKA4_engine_3;
+                set_MIKA4_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA4_engine, position_in_vehid_chain % 2) {
+                1: set_MIKA4_tender;
+                sw_MIKA4_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA4_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_MIKA4;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA4_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 7;
+            }
+
+        // MIKA5
+            spriteset(set_MIKA5_purchase, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_purchase(0, 450)
+            }
+
+            spriteset(set_MIKA5_engine_1, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 450)
+            }
+
+            spriteset(set_MIKA5_engine_2, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 480)
+            }
+
+            spriteset(set_MIKA5_engine_3, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 510)
+            }
+
+            spriteset(set_MIKA5_engine_4, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 540)
+            }
+
+            spriteset(set_MIKA5_tender, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 570)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA5_engine_motion, motion_counter % 4) {
+                1: set_MIKA5_engine_1;
+                2: set_MIKA5_engine_2;
+                3: set_MIKA5_engine_3;
+                set_MIKA5_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA5_engine, position_in_vehid_chain % 2) {
+                1: set_MIKA5_tender;
+                sw_MIKA5_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA5_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_MIKA5;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_MIKA5_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 7;
+            }
+
         // MIKA7
-            spriteset(set_MIKA7_purchase, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA7.png") {
-                tmpl_purchase(0, 0)
+            spriteset(set_MIKA7_purchase, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_purchase(0, 750)
             }
 
-            spriteset(set_MIKA7_engine_1, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA7.png") {
-                tmpl_vehicle(80, 0)
+            spriteset(set_MIKA7_engine_1, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 750)
             }
 
-            spriteset(set_MIKA7_engine_2, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA7.png") {
-                tmpl_vehicle(80, 30)
+            spriteset(set_MIKA7_engine_2, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 780)
             }
 
-            spriteset(set_MIKA7_engine_3, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA7.png") {
-                tmpl_vehicle(80, 60)
+            spriteset(set_MIKA7_engine_3, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 810)
             }
 
-            spriteset(set_MIKA7_engine_4, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA7.png") {
-                tmpl_vehicle(80, 90)
+            spriteset(set_MIKA7_engine_4, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 840)
             }
 
-            spriteset(set_MIKA7_tender, "./Korean_Early_Train_Set/gfx/loco/mika/MIKA7.png") {
-                tmpl_vehicle(80, 120)
+            spriteset(set_MIKA7_tender, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 870)
             }
 
             switch(FEAT_TRAINS, SELF, sw_MIKA7_engine_motion, motion_counter % 4) {
@@ -430,28 +1045,75 @@
                 return 6;
             }
 
+        // #901
+            spriteset(set_901_purchase, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_purchase(0, 900)
+            }
+
+            spriteset(set_901_engine_1, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 900)
+            }
+
+            spriteset(set_901_engine_2, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 930)
+            }
+
+            spriteset(set_901_engine_3, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 960)
+            }
+
+            spriteset(set_901_engine_4, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 990)
+            }
+
+            spriteset(set_901_tender, "./Korean_Early_Train_Set/gfx/loco/MIKA.png") {
+                tmpl_vehicle(80, 1020)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_901_engine_motion, motion_counter % 4) {
+                1: set_901_engine_1;
+                2: set_901_engine_2;
+                3: set_901_engine_3;
+                set_901_engine_4;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_901_engine, position_in_vehid_chain % 2) {
+                1: set_901_tender;
+                sw_901_engine_motion;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_901_articulated_part, extra_callback_info1) { // articulated parts
+                1: ko_901;
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_901_length, position_in_vehid_chain % 2) {
+                1: return 4;
+                return 7;
+            }
+
         // PASHI4
-            spriteset(set_PASHI4_purchase, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+            spriteset(set_PASHI4_purchase, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_PASHI4_engine_1, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+            spriteset(set_PASHI4_engine_1, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
                 tmpl_vehicle(80, 0)
             }
 
-            spriteset(set_PASHI4_engine_2, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+            spriteset(set_PASHI4_engine_2, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
                 tmpl_vehicle(80, 30)
             }
 
-            spriteset(set_PASHI4_engine_3, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+            spriteset(set_PASHI4_engine_3, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
                 tmpl_vehicle(80, 60)
             }
 
-            spriteset(set_PASHI4_engine_4, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+            spriteset(set_PASHI4_engine_4, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
                 tmpl_vehicle(80, 90)
             }
 
-            spriteset(set_PASHI4_tender, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI4.png") {
+            spriteset(set_PASHI4_tender, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
                 tmpl_vehicle(80, 120)
             }
 
@@ -478,28 +1140,28 @@
             }
 
         // PASHI5
-            spriteset(set_PASHI5_purchase, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI5.png") {
-                tmpl_purchase(0, 0)
+            spriteset(set_PASHI5_purchase, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
+                tmpl_purchase(0, 150)
             }
 
-            spriteset(set_PASHI5_engine_1, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI5.png") {
-                tmpl_vehicle(80, 0)
+            spriteset(set_PASHI5_engine_1, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
+                tmpl_vehicle(80, 150)
             }
 
-            spriteset(set_PASHI5_engine_2, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI5.png") {
-                tmpl_vehicle(80, 30)
+            spriteset(set_PASHI5_engine_2, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
+                tmpl_vehicle(80, 180)
             }
 
-            spriteset(set_PASHI5_engine_3, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI5.png") {
-                tmpl_vehicle(80, 60)
+            spriteset(set_PASHI5_engine_3, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
+                tmpl_vehicle(80, 210)
             }
 
-            spriteset(set_PASHI5_engine_4, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI5.png") {
-                tmpl_vehicle(80, 90)
+            spriteset(set_PASHI5_engine_4, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
+                tmpl_vehicle(80, 240)
             }
 
-            spriteset(set_PASHI5_tender, "./Korean_Early_Train_Set/gfx/loco/pashi/PASHI5.png") {
-                tmpl_vehicle(80, 120)
+            spriteset(set_PASHI5_tender, "./Korean_Early_Train_Set/gfx/loco/PASHI.png") {
+                tmpl_vehicle(80, 270)
             }
 
             switch(FEAT_TRAINS, SELF, sw_PASHI5_engine_motion, motion_counter % 4) {
@@ -525,23 +1187,23 @@
             }
 
         // SATA
-            spriteset(set_SATA_purchase, "./Korean_Early_Train_Set/gfx/loco/sata/SATA.png") {
+            spriteset(set_SATA_purchase, "./Korean_Early_Train_Set/gfx/loco/SATA.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_SATA_engine_1, "./Korean_Early_Train_Set/gfx/loco/sata/SATA.png") {
+            spriteset(set_SATA_engine_1, "./Korean_Early_Train_Set/gfx/loco/SATA.png") {
                 tmpl_vehicle(80, 0)
             }
 
-            spriteset(set_SATA_engine_2, "./Korean_Early_Train_Set/gfx/loco/sata/SATA.png") {
+            spriteset(set_SATA_engine_2, "./Korean_Early_Train_Set/gfx/loco/SATA.png") {
                 tmpl_vehicle(80, 30)
             }
 
-            spriteset(set_SATA_engine_3, "./Korean_Early_Train_Set/gfx/loco/sata/SATA.png") {
+            spriteset(set_SATA_engine_3, "./Korean_Early_Train_Set/gfx/loco/SATA.png") {
                 tmpl_vehicle(80, 60)
             }
 
-            spriteset(set_SATA_engine_4, "./Korean_Early_Train_Set/gfx/loco/sata/SATA.png") {
+            spriteset(set_SATA_engine_4, "./Korean_Early_Train_Set/gfx/loco/SATA.png") {
                 tmpl_vehicle(80, 90)
             }
 
@@ -553,27 +1215,27 @@
             }
 
         //  MATEO1
-            spriteset(set_MATEO1_purchase, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO1_purchase, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_MATEO1_engine_1, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO1_engine_1, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 0)
             }
 
-            spriteset(set_MATEO1_engine_2, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO1_engine_2, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 30)
             }
 
-            spriteset(set_MATEO1_engine_3, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO1_engine_3, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 60)
             }
 
-            spriteset(set_MATEO1_engine_4, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO1_engine_4, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 90)
             }
 
-            spriteset(set_MATEO1_tender, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO1_tender, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 120)
             }
 
@@ -600,27 +1262,27 @@
             }
 
         // MATEO2
-            spriteset(set_MATEO2_purchase, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO2_purchase, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_purchase(0, 150)
             }
 
-            spriteset(set_MATEO2_engine_1, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO2_engine_1, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 150)
             }
 
-            spriteset(set_MATEO2_engine_2, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO2_engine_2, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 180)
             }
 
-            spriteset(set_MATEO2_engine_3, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO2_engine_3, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 210)
             }
 
-            spriteset(set_MATEO2_engine_4, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO2_engine_4, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 240)
             }
 
-            spriteset(set_MATEO2_tender, "./Korean_Early_Train_Set/gfx/loco/mateo/MATEO.png") {
+            spriteset(set_MATEO2_tender, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_vehicle(80, 270)
             }
 
@@ -644,6 +1306,38 @@
             switch(FEAT_TRAINS, SELF, sw_MATEO2_length, position_in_vehid_chain % 2) {
                 1: return 4;
                 return 8;
+            }
+
+    // Diesel
+        // Narrow diesel
+            spriteset(set_NARROW_DIESEL_purchase, "./Korean_Early_Train_Set/gfx/loco/NARROW_DIESEL.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_NARROW_DIESEL_DC_TRAILER_engine, "./Korean_Early_Train_Set/gfx/loco/NARROW_DIESEL.png") {
+                tmpl_narrow_vehicle(80, 0)
+            }
+
+            spriteset(set_NARROW_DIESEL_BLUE_engine, "./Korean_Early_Train_Set/gfx/loco/NARROW_DIESEL.png") {
+                tmpl_narrow_vehicle(80, 30)
+            }
+
+            spriteset(set_NARROW_DIESEL_GREEN_engine, "./Korean_Early_Train_Set/gfx/loco/NARROW_DIESEL.png") {
+                tmpl_narrow_vehicle(80, 60)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_NARROW_DIESEL_engine, cargo_subtype) {
+                1: set_NARROW_DIESEL_DC_TRAILER_engine;
+                2: set_NARROW_DIESEL_BLUE_engine;
+                3: set_NARROW_DIESEL_GREEN_engine;
+                set_NARROW_DIESEL_DC_TRAILER_engine;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_NARROW_DIESEL_wagon_cargo_subtype_text, cargo_subtype) {
+                1: return string(STR_NARROW_DC_TRAILER);
+                2: return string(STR_NARROW_BLUE);
+                3: return string(STR_NARROW_GREEN);
+                return string(STR_NARROW_DC_TRAILER);
             }
 
     // Passenger wagons
@@ -734,7 +1428,309 @@
                 sw_PASS_LIGHTWEIGHT_GENERAL_wagon;
             }
 
+        // Narrow gauge passenger wagons
+            spriteset(set_NARROW_PASS_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/NARROW_PASS.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_NARROW_PASS_EARLY_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/NARROW_PASS.png") {
+                tmpl_narrow_vehicle(80, 0)
+            }
+
+            spriteset(set_NARROW_PASS_DC_TRAILER_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/NARROW_PASS.png") {
+                tmpl_narrow_vehicle(80, 30)
+            }
+
+            spriteset(set_NARROW_PASS_BLUE_wagon_1, "./Korean_Early_Train_Set/gfx/wagon/pass/NARROW_PASS.png") {
+                tmpl_narrow_vehicle(80, 60)
+            }
+
+            spriteset(set_NARROW_PASS_BLUE_wagon_2, "./Korean_Early_Train_Set/gfx/wagon/pass/NARROW_PASS.png") {
+                tmpl_narrow_vehicle(80, 90)
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_NARROW_PASS_BLUE_wagon, random_bits % 2) {  
+                1: set_NARROW_PASS_BLUE_wagon_1;
+                set_NARROW_PASS_BLUE_wagon_2;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_NARROW_PASS_wagon, cargo_subtype) {
+                1: set_NARROW_PASS_DC_TRAILER_wagon;
+                2: sw_NARROW_PASS_BLUE_wagon;
+                3: set_NARROW_PASS_EARLY_wagon;
+                set_NARROW_PASS_EARLY_wagon;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_NARROW_PASS_wagon_cargo_subtype_text, cargo_subtype) {
+                1: return string(STR_NARROW_DC_TRAILER);
+                2: return string(STR_NARROW_BLUE);
+                3: return string(STR_NARROW_EARLY);
+                return string(STR_NARROW_EARLY);
+            }
+
     // Cargo wagons
+        // NARROW_FLATCAR
+            // General
+                spriteset(set_NARROW_FLATCAR_purchase, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_purchase(0, 0)
+                }
+
+                spriteset(set_NARROW_FLATCAR_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 0)
+                }
+
+            // GRAI
+                spriteset(set_NARROW_FLATCAR_GRAI_half, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 30)
+                }
+
+                spriteset(set_NARROW_FLATCAR_GRAI_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 60)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_GRAI_wagon {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_GRAI_half,
+                        set_NARROW_FLATCAR_GRAI_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_GRAI_half,
+                        set_NARROW_FLATCAR_GRAI_full
+                    ];
+                }
+
+            // WOOD
+                spriteset(set_NARROW_FLATCAR_WOOD_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 90)
+                }
+
+                spriteset(set_NARROW_FLATCAR_WOOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 120)
+                }
+
+                spriteset(set_NARROW_FLATCAR_WOOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 150)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_WOOD_1 {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_WOOD_half_1,
+                        set_NARROW_FLATCAR_WOOD_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_WOOD_half_1,
+                        set_NARROW_FLATCAR_WOOD_full
+                    ];
+                } 
+
+                spritegroup sg_NARROW_FLATCAR_WOOD_2 {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_WOOD_half_2,
+                        set_NARROW_FLATCAR_WOOD_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_WOOD_half_2,
+                        set_NARROW_FLATCAR_WOOD_full
+                    ];
+                }
+
+                switch(FEAT_TRAINS, SELF, sw_NARROW_FLATCAR_WOOD_wagon, random_bits % 2) {
+                    1: sg_NARROW_FLATCAR_WOOD_1;
+                    sg_NARROW_FLATCAR_WOOD_2;
+                }
+
+            // BATT
+                spriteset(set_NARROW_FLATCAR_BATT_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 180)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_BATT_wagon {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_BATT_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_BATT_full
+                    ];
+                } 
+
+            // BUBL
+                spriteset(set_NARROW_FLATCAR_BUBL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 210)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_BUBL_wagon {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_BUBL_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_BUBL_full
+                    ];
+                } 
+
+            // FZDR
+                spriteset(set_NARROW_FLATCAR_FZDR_green_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 240)
+                }
+
+                spriteset(set_NARROW_FLATCAR_FZDR_red_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 270)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_FZDR_green {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_FZDR_green_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_FZDR_green_full
+                    ];
+                } 
+
+                spritegroup sg_NARROW_FLATCAR_FZDR_red {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_FZDR_red_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_FZDR_red_full
+                    ];
+                }
+
+                switch(FEAT_TRAINS, SELF, sw_NARROW_FLATCAR_FZDR_wagon, random_bits % 3) {
+                    1: sg_NARROW_FLATCAR_FZDR_green;
+                    2: sg_NARROW_FLATCAR_FZDR_red;
+                    sg_NARROW_FLATCAR_FZDR_red;
+                }
+
+            // ENSP
+                spriteset(set_NARROW_FLATCAR_ENSP_full_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 300)
+                }
+
+                spriteset(set_NARROW_FLATCAR_ENSP_full_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 330)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_ENSP_1 {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_ENSP_full_1
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_ENSP_full_1
+                    ];
+                }
+
+                spritegroup sg_NARROW_FLATCAR_ENSP_2 {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_ENSP_full_2
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_ENSP_full_2
+                    ];
+                }  
+
+                switch(FEAT_TRAINS, SELF, sw_NARROW_FLATCAR_ENSP_wagon, random_bits % 2) {
+                    1: sg_NARROW_FLATCAR_ENSP_1;
+                    sg_NARROW_FLATCAR_ENSP_2;
+                }
+
+            // FMSP
+                // FMSP
+                spriteset(set_NARROW_FLATCAR_FMSP_full_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 360)
+                }
+
+                spriteset(set_NARROW_FLATCAR_FMSP_full_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 390)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_FMSP_1 {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_FMSP_full_1
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_FMSP_full_1
+                    ];
+                }
+
+                spritegroup sg_NARROW_FLATCAR_FMSP_2 {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_FMSP_full_2
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_FMSP_full_2
+                    ];
+                }  
+
+                switch(FEAT_TRAINS, SELF, sw_NARROW_FLATCAR_FMSP_wagon, random_bits % 2) {
+                    1: sg_NARROW_FLATCAR_FMSP_1;
+                    sg_NARROW_FLATCAR_FMSP_2;
+                }
+
+            // WDPR
+                spriteset(set_NARROW_FLATCAR_WDPR_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 420)
+                }
+
+                spriteset(set_NARROW_FLATCAR_WDPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 450)
+                }
+
+                spriteset(set_NARROW_FLATCAR_WDPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 480)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_WDPR_1 {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_WDPR_half_1,
+                        set_NARROW_FLATCAR_WDPR_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_WDPR_half_1,
+                        set_NARROW_FLATCAR_WDPR_full
+                    ];
+                } 
+
+                spritegroup sg_NARROW_FLATCAR_WDPR_2 {
+                    loading: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_WDPR_half_2,
+                        set_NARROW_FLATCAR_WDPR_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_WDPR_half_2,
+                        set_NARROW_FLATCAR_WDPR_full
+                    ];
+                }
+
+                switch(FEAT_TRAINS, SELF, sw_NARROW_FLATCAR_WDPR_wagon, random_bits % 2) {
+                    1: sg_NARROW_FLATCAR_WDPR_1;
+                    sg_NARROW_FLATCAR_WDPR_2;
+                }
+
         // FLATCAR_1915
             // General
                 spriteset(set_FLATCAR_1915_purchase, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
@@ -2027,6 +3023,336 @@
                 switch(FEAT_TRAINS, SELF, sw_FLATCAR_1937_VBOD_wagon, random_bits % 2) {
                     1: sg_FLATCAR_1937_VBOD_1;
                     sg_FLATCAR_1937_VBOD_2;
+                }
+
+        // NARROW_GONDOLA
+            // General
+                spriteset(set_NARROW_GONDOLA_purchase, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_purchase(0, 0)
+                }
+
+                spriteset(set_NARROW_GONDOLA_empty, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 0)
+                }
+
+            // COAL
+                spriteset(set_NARROW_GONDOLA_COAL_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 30)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_COAL_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_COAL_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_COAL_full
+                    ];
+                }
+
+            // GRAI
+                spriteset(set_NARROW_GONDOLA_GRAI_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 60)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_GRAI_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_GRAI_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_GRAI_full
+                    ];
+                }
+
+            // IORE
+                spriteset(set_NARROW_GONDOLA_IORE_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 90)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_IORE_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_IORE_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_IORE_full
+                    ];
+                }
+
+            // FRUT
+                spriteset(set_NARROW_GONDOLA_FRUT_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 120)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_FRUT_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_FRUT_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_FRUT_full
+                    ];
+                } 
+
+            // CORE
+                spriteset(set_NARROW_GONDOLA_CORE_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 150)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_CORE_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_CORE_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_CORE_full
+                    ];
+                }
+
+            // SUGR
+                spriteset(set_NARROW_GONDOLA_SUGR_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 180)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_SUGR_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_SUGR_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_SUGR_full
+                    ];
+                }
+
+            // CTCD
+                spriteset(set_NARROW_GONDOLA_CTCD_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 210)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_CTCD_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_CTCD_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_CTCD_full
+                    ];
+                } 
+
+            // TOFF
+                spriteset(set_NARROW_GONDOLA_TOFF_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 240)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_TOFF_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_TOFF_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_TOFF_full
+                    ];
+                }
+
+            // BEAN
+                spriteset(set_NARROW_GONDOLA_BEAN_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 270)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_BEAN_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_BEAN_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_BEAN_full
+                    ];
+                }
+
+            // CMNT
+                spriteset(set_NARROW_GONDOLA_CMNT_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 300)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_CMNT_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_CMNT_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_CMNT_full
+                    ];
+                }
+
+            // FICR
+                spriteset(set_NARROW_GONDOLA_FICR_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 330)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_FICR_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_FICR_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_FICR_full
+                    ];
+                }
+
+            // GRVL
+                spriteset(set_NARROW_GONDOLA_GRVL_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 360)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_GRVL_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_GRVL_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_GRVL_full
+                    ];
+                }
+
+            // PEAT
+                spriteset(set_NARROW_GONDOLA_PEAT_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 390)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_PEAT_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_PEAT_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_PEAT_full
+                    ];
+                }
+
+            // PHOS
+                spriteset(set_NARROW_GONDOLA_PHOS_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 420)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_PHOS_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_PHOS_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty, 
+                        set_NARROW_GONDOLA_PHOS_full
+                    ];
+                }
+
+            // PORE
+                spriteset(set_NARROW_GONDOLA_PORE_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 450)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_PORE_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_PORE_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_PORE_full
+                    ];
+                }
+
+            // POTA
+                spriteset(set_NARROW_GONDOLA_POTA_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 480)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_POTA_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_POTA_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_POTA_full
+                    ];
+                } 
+
+            // SAND
+                spriteset(set_NARROW_GONDOLA_SAND_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 510)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_SAND_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_SAND_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_SAND_full
+                    ];
+                } 
+
+            // SCMT
+                spriteset(set_NARROW_GONDOLA_SCMT_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 540)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_SCMT_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_SCMT_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_SCMT_full
+                    ];
+                }
+
+            // CASS
+                spriteset(set_NARROW_GONDOLA_CASS_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 570)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_CASS_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_CASS_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_CASS_full
+                    ];
+                }
+
+            // SLAG
+                spriteset(set_NARROW_GONDOLA_SLAG_full, "./Korean_Early_Train_Set/gfx/wagon/gondola/NARROW_GONDOLA.png") {
+                    tmpl_narrow_vehicle(80, 600)
+                }
+
+                spritegroup sg_NARROW_GONDOLA_SLAG_wagon {
+                    loading: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_SLAG_full
+                    ];
+                    loaded: [
+                        set_NARROW_GONDOLA_empty,
+                        set_NARROW_GONDOLA_SLAG_full
+                    ];
                 }
             
         // GONDOLA_1899
@@ -3906,7 +5232,63 @@
                 switch(FEAT_TRAINS, SELF, sw_GONDOLA_1934_SLAG_wagon, random_bits % 2) {
                     1: sg_GONDOLA_1934_SLAG_black;
                     sg_GONDOLA_1934_SLAG_brown;
-                }           
+                }
+
+        // NARROW_BOXCAR
+            spriteset(set_NARROW_BOXCAR_purchase, "./Korean_Early_Train_Set/gfx/wagon/boxcar/NARROW_BOXCAR.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_NARROW_BOXCAR_running_1, "./Korean_Early_Train_Set/gfx/wagon/boxcar/NARROW_BOXCAR.png") {
+                tmpl_narrow_vehicle(80, 0)
+            }
+
+            spriteset(set_NARROW_BOXCAR_running_2, "./Korean_Early_Train_Set/gfx/wagon/boxcar/NARROW_BOXCAR.png") {
+                tmpl_narrow_vehicle(80, 30)
+            }
+
+            spriteset(set_NARROW_BOXCAR_empty_1, "./Korean_Early_Train_Set/gfx/wagon/boxcar/NARROW_BOXCAR.png") {
+                tmpl_narrow_vehicle(80, 60)
+            }
+
+            spriteset(set_NARROW_BOXCAR_empty_2, "./Korean_Early_Train_Set/gfx/wagon/boxcar/NARROW_BOXCAR.png") {
+                tmpl_narrow_vehicle(80, 90)
+            }
+
+            spriteset(set_NARROW_BOXCAR_full_1, "./Korean_Early_Train_Set/gfx/wagon/boxcar/NARROW_BOXCAR.png") {
+                tmpl_narrow_vehicle(80, 120)
+            }
+
+            spriteset(set_NARROW_BOXCAR_full_2, "./Korean_Early_Train_Set/gfx/wagon/boxcar/NARROW_BOXCAR.png") {
+                tmpl_narrow_vehicle(80, 150)
+            }
+
+            spritegroup sg_NARROW_BOXCAR_wagon_1 {
+                    loading: [
+                        set_NARROW_BOXCAR_empty_1,
+                        set_NARROW_BOXCAR_full_1,
+                        set_NARROW_BOXCAR_running_1
+                    ];
+                    loaded: [
+                        set_NARROW_BOXCAR_running_1
+                    ];
+                }
+
+            spritegroup sg_NARROW_BOXCAR_wagon_2 {
+                    loading: [
+                        set_NARROW_BOXCAR_empty_2,
+                        set_NARROW_BOXCAR_full_2,
+                        set_NARROW_BOXCAR_running_2
+                    ];
+                    loaded: [
+                        set_NARROW_BOXCAR_running_2
+                    ];
+                }  
+
+            switch(FEAT_TRAINS, SELF, sw_NARROW_BOXCAR_wagon, random_bits % 2) {
+                1: sg_NARROW_BOXCAR_wagon_1;
+                sg_NARROW_BOXCAR_wagon_2;
+            }          
 
         // BOXCAR_1899
             spriteset(set_BOXCAR_1899_purchase, "./Korean_Early_Train_Set/gfx/wagon/boxcar/BOXCAR_1899.png") {
@@ -4167,6 +5549,57 @@
             }
 
 // Items
+    // Narrow Gauge Locomotives
+        // HOKEY7
+            item(FEAT_TRAINS, ko_HOKEY7, 5201) {
+                property {
+                    // Common properties
+                    name:                           string(STR_HOKEY7_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1952, 1, 1);
+                    track_type:                     KRNR;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          50*(para_speed_power)/2+1 km/h;
+                    power:                          400*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         42.95 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    4;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_HOKEY7_engine;
+                    articulated_part:               sw_HOKEY7_articulated_part;
+                    purchase:                       set_HOKEY7_purchase;
+                    length:                         sw_HOKEY7_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_HOKEY7);
+                }
+            }
+
     // Locomotives
         // MOGA
             item(FEAT_TRAINS, ko_MOGA, 5211) {
@@ -4366,7 +5799,7 @@
 
                     // Spec
                     speed:                          95*(para_speed_power)/2+1 km/h;
-                    power:                          500*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    power:                          588*(para_speed_power)/2*(para_speed_power)/2 kW;
                     weight:                         119.6 ton;
                     tractive_effort_coefficient:    0.2;
                     air_drag_coefficient:           0.01;
@@ -4399,6 +5832,55 @@
                     length:                         sw_TEOU1_length;
                     visual_effect_and_powered:      sw_steam_visual_effect;
                     additional_text:                string(STR_ADDITIONAL_TEOU1);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_TEOU4, 5244) {
+                property {
+                    // Common properties
+                    name:                           string(STR_TEOU4_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1911, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          95*(para_speed_power)/2+1 km/h;
+                    power:                          588*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         111.4 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_TEOU4_engine;
+                    articulated_part:               sw_TEOU4_articulated_part;
+                    purchase:                       set_TEOU4_purchase;
+                    length:                         sw_TEOU4_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_TEOU4);
                 }
             }
 
@@ -4500,7 +5982,101 @@
                 }
             }
 
+        // BALTIC
+            item(FEAT_TRAINS, ko_BALTIC, 5261) {
+                property {
+                    // Common properties
+                    name:                           string(STR_BALTIC_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1913, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         7;
+
+                    // Spec
+                    speed:                          75*(para_speed_power)/2+1 km/h;
+                    power:                          650*(para_speed_power)/2*(para_speed_power)/2 kW; 
+                    weight:                         150 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_BALTIC_engine_motion;
+                    purchase:                       set_BALTIC_purchase;
+                    additional_text:                string(STR_ADDITIONAL_BALTIC);
+                }
+            }
+
         // MIKA
+            item(FEAT_TRAINS, ko_MIKA1, 5271) {
+                property {
+                    // Common properties
+                    name:                           string(STR_MIKA1_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1919, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          70*(para_speed_power)/2+1 km/h;
+                    power:                          872*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         147.3 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw2_MIKA1_engine;
+                    articulated_part:               sw_MIKA1_articulated_part;
+                    purchase:                       set_MIKA1_purchase;
+                    length:                         sw_MIKA1_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_MIKA1);
+                }
+            }
+
             item(FEAT_TRAINS, ko_MIKA3, 5301) {
                 property {
                     // Common properties
@@ -4550,6 +6126,104 @@
                 }
             }
 
+            item(FEAT_TRAINS, ko_MIKA4, 5274) {
+                property {
+                    // Common properties
+                    name:                           string(STR_MIKA4_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1939, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          70*(para_speed_power)/2+1 km/h;
+                    power:                          938*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         146.7 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_MIKA4_engine;
+                    articulated_part:               sw_MIKA4_articulated_part;
+                    purchase:                       set_MIKA4_purchase;
+                    length:                         sw_MIKA4_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_MIKA4);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_MIKA5, 5275) {
+                property {
+                    // Common properties
+                    name:                           string(STR_MIKA5_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1947, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          80*(para_speed_power)/2+1 km/h;
+                    power:                          1152*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         174.9 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_MIKA5_engine;
+                    articulated_part:               sw_MIKA5_articulated_part;
+                    purchase:                       set_MIKA5_purchase;
+                    length:                         sw_MIKA5_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_MIKA5);
+                }
+            }
+
             item(FEAT_TRAINS, ko_MIKA7, 5277) {
                 property {
                     // Common properties
@@ -4596,6 +6270,55 @@
                     length:                         sw_MIKA7_length;
                     visual_effect_and_powered:      sw_steam_visual_effect;
                     additional_text:                string(STR_ADDITIONAL_MIKA7);
+                }
+            }
+
+            item(FEAT_TRAINS, ko_901, 5278) {
+                property {
+                    // Common properties
+                    name:                           string(STR_901_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1994, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_STEAM;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          80*(para_speed_power)/2+1 km/h;
+                    power:                          1103*(para_speed_power)/2*(para_speed_power)/2 kW; // same with D51 class from JapanSet3:trains
+                    weight:                         142 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_STEAM;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+                }
+       
+                graphics {
+                    default:                        sw_901_engine;
+                    articulated_part:               sw_901_articulated_part;
+                    purchase:                       set_901_purchase;
+                    length:                         sw_901_length;
+                    visual_effect_and_powered:      sw_steam_visual_effect;
+                    additional_text:                string(STR_ADDITIONAL_901);
                 }
             }
 
@@ -4842,7 +6565,56 @@
                 }
             }
 
-    // Passenger Cars
+    // Diesel
+        // Narrow 
+            item(FEAT_TRAINS, ko_NARROW_DIESEL, 5522) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_NARROW_DIESEL);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1965, 1, 1);
+                    track_type:                     KRNR;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    speed:                          50*(para_speed_power)/2+1 km/h;
+                    power:                          149*(para_speed_power)/2*(para_speed_power)/2 kW;
+                    weight:                         21 ton;
+                    tractive_effort_coefficient:    0.2;
+                    air_drag_coefficient:           0.01;
+                    length:                         6;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 90;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    4;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                    visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+                }
+
+                graphics {
+                    default:                        sw_NARROW_DIESEL_engine;
+                    purchase:                       set_NARROW_DIESEL_purchase;
+
+                    cargo_subtype_text:             sw_NARROW_DIESEL_wagon_cargo_subtype_text;
+                    additional_text:                string(STR_ADDITIONAL_NARROW_DIESEL);
+                }
+            }
+
+    // Passenger Wagons
         // Wooden
             item(FEAT_TRAINS, ko_PASS_EARLY_WOODEN, 5321) {
                 property {
@@ -5087,8 +6859,116 @@
                 }
             }
 
+        // Narrow gauge passenger wagons
+            item(FEAT_TRAINS, ko_NARROW_PASS, 5904) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_NARROW_PASS);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1952, 1, 1);
+                    track_type:                     KRNR;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    speed:                          70*(para_speed_power)/2+1 km/h;
+                    weight:                         14 ton;
+                    length:                         6;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 88;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    40;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            32;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_NARROW_PASS_wagon;
+                    purchase:                       set_NARROW_PASS_purchase;
+
+                    cargo_subtype_text:             sw_NARROW_PASS_wagon_cargo_subtype_text;
+                    additional_text:                string(STR_ADDITIONAL_NARROW_PASS);
+                }
+            }
+
     // Cargo
         // FLATCAR
+            item(FEAT_TRAINS, ko_NARROW_FLATCAR, 5507) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_NARROW_FLATCAR);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1899, 1, 1);
+                    track_type:                     KRNR;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         3;
+
+                    // Spec
+                    speed:                          50*(para_speed_power)/2+1 km/h;
+                    weight:                         8 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 15;
+                    cargo_allow_refit:              // TTD
+                                                    [GRAI, WOOD,
+                                                    // TTD FANTASY
+                                                     BATT, BUBL, FZDR, SUGR,
+                                                    // FIRS 4.15.1
+                                                     BDMT, BEAN, CMNT, ENSP, FERT, FMSP, JAVA, QLME, SALT, SASH, WDPR];
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    refit_cost:                     1;
+                    running_cost_factor:            32;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_CARGO;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    GRAI:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    SUGR:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    BDMT:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    BEAN:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    CMNT:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    FERT:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    JAVA:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    QLME:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    SALT:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    SASH:                           sg_NARROW_FLATCAR_GRAI_wagon;
+                    WOOD:                           sw_NARROW_FLATCAR_WOOD_wagon;
+                    BATT:                           sg_NARROW_FLATCAR_BATT_wagon;
+                    BUBL:                           sg_NARROW_FLATCAR_BUBL_wagon;
+                    FZDR:                           sw_NARROW_FLATCAR_FZDR_wagon;
+                    ENSP:                           sw_NARROW_FLATCAR_ENSP_wagon;
+                    FMSP:                           sw_NARROW_FLATCAR_FMSP_wagon;
+                    WDPR:                           sw_NARROW_FLATCAR_WDPR_wagon;                    
+
+                    default:                        set_NARROW_FLATCAR_empty;
+                    purchase:                       set_NARROW_FLATCAR_purchase;
+                }
+            }
+
             item(FEAT_TRAINS, ko_FLATCAR_1915, 5352) {
                 property {
                     // Common properties
@@ -5122,7 +7002,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5191,7 +7071,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5228,6 +7108,92 @@
             }
 
         // Gondola
+            item(FEAT_TRAINS, ko_NARROW_GONDOLA, 5906) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_NARROW_GONDOLA);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1899, 1, 1);
+                    track_type:                     KRNR;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         3;
+
+                    // Spec
+                    speed:                          50*(para_speed_power)/2+1 km/h;
+                    weight:                         8 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 15;
+                    cargo_allow_refit:              // TTD
+                                                    [COAL, GRAI, IORE, WHEA, FRUT, MAIZ, CORE, SUGR,
+                                                    // TTD FANTASY
+                                                     CTCD, TOFF,
+                                                    // FIRS 4.15.1
+                                                     AORE, BEAN, CBLK, CLAY, CMNT, CSTI, FECR, FICR, GRVL, PEAT, PHOS, PORE, POTA, SAND, SCMT, SULP, CASS, COKE, MNO2, NUTS, 
+                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG];
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    refit_cost:                     1;
+                    running_cost_factor:            32;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_CARGO;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    COAL:                           sg_NARROW_GONDOLA_COAL_wagon;
+                    CBLK:                           sg_NARROW_GONDOLA_COAL_wagon;
+                    CSTI:                           sg_NARROW_GONDOLA_COAL_wagon;
+                    GRAI:                           sg_NARROW_GONDOLA_GRAI_wagon;
+                    WHEA:                           sg_NARROW_GONDOLA_GRAI_wagon;
+                    MAIZ:                           sg_NARROW_GONDOLA_GRAI_wagon;
+                    SULP:                           sg_NARROW_GONDOLA_GRAI_wagon;
+                    IORE:                           sg_NARROW_GONDOLA_IORE_wagon;
+                    AORE:                           sg_NARROW_GONDOLA_IORE_wagon;                    
+                    FRUT:                           sg_NARROW_GONDOLA_FRUT_wagon;
+                    SGBT:                           sg_NARROW_GONDOLA_FRUT_wagon;
+                    CORE:                           sg_NARROW_GONDOLA_CORE_wagon;                    
+                    SGCN:                           sg_NARROW_GONDOLA_CORE_wagon;
+                    SUGR:                           sg_NARROW_GONDOLA_SUGR_wagon;
+                    SALT:                           sg_NARROW_GONDOLA_SUGR_wagon;
+                    SASH:                           sg_NARROW_GONDOLA_SUGR_wagon;
+                    CTCD:                           sg_NARROW_GONDOLA_CTCD_wagon;
+                    TOFF:                           sg_NARROW_GONDOLA_TOFF_wagon;
+                    BEAN:                           sg_NARROW_GONDOLA_BEAN_wagon;
+                    NUTS:                           sg_NARROW_GONDOLA_BEAN_wagon;
+                    CLAY:                           sg_NARROW_GONDOLA_BEAN_wagon;
+                    CMNT:                           sg_NARROW_GONDOLA_CMNT_wagon;
+                    FECR:                           sg_NARROW_GONDOLA_CMNT_wagon;
+                    MNO2:                           sg_NARROW_GONDOLA_CMNT_wagon;                    
+                    COKE:                           sg_NARROW_GONDOLA_CMNT_wagon;
+                    FICR:                           sg_NARROW_GONDOLA_FICR_wagon;                    
+                    QLME:                           sg_NARROW_GONDOLA_FICR_wagon;
+                    GRVL:                           sg_NARROW_GONDOLA_GRVL_wagon;
+                    PEAT:                           sg_NARROW_GONDOLA_PEAT_wagon;
+                    PHOS:                           sg_NARROW_GONDOLA_PHOS_wagon;
+                    PORE:                           sg_NARROW_GONDOLA_PORE_wagon;
+                    NITR:                           sg_NARROW_GONDOLA_PORE_wagon;
+                    POTA:                           sg_NARROW_GONDOLA_POTA_wagon;                    
+                    SAND:                           sg_NARROW_GONDOLA_SAND_wagon;                    
+                    SCMT:                           sg_NARROW_GONDOLA_SCMT_wagon;
+                    RCYC:                           sg_NARROW_GONDOLA_SCMT_wagon;
+                    CASS:                           sg_NARROW_GONDOLA_CASS_wagon;
+                    SLAG:                           sg_NARROW_GONDOLA_SLAG_wagon;
+
+                    default:                        set_NARROW_GONDOLA_empty;
+                    purchase:                       set_NARROW_GONDOLA_purchase;
+                }
+            }
+
             item(FEAT_TRAINS, ko_GONDOLA_1899, 5361) {
                 property {
                     // Common properties
@@ -5262,7 +7228,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5348,7 +7314,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            48;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5434,7 +7400,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5483,10 +7449,61 @@
 
                     default:                        sw_GONDOLA_1934_wagon;
                     purchase:                       set_GONDOLA_1934_purchase;
+                    additional_text:                string(STR_ADDITIONAL_GONDOLA_1934);
                 }
             }
 
         // Boxcar
+            item(FEAT_TRAINS, ko_NARROW_BOXCAR, 5905) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_NARROW_BOXCAR);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1899, 1, 1);
+                    track_type:                     KRNR;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         3;
+
+                    // Spec
+                    speed:                          50*(para_speed_power)/2+1 km/h;
+                    weight:                         8 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 15;
+                    cargo_allow_refit:              // TTD 
+                                                    [LVST, GOOD, VALU, PAPR, WHEA, FOOD, GOLD, RUBR, FRUT, MAIZ, DIAM, SUGR, 
+                                                    // TOYS
+                                                     BATT, CTCD, FZDR, PLST, SWET, TOFF, TOYS,
+                                                    // FIRS 4.15.1
+                                                     BDMT, BEAN, BEER, BOOM, CBLK, CLAY, CMNT, COPR, CSTI, CTAR, ENSP, FECR, FERT, FICR, FISH, FMSP, JAVA, KAOL, MILK, PEAT,
+                                                     PETR, PHOS, POTA, RFPR, SAND, SCMT, SULP, TYRE, VEHI, WDPR, WOOL, ZINC, ACID, ALUM, CASS, CHLO, COAT, EOIL, LYE_, MNSP,
+                                                     NH3_, NUTS, NITR, POWR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, SOAP, STSH, STWR, VBOD, VENG, VPTS,
+
+                                                     PLAS];
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    refit_cost:                     1;
+                    running_cost_factor:            32;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_CARGO;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_NARROW_BOXCAR_wagon;
+                    purchase:                       set_NARROW_BOXCAR_purchase;
+                }
+            }
+
             item(FEAT_TRAINS, ko_BOXCAR_1899, 5371) {
                 property {
                     // Common properties
@@ -5524,7 +7541,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5560,7 +7577,7 @@
                     // Cargo
                     cargo_capacity:                 30;
                     cargo_allow_refit:              // TTD 
-                                                    [MAIL, LVST, GOOD, VALU, PAPR, WHEA, FOOD, GOLD, RUBR, FRUT, MAIZ, DIAM, SUGR, 
+                                                    [LVST, GOOD, VALU, PAPR, WHEA, FOOD, GOLD, RUBR, FRUT, MAIZ, DIAM, SUGR, 
                                                     // TOYS
                                                      BATT, CTCD, FZDR, PLST, SWET, TOFF, TOYS,
                                                     // FIRS 4.15.1
@@ -5574,7 +7591,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            48;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5584,6 +7601,7 @@
                 graphics {
                     default:                        sw_BOXCAR_1921_wagon;
                     purchase:                       set_BOXCAR_1921_purchase;
+                    additional_text:                string(STR_ADDITIONAL_BOXCAR_1921);
                 }
             }
 
@@ -5610,7 +7628,7 @@
                     // Cargo
                     cargo_capacity:                 30;
                     cargo_allow_refit:              // TTD 
-                                                    [MAIL, LVST, GOOD, VALU, PAPR, WHEA, FOOD, GOLD, RUBR, FRUT, MAIZ, DIAM, SUGR, 
+                                                    [LVST, GOOD, VALU, PAPR, WHEA, FOOD, GOLD, RUBR, FRUT, MAIZ, DIAM, SUGR, 
                                                     // TTD FANTASY
                                                      BATT, CTCD, FZDR, PLST, SWET, TOFF, TOYS,
                                                     // FIRS 4.15.1
@@ -5624,7 +7642,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5634,6 +7652,7 @@
                 graphics {
                     default:                        sw_BOXCAR_1941_wagon;
                     purchase:                       set_BOXCAR_1941_purchase;
+                    additional_text:                string(STR_ADDITIONAL_BOXCAR_1941);
                 }
             }
 
@@ -5672,7 +7691,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5718,7 +7737,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            48;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5763,7 +7782,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5810,7 +7829,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5856,7 +7875,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            64;
+                    running_cost_factor:            56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -5871,21 +7890,30 @@
 
 // Sort
     sort(FEAT_TRAINS, [
+        ko_HOKEY7,                                  // 5201
+        ko_NARROW_DIESEL,                           // 5522       
         ko_MOGA,                                    // 5211
         ko_PUREO1,                                  // 5221
         ko_PUREO8,                                  // 5228
         ko_SORI2,                                   // 5232
         ko_TEOU1,                                   // 5241
+        ko_TEOU4,                                   // 5244
         ko_TEOU5,                                   // 5245
         ko_TEOU6,                                   // 5246
+        ko_BALTIC,                                  // 5261
+        ko_MIKA1,                                   // 5271
         ko_MIKA3,                                   // 5301
+        ko_MIKA4,                                   // 5274
+        ko_MIKA5,                                   // 5275
         ko_MIKA7,                                   // 5277
         ko_PASHI4,                                  // 5284
         ko_PASHI5,                                  // 5302   
         ko_SATA,                                    // 5291
         ko_MATEO1,                                  // 5311
         ko_MATEO2,                                  // 5303
+        ko_901,                                     // 5278
 
+        ko_NARROW_PASS,                             // 5904
         ko_PASS_EARLY_WOODEN,                       // 5321
         ko_PASS_MIDDLE_WOODEN,                      // 5322        
         ko_PASS_LATER_WOODEN,                       // 5323
@@ -5893,6 +7921,9 @@
         ko_PASS_SEMI_STEEL,                         // 5325
         ko_PASS_LIGHTWEIGHT,                        // 5331
 
+        ko_NARROW_FLATCAR,                          // 5907
+        ko_NARROW_GONDOLA,                          // 5906
+        ko_NARROW_BOXCAR,                           // 5905
         ko_FLATCAR_1915,                            // 5352
         ko_FLATCAR_1937,                            // 5353
         ko_GONDOLA_1899,                            // 5361

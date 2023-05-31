@@ -1,35 +1,55 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                      :Korean Early Train Set beta1.1.0
-STR_GRF_DESC                                      :Korean Early Train Set inclues train vehicles which are used in Korean Peninsula from Empire of Korea to early Republic of Korea. It's WORK IN PROGRESS.
+STR_GRF_NAME                                      :Korean Early Train Set 1.0.0
+STR_GRF_DESC                                      :Korean Early Train Set includes train vehicles which are used in Korean Peninsula from Empire of Korea to early Republic of Korea. It's WORK IN PROGRESS. {}{BLACK}Inspired by: {SILVER}JapanSet3: Trains, Korean Train Set
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 
 # Parameters
 STR_PARA_NAME_SPEED_POWER                         :Max speed & power multiplier
 STR_PARA_DESC_SPEED_POWER                         :Set max speed and power of all trains.
-
 STR_PARA_OPT_1                                    :x1 (default)
 STR_PARA_OPT_1_5                                  :x1.5
 STR_PARA_OPT_2                                    :x2
 
+# Tracks
+STR_NARROW_762_NAME                               :762mm Narrow Gauge Tracks
+STR_NARROW_762_DROPDOWN_MENU                      :762mm Narrow Gauge Track Construction
+STR_NARROW_762_TOOLBAR_CAPTION                    :762mm Narrow Gauge Track Construction
+STR_NARROW_762_BUILD_VEHICLE_CAPTION              :New 762mm Narrow Gauge Vehicles
+STR_NARROW_762_NEW_ENGINE                         :762mm Narrow Gauge Vehicle
+STR_NARROW_762_AUTOREPLACE                        :762mm Narrow Gauge Vehicles
+
 # Engines
-STR_MOGA_NAME                                     :Moga1 Class Steam Locomotive
-STR_PUREO1_NAME                                   :Pureo1 Class Steam Locomotive
-STR_PUREO8_NAME                                   :Pureo8 Class Steam Locomotive
-STR_SORI2_NAME                                    :Sori2 Class Steam Locomotive
-STR_TEOU1_NAME                                    :Teou1~2 Class Steam Locomotive
-STR_TEOU5_NAME                                    :Teou5 Class Steam Locomotive
-STR_TEOU6_NAME                                    :Teou6 Class Steam Locomotive
-STR_MIKA3_NAME                                    :Mika3 Class Steam Locomotive
-STR_MIKA7_NAME                                    :Mika7 Class Steam Locomotive
-STR_PASHI4_NAME                                   :Pashi1~4 Class Steam Locomotive
-STR_PASHI5_NAME                                   :Pashi5 Class Steam Locomotive
-STR_SATA_NAME                                     :Sata1 Class Steam Locomotive
-STR_MATEO1_NAME                                   :Mateo1 Class Steam Locomotive
-STR_MATEO2_NAME                                   :Mateo2 Class Steam Locomotive
+STR_HOKEY7_NAME                                   :Hokey7
+STR_NAME_NARROW_DIESEL                            :Narrow gauge Diesel Car
+STR_MOGA_NAME                                     :Moga1
+STR_PUREO1_NAME                                   :Pureo1
+STR_PUREO8_NAME                                   :Pureo8
+STR_SORI2_NAME                                    :Sori2
+STR_TEOU1_NAME                                    :Teou1~2
+STR_TEOU4_NAME                                    :Teou3~4
+STR_TEOU5_NAME                                    :Teou5
+STR_TEOU6_NAME                                    :Teou6
+STR_BALTIC_NAME                                   :Baltic1
+STR_MIKA1_NAME                                    :Mika1~2, and Mika6
+STR_MIKA3_NAME                                    :Mika3
+STR_MIKA4_NAME                                    :Mika4
+STR_MIKA5_NAME                                    :Mika5
+STR_MIKA7_NAME                                    :Mika7
+STR_PASHI4_NAME                                   :Pashi1~4
+STR_PASHI5_NAME                                   :Pashi5
+STR_SATA_NAME                                     :Sata1
+STR_MATEO1_NAME                                   :Mateo1
+STR_MATEO2_NAME                                   :Mateo2
+STR_901_NAME                                      :#901
 
 # Passenger Wagons
+STR_NAME_NARROW_PASS                              :Narrow Gauge Passenger Coach
+STR_NARROW_EARLY                                  : (Early livery)
+STR_NARROW_DC_TRAILER                             : (Diesel car trailer livery: 1965~)
+STR_NARROW_BLUE                                   : (Bidulgi class livery: 1974~)
+STR_NARROW_GREEN                                  : (Bidulgi class livery: 1994~)
 STR_NAME_PASS_EARLY_WOODEN                        :Early Wooden Passenger Coach
 STR_NAME_PASS_MIDDLE_WOODEN                       :Wooden Passenger Coach
 STR_NAME_PASS_LATER_WOODEN                        :Later Wooden Passenger Coach
@@ -38,6 +58,9 @@ STR_NAME_PASS_SEMI_STEEL                          :Semi-Steel Passenger Coach
 STR_NAME_PASS_LIGHTWEIGHT                         :Semi_Steel Lightweight Coach
 
 # Cargo Wagons
+STR_NAME_NARROW_FLATCAR                           :Narrow gauge Flatcar
+STR_NAME_NARROW_GONDOLA                           :Narrow gauge Gondola
+STR_NAME_NARROW_BOXCAR                            :Narrow gauge Boxcar
 STR_NAME_FLATCAR_1915                             :Flatcar
 STR_NAME_FLATCAR_1937                             :Flatcar
 STR_NAME_GONDOLA_1899                             :Gondola
@@ -53,26 +76,39 @@ STR_NAME_TANK_CAR_1907                            :Tank Car
 STR_NAME_TANK_CAR_1945                            :Tank Car
 
 # Additional Text
-STR_ADDITIONAL_MOGA                               :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel Arrangement: {GOLD}2-6-0  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
-STR_ADDITIONAL_PUREO1                             :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}2-6-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
-STR_ADDITIONAL_PUREO8                             :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}2-6-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_HOKEY7                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {GOLD}Narrow gauge trains 
+STR_ADDITIONAL_MOGA                               :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel Arrangement: {GOLD}2-6-0  {}{BLACK}Usage: {BLUE}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_PUREO1                             :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}2-6-2  {}{BLACK}Usage: {BLUE}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_PUREO8                             :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}2-6-2  {}{BLACK}Usage: {BLUE}Passengers {BLACK}or {RED}Freight
 STR_ADDITIONAL_SORI2                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-0  {}{BLACK}Usage: {RED}Freight
 STR_ADDITIONAL_TEOU1                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
+STR_ADDITIONAL_TEOU4                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_TEOU5                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_TEOU6                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-0  {}{BLACK}Usage: {BLUE}Passengers
-STR_ADDITIONAL_MIKA3                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {GREEN}Passengers {BLACK}or {RED}Freight
-STR_ADDITIONAL_MIKA7                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {RED}Freight {}{BLACK}Original: {GOLD}JNR Class D51
+STR_ADDITIONAL_BALTIC                             :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}4-6-4  {}{BLACK}Usage: {GREEN}Passengers
+STR_ADDITIONAL_MIKA1                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {BLUE}Passengers {BLACK}or {RED}Freight {}{BLACK}Feature: {GOLD}Mika1,2, and Mika6 {GREEN}(Random Refitting)
+STR_ADDITIONAL_MIKA3                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {BLUE}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_MIKA4                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {BLUE}Passengers {BLACK}or {RED}Freight
+STR_ADDITIONAL_MIKA5                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {RED}Freight
+STR_ADDITIONAL_MIKA7                              :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {RED}Heavy freight {}{BLACK}Original: {GOLD}JNR D51
 STR_ADDITIONAL_PASHI4                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Passengers
-STR_ADDITIONAL_PASHI5                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Express Passengers
+STR_ADDITIONAL_PASHI5                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-6-2  {}{BLACK}Usage: {BLUE}Express passengers
 STR_ADDITIONAL_SATA                               :{BLACK}Type: {GOLD}Tank   {}{BLACK}Wheel arrangement: {GOLD}2-10-2 {}{BLACK}Usage: {RED}Freight
 STR_ADDITIONAL_MATEO1                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-8-2  {}{BLACK}Usage: {RED}Freight
-STR_ADDITIONAL_MATEO2                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-8-2  {}{BLACK}Usage: {RED}Heavy Freight
+STR_ADDITIONAL_MATEO2                             :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}4-8-2  {}{BLACK}Usage: {RED}Heavy freight
+STR_ADDITIONAL_901                                :{BLACK}Type: {GOLD}Tender {}{BLACK}Wheel arrangement: {GOLD}2-8-2  {}{BLACK}Usage: {GREEN}Excursion {}{BLACK}Original: {GOLD}China Railways SY
+
+STR_ADDITIONAL_NARROW_PASS                        :{BLACK}Usage: {BLUE}Narrow gauge passengers {}{BLACK}Feature: {GOLD}Brown (Early livery), Brown (Diesel car trailer livery: 1965~), Blue (Bidulgi class livery: 1974~) {GREEN}(refittable)
+STR_ADDITIONAL_NARROW_DIESEL                      :{BLACK}Usage: {BLUE}Narrow gauge passengers {}{BLACK}Feature: {GOLD}Brown (Diesel car trailer livery: 1965~), Blue (Bidulgi class livery: 1974~), Green and Yellow (Bidulgi class livery: 1994~) {GREEN}(refittable)
 STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}Usage: {BLUE}Passengers
 STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}Usage: {BLUE}passengers
 STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN            :{BLACK}Usage: {BLUE}passengers
 STR_ADDITIONAL_PASS_SEMI_STEEL                    :{BLACK}Usage: {BLUE}passengers
-STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}Usage: {BLUE}Express passengers{}{BLACK}Feature: {GREEN}Some will be turned into a dining car and the last will be turned into an observation car
+STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}Usage: {BLUE}Express passengers {}{BLACK}Feature: {GOLD}Some will be turned into a dining car and the last will be turned into an observation car {GREEN}(random refitting)
+STR_ADDITIONAL_GONDOLA_1934                       :{BLACK}Feature: {GREEN}Random liveries
+STR_ADDITIONAL_BOXCAR_1921                        :{BLACK}Feature: {GREEN}Random liveries
+STR_ADDITIONAL_BOXCAR_1941                        :{BLACK}Feature: {GREEN}Random liveries
 
 # Error Text
 STR_ERROR_KTS                                     :{YELLOW}Notice: {SILVER}Korean Early Train Set is recommended to be loaded after Korean Train Set.

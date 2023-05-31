@@ -1,36 +1,56 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME                                      :한국 초기 열차 세트 beta1.1.0
-STR_GRF_DESC                                      :이 GRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. 
+STR_GRF_NAME                                      :한국 초기 열차 세트 1.0.0
+STR_GRF_DESC                                      :이 NewGRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. 
 
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 
 # Parameters
 STR_PARA_NAME_SPEED_POWER                         :최고속력과 출력 계수
 STR_PARA_DESC_SPEED_POWER                         :모든 열차의 최고속력과 출력을 설정합니다. 출력은 설정한 값의 x2만큼 더 커집니다.
-
 STR_PARA_OPT_1                                    :x1 (기본값)
 STR_PARA_OPT_1_5                                  :x1.5
 STR_PARA_OPT_2                                    :x2
 
+# Tracks
+STR_NARROW_762_NAME                               :762mm 협궤 선로
+STR_NARROW_762_DROPDOWN_MENU                      :762mm 협궤 선로 건설
+STR_NARROW_762_TOOLBAR_CAPTION                    :762mm 협궤 선로 건설
+STR_NARROW_762_BUILD_VEHICLE_CAPTION              :새 762mm 협궤 선로 차량
+STR_NARROW_762_NEW_ENGINE                         :762mm 협궤 선로 차량
+STR_NARROW_762_AUTOREPLACE                        :762mm 협궤 선로 차량
+
 # Engines
+STR_HOKEY7_NAME                                   :혀기 7형 증기기관차
+STR_NAME_NARROW_DIESEL                            :협궤 디젤액압동차
 STR_MOGA_NAME                                     :모가형 증기기관차
 STR_PUREO1_NAME                                   :푸러 1형 증기기관차
 STR_PUREO8_NAME                                   :푸러 8형 증기기관차
 STR_SORI2_NAME                                    :소리 2형 증기기관차
-STR_TEOU1_NAME                                    :터우 1~2형 증기기관차
+STR_TEOU1_NAME                                    :터우 1·2형 증기기관차
+STR_TEOU4_NAME                                    :터우 3·4형 증기기관차
 STR_TEOU5_NAME                                    :터우 5형 증기기관차
 STR_TEOU6_NAME                                    :터우 6형 증기기관차
+STR_BALTIC_NAME                                   :발틱형 증기기관차
+STR_MIKA1_NAME                                    :미카 1·2형, 6형 증기기관차
 STR_MIKA3_NAME                                    :미카 3형 증기기관차
+STR_MIKA4_NAME                                    :미카 4형 증기기관차
+STR_MIKA5_NAME                                    :미카 5형 증기기관차
 STR_MIKA7_NAME                                    :미카 7형 증기기관차
 STR_PASHI4_NAME                                   :파시 1~4형 증기기관차
 STR_PASHI5_NAME                                   :파시 5형 증기기관차
 STR_SATA_NAME                                     :사타형 증기기관차
 STR_MATEO1_NAME                                   :마터 1형 증기기관차
 STR_MATEO2_NAME                                   :마터 2형 증기기관차
+STR_901_NAME                                      :901호 증기기관차
 
 # Passenger Wagons
+STR_NAME_NARROW_PASS                              :협궤 객차
+STR_NARROW_EARLY                                  : (초기 도색)
+STR_NARROW_DC_TRAILER                             : (DC동차 부수차 도색: 1965년~)
+STR_NARROW_BLUE                                   : (비둘기호 도색: 1974년~)
+STR_NARROW_GREEN                                  : (비둘기호 도색: 1994년~)
 STR_NAME_PASS_EARLY_WOODEN                        :초기 목제 객차
 STR_NAME_PASS_MIDDLE_WOODEN                       :목제 객차
 STR_NAME_PASS_LATER_WOODEN                        :후기 목제 객차
@@ -39,6 +59,9 @@ STR_NAME_PASS_SEMI_STEEL                          :반강제 객차
 STR_NAME_PASS_LIGHTWEIGHT                         :반강제 경량 객차
 
 # Cargo Wagons
+STR_NAME_NARROW_FLATCAR                           :협궤 무측차
+STR_NAME_NARROW_GONDOLA                           :협궤 무개화차
+STR_NAME_NARROW_BOXCAR                            :협궤 유개화차
 STR_NAME_FLATCAR_1915                             :평판화차
 STR_NAME_FLATCAR_1937                             :평판화차
 STR_NAME_GONDOLA_1899                             :무개화차
@@ -54,26 +77,39 @@ STR_NAME_TANK_CAR_1907                            :유조차
 STR_NAME_TANK_CAR_1945                            :유조차
 
 # Additional Text
+STR_ADDITIONAL_HOKEY7                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2  {}{BLACK}용도: {GOLD}협궤 철도 
 STR_ADDITIONAL_MOGA                               :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}2-6-0  {}{BLACK}용도: {GREEN}객화겸용 
 STR_ADDITIONAL_PUREO1                             :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}2-6-2  {}{BLACK}용도: {GREEN}객화겸용
 STR_ADDITIONAL_PUREO8                             :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}2-6-2  {}{BLACK}용도: {GREEN}객화겸용
 STR_ADDITIONAL_SORI2                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-0  {}{BLACK}용도: {RED}화물
 STR_ADDITIONAL_TEOU1                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-0  {}{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_TEOU4                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-0  {}{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_TEOU5                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-0  {}{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_TEOU6                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-0  {}{BLACK}용도: {BLUE}여객
+STR_ADDITIONAL_BALTIC                             :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}4-6-4  {}{BLACK}용도: {GREEN}여객
+STR_ADDITIONAL_MIKA1                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2  {}{BLACK}용도: {GREEN}객화겸용 {}{BLACK}특성: {GOLD}미카 1·2형과 미카 6형 {GREEN}(랜덤 차량)
 STR_ADDITIONAL_MIKA3                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2  {}{BLACK}용도: {GREEN}객화겸용
-STR_ADDITIONAL_MIKA7                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2  {}{BLACK}용도: {RED}화물 {}{BLACK}원형: {GOLD}일본국유철도 D51형
+STR_ADDITIONAL_MIKA4                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2  {}{BLACK}용도: {GREEN}객화겸용
+STR_ADDITIONAL_MIKA5                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2  {}{BLACK}용도: {RED}화물
+STR_ADDITIONAL_MIKA7                              :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2  {}{BLACK}용도: {RED}중량 화물 {}{BLACK}원형: {GOLD}일본국유철도 D51형
 STR_ADDITIONAL_PASHI4                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-2  {}{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASHI5                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-6-2  {}{BLACK}용도: {BLUE}특급 여객
 STR_ADDITIONAL_SATA                               :{BLACK}구분: {GOLD}탱크형 {}{BLACK}차륜 배치: {GOLD}2-10-2 {}{BLACK}용도: {RED}화물
 STR_ADDITIONAL_MATEO1                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-8-2  {}{BLACK}용도: {RED}화물
 STR_ADDITIONAL_MATEO2                             :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}4-8-2  {}{BLACK}용도: {RED}중량 화물
+STR_ADDITIONAL_901                                :{BLACK}구분: {GOLD}텐더형 {}{BLACK}차륜 배치: {GOLD}2-8-2  {}{BLACK}용도: {GREEN}관광 {}{BLACK}원형: {GOLD}중국국유철도 상유형
+
+STR_ADDITIONAL_NARROW_PASS                        :{BLACK}용도: {BLUE}협궤 여객 {}{BLACK}특성: {GOLD}갈색 (초기 도색), 갈색 (DC동차 부수차 도색 ~1965년), 파란색 (비둘기호 도색 ~1974년) {GREEN}(도색 개조)
+STR_ADDITIONAL_NARROW_DIESEL                      :{BLACK}용도: {BLUE}협궤 여객 {}{BLACK}특성: {GOLD}갈색 (DC동차 부수차 도색 ~1965년), 파란색 (비둘기호 도색 ~1974년), 초록색·노란색 (비둘기호 도색 ~1994년) {GREEN}(도색 개조)
 STR_ADDITIONAL_PASS_EARLY_WOODEN                  :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_MIDDLE_WOODEN                 :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_LATER_WOODEN                  :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_STEEL_FRAME_WOODEN            :{BLACK}용도: {BLUE}여객
 STR_ADDITIONAL_PASS_SEMI_STEEL                    :{BLACK}용도: {BLUE}여객
-STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}용도: {BLUE}특급 여객{}{BLACK}특성: {GREEN}일부 차량은 식당차로, 맨 끝 차량은 전망차로 변함
+STR_ADDITIONAL_PASS_LIGHTWEIGHT                   :{BLACK}용도: {BLUE}특급 여객 {}{BLACK}특성: {GOLD}일부 차량은 식당차로, 맨 끝 차량은 전망차로 변함 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_GONDOLA_1934                       :{BLACK}특성: {GREEN}랜덤 도색
+STR_ADDITIONAL_BOXCAR_1921                        :{BLACK}특성: {GREEN}랜덤 도색
+STR_ADDITIONAL_BOXCAR_1941                        :{BLACK}특성: {GREEN}랜덤 도색
 
 # Error Text
 STR_ERROR_KTS                                     :{YELLOW}알림: {SILVER}한국 초기 열차 세트는 한국 열차 세트보다 뒤/아래에 배치할 것을 권장합니다.
