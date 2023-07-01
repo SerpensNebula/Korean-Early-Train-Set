@@ -1,10 +1,9 @@
-
     grf {
         grfid                              :"KETS"; 
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :230531;
+        version                            :230701;
         min_compatible_version             :230507;
 
         // Parameters
@@ -1402,20 +1401,20 @@
             }
 
         // Lightweight
-            spriteset(set_PASS_LIGHTWEIGHT_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
-                tmpl_purchase(0, 0)
+            spriteset(set_PASS_LIGHTWEIGHT_purchase, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_purchase(320, 0)
             }
 
-            spriteset(set_PASS_LIGHTWEIGHT_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
-                tmpl_vehicle(80, 0)
+            spriteset(set_PASS_LIGHTWEIGHT_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(400, 0)
             }
 
-            spriteset(set_PASS_LIGHTWEIGHT_DINING_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
-                tmpl_vehicle(80, 30)
+            spriteset(set_PASS_LIGHTWEIGHT_DINING_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(400, 30)
             }
 
-            spriteset(set_PASS_LIGHTWEIGHT_OBSERVATION_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS_LIGHTWEIGHT.png") {
-                tmpl_vehicle(80, 60)
+            spriteset(set_PASS_LIGHTWEIGHT_OBSERVATION_wagon, "./Korean_Early_Train_Set/gfx/wagon/pass/PASS.png") {
+                tmpl_vehicle(400, 60)
             }
 
             switch(FEAT_TRAINS, SELF, sw_PASS_LIGHTWEIGHT_GENERAL_wagon, random_bits % 5) {  
@@ -6286,7 +6285,7 @@
 
                     // Spec
                     speed:                          80*(para_speed_power)/2+1 km/h;
-                    power:                          1103*(para_speed_power)/2*(para_speed_power)/2 kW; // same with D51 class from JapanSet3:trains
+                    power:                          1103*(para_speed_power)/2*(para_speed_power)/2 kW;
                     weight:                         142 ton;
                     tractive_effort_coefficient:    0.2;
                     air_drag_coefficient:           0.01;
@@ -6643,7 +6642,7 @@
                     // Costs
                     cost_factor:                    80;
                     running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            40;
+                    running_cost_factor:            0; // 40
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6683,7 +6682,7 @@
                     // Costs
                     cost_factor:                    80;
                     running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            48;
+                    running_cost_factor:            0; // 48
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6723,7 +6722,7 @@
                     // Costs
                     cost_factor:                    80;
                     running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            56;
+                    running_cost_factor:            0; // 56
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6737,7 +6736,7 @@
                 }
             }
 
-        // Semi-steel
+        // Semi_steel
             item(FEAT_TRAINS, ko_PASS_STEEL_FRAME_WOODEN, 5324) {
                 property {
                     // Common properties
@@ -6764,7 +6763,7 @@
                     // Costs
                     cost_factor:                    80;
                     running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            64;
+                    running_cost_factor:            0; // 64
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6804,7 +6803,7 @@
                     // Costs
                     cost_factor:                    80;
                     running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            64;
+                    running_cost_factor:            0; // 64
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6845,7 +6844,7 @@
                     // Costs
                     cost_factor:                    80;
                     running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            64;
+                    running_cost_factor:            0; // 64
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6887,7 +6886,7 @@
                     // Costs
                     cost_factor:                    40;
                     running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            32;
+                    running_cost_factor:            0; // 32
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6938,7 +6937,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            32;
+                    running_cost_factor:            0; // 32
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7002,7 +7001,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            40;
+                    running_cost_factor:            0; // 40
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7071,7 +7070,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            56;
+                    running_cost_factor:            0; // 56
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7142,7 +7141,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            32;
+                    running_cost_factor:            0; // 32
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7228,7 +7227,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            40;
+                    running_cost_factor:            0; // 40
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7314,7 +7313,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            48;
+                    running_cost_factor:            0; // 48
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7400,7 +7399,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            56;
+                    running_cost_factor:            0; // 56
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7491,7 +7490,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            32;
+                    running_cost_factor:            0; // 32
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7541,7 +7540,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            40;
+                    running_cost_factor:            0; // 40
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7591,7 +7590,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            48;
+                    running_cost_factor:            0; // 48
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7642,7 +7641,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            56;
+                    running_cost_factor:            0; // 56
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7691,7 +7690,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            40;
+                    running_cost_factor:            0; // 40
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7737,7 +7736,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            48;
+                    running_cost_factor:            0; // 48
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7782,7 +7781,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            56;
+                    running_cost_factor:            0; // 56
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7829,7 +7828,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            40;
+                    running_cost_factor:            0; // 40
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7875,7 +7874,7 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            56;
+                    running_cost_factor:            0; // 56
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7942,6 +7941,3 @@
 // Disable and override vehicles
     // override
         engine_override("K\45\54\53", "TK\55\55");
-
-// Errors
-    error(NOTICE, string(STR_ERROR_KTS));
