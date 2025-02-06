@@ -3,7 +3,7 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :230701;
+        version                            :250205;
         min_compatible_version             :230507;
 
         // Parameters
@@ -54,22 +54,22 @@
     }
 
     template tmpl_vehicle(x, y) {
-        [x,      y,     8,    25,    -3,  -14] // ↑
+        [x,      y,     8,    26,    -3,  -14] // ↑
         [x+20,   y,    21,    20,   -14,  -11] // ↗
         [x+50,   y,    32,    15,   -16,  -11] // →
         [x+90,   y,    21,    20,    -7,  -12] // ↘
-        [x+120,  y,     8,    25,    -3,  -14] // ↓
+        [x+120,  y,     8,    26,    -3,  -14] // ↓
         [x+140,  y,    21,    20,   -14,  -11] // ↙
         [x+170,  y,    32,    15,   -16,  -11] // ←
         [x+210,  y,    21,    20,    -7,  -12] // ↖
     }
 
     template tmpl_narrow_vehicle(x, y) {
-        [x,      y,     8,    25,    -3,  -16] // ↑
+        [x,      y,     8,    26,    -3,  -16] // ↑
         [x+20,   y,    21,    20,   -15,  -12] // ↗
         [x+50,   y,    32,    15,   -16,  -11] // →
         [x+90,   y,    21,    20,    -5,  -12] // ↘
-        [x+120,  y,     8,    25,    -3,  -16] // ↓
+        [x+120,  y,     8,    26,    -3,  -16] // ↓
         [x+140,  y,    21,    20,   -14,  -12] // ↙
         [x+170,  y,    32,    15,   -14,  -11] // ←
         [x+210,  y,    21,    20,    -4,  -12] // ↖
@@ -1213,7 +1213,7 @@
                 set_SATA_engine_4;
             }
 
-        //  MATEO1
+        // MATEO1
             spriteset(set_MATEO1_purchase, "./Korean_Early_Train_Set/gfx/loco/MATEO.png") {
                 tmpl_purchase(0, 0)
             }
@@ -1474,17 +1474,21 @@
                     tmpl_purchase(0, 0)
                 }
 
-                spriteset(set_NARROW_FLATCAR_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                spriteset(set_NARROW_FLATCAR_safetyline_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
                     tmpl_narrow_vehicle(80, 0)
+                }
+
+                spriteset(set_NARROW_FLATCAR_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 30)
                 }
 
             // GRAI
                 spriteset(set_NARROW_FLATCAR_GRAI_half, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 30)
+                    tmpl_narrow_vehicle(80, 60)
                 }
 
                 spriteset(set_NARROW_FLATCAR_GRAI_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 60)
+                    tmpl_narrow_vehicle(80, 90)
                 }
 
                 spritegroup sg_NARROW_FLATCAR_GRAI_wagon {
@@ -1502,25 +1506,25 @@
 
             // WOOD
                 spriteset(set_NARROW_FLATCAR_WOOD_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 90)
-                }
-
-                spriteset(set_NARROW_FLATCAR_WOOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
                     tmpl_narrow_vehicle(80, 120)
                 }
 
-                spriteset(set_NARROW_FLATCAR_WOOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                spriteset(set_NARROW_FLATCAR_WOOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
                     tmpl_narrow_vehicle(80, 150)
+                }
+
+                spriteset(set_NARROW_FLATCAR_WOOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 180)
                 }
 
                 spritegroup sg_NARROW_FLATCAR_WOOD_1 {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_WOOD_half_1,
                         set_NARROW_FLATCAR_WOOD_full
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_WOOD_half_1,
                         set_NARROW_FLATCAR_WOOD_full
                     ];
@@ -1528,12 +1532,12 @@
 
                 spritegroup sg_NARROW_FLATCAR_WOOD_2 {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_WOOD_half_2,
                         set_NARROW_FLATCAR_WOOD_full
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_WOOD_half_2,
                         set_NARROW_FLATCAR_WOOD_full
                     ];
@@ -1546,7 +1550,7 @@
 
             // BATT
                 spriteset(set_NARROW_FLATCAR_BATT_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 180)
+                    tmpl_narrow_vehicle(80, 210)
                 }
 
                 spritegroup sg_NARROW_FLATCAR_BATT_wagon {
@@ -1561,28 +1565,56 @@
                 } 
 
             // BUBL
-                spriteset(set_NARROW_FLATCAR_BUBL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 210)
+                spriteset(set_NARROW_FLATCAR_BUBL_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 240)
                 }
 
-                spritegroup sg_NARROW_FLATCAR_BUBL_wagon {
+                spriteset(set_NARROW_FLATCAR_BUBL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 270)
+                }
+
+                spriteset(set_NARROW_FLATCAR_BUBL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
+                    tmpl_narrow_vehicle(80, 300)
+                }
+
+                spritegroup sg_NARROW_FLATCAR_BUBL_1_wagon {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
+                        set_NARROW_FLATCAR_BUBL_half_1,
                         set_NARROW_FLATCAR_BUBL_full
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
+                        set_NARROW_FLATCAR_BUBL_half_1,
                         set_NARROW_FLATCAR_BUBL_full
                     ];
                 } 
 
+                spritegroup sg_NARROW_FLATCAR_BUBL_2_wagon {
+                    loading: [
+                        set_NARROW_FLATCAR_safetyline_empty,
+                        set_NARROW_FLATCAR_BUBL_half_2,
+                        set_NARROW_FLATCAR_BUBL_full
+                    ];
+                    loaded: [
+                        set_NARROW_FLATCAR_safetyline_empty,
+                        set_NARROW_FLATCAR_BUBL_half_2,
+                        set_NARROW_FLATCAR_BUBL_full
+                    ];
+                } 
+
+                switch(FEAT_TRAINS, SELF, sw_NARROW_FLATCAR_BUBL_wagon, random_bits % 2) {
+                    1: sg_NARROW_FLATCAR_BUBL_1_wagon;
+                    sg_NARROW_FLATCAR_BUBL_2_wagon;
+                }
+
             // FZDR
                 spriteset(set_NARROW_FLATCAR_FZDR_green_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 240)
+                    tmpl_narrow_vehicle(80, 330)
                 }
 
                 spriteset(set_NARROW_FLATCAR_FZDR_red_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 270)
+                    tmpl_narrow_vehicle(80, 360)
                 }
 
                 spritegroup sg_NARROW_FLATCAR_FZDR_green {
@@ -1615,31 +1647,31 @@
 
             // ENSP
                 spriteset(set_NARROW_FLATCAR_ENSP_full_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 300)
+                    tmpl_narrow_vehicle(80, 390)
                 }
 
                 spriteset(set_NARROW_FLATCAR_ENSP_full_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 330)
+                    tmpl_narrow_vehicle(80, 420)
                 }
 
                 spritegroup sg_NARROW_FLATCAR_ENSP_1 {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_ENSP_full_1
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_ENSP_full_1
                     ];
                 }
 
                 spritegroup sg_NARROW_FLATCAR_ENSP_2 {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_ENSP_full_2
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_ENSP_full_2
                     ];
                 }  
@@ -1650,33 +1682,32 @@
                 }
 
             // FMSP
-                // FMSP
                 spriteset(set_NARROW_FLATCAR_FMSP_full_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 360)
+                    tmpl_narrow_vehicle(80, 450)
                 }
 
                 spriteset(set_NARROW_FLATCAR_FMSP_full_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 390)
+                    tmpl_narrow_vehicle(80, 480)
                 }
 
                 spritegroup sg_NARROW_FLATCAR_FMSP_1 {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_FMSP_full_1
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_FMSP_full_1
                     ];
                 }
 
                 spritegroup sg_NARROW_FLATCAR_FMSP_2 {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_FMSP_full_2
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_FMSP_full_2
                     ];
                 }  
@@ -1688,25 +1719,25 @@
 
             // WDPR
                 spriteset(set_NARROW_FLATCAR_WDPR_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 420)
+                    tmpl_narrow_vehicle(80, 510)
                 }
 
                 spriteset(set_NARROW_FLATCAR_WDPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 450)
+                    tmpl_narrow_vehicle(80, 540)
                 }
 
                 spriteset(set_NARROW_FLATCAR_WDPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/NARROW_FLATCAR.png") {
-                    tmpl_narrow_vehicle(80, 480)
+                    tmpl_narrow_vehicle(80, 570)
                 }
 
                 spritegroup sg_NARROW_FLATCAR_WDPR_1 {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_WDPR_half_1,
                         set_NARROW_FLATCAR_WDPR_full
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_WDPR_half_1,
                         set_NARROW_FLATCAR_WDPR_full
                     ];
@@ -1714,12 +1745,12 @@
 
                 spritegroup sg_NARROW_FLATCAR_WDPR_2 {
                     loading: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_WDPR_half_2,
                         set_NARROW_FLATCAR_WDPR_full
                     ];
                     loaded: [
-                        set_NARROW_FLATCAR_empty,
+                        set_NARROW_FLATCAR_safetyline_empty,
                         set_NARROW_FLATCAR_WDPR_half_2,
                         set_NARROW_FLATCAR_WDPR_full
                     ];
@@ -1736,31 +1767,35 @@
                     tmpl_purchase(0, 0)
                 }
 
-                spriteset(set_FLATCAR_1915_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_safetybar_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 0)
+                }
+
+                spriteset(set_FLATCAR_1915_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 30)
                 }
 
             // WOOD
                 spriteset(set_FLATCAR_1915_WOOD_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 30)
-                }
-
-                spriteset(set_FLATCAR_1915_WOOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 60)
                 }
 
-                spriteset(set_FLATCAR_1915_WOOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_WOOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 90)
+                }
+
+                spriteset(set_FLATCAR_1915_WOOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 120)
                 }
 
                 spritegroup sg_FLATCAR_1915_WOOD_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_WOOD_half_1,
                         set_FLATCAR_1915_WOOD_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_WOOD_half_1,
                         set_FLATCAR_1915_WOOD_full
                     ];
@@ -1768,12 +1803,12 @@
 
                 spritegroup sg_FLATCAR_1915_WOOD_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_WOOD_half_2,
                         set_FLATCAR_1915_WOOD_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_WOOD_half_2,
                         set_FLATCAR_1915_WOOD_full
                     ];
@@ -1786,15 +1821,15 @@
 
             // STEL
                 spriteset(set_FLATCAR_1915_STEL_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 120)
-                }
-
-                spriteset(set_FLATCAR_1915_STEL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 150)
                 }
 
-                spriteset(set_FLATCAR_1915_STEL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_STEL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 180)
+                }
+
+                spriteset(set_FLATCAR_1915_STEL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 210)
                 }
 
                 spritegroup sg_FLATCAR_1915_STEL_1 {
@@ -1830,15 +1865,15 @@
 
             // PAPR
                 spriteset(set_FLATCAR_1915_PAPR_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 210)
-                }
-
-                spriteset(set_FLATCAR_1915_PAPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 240)
                 }
 
-                spriteset(set_FLATCAR_1915_PAPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_PAPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 270)
+                }
+
+                spriteset(set_FLATCAR_1915_PAPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 300)
                 }
 
                 spritegroup sg_FLATCAR_1915_PAPR_1 {
@@ -1874,15 +1909,15 @@
 
             // BATT
                 spriteset(set_FLATCAR_1915_BATT_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 300)
-                }
-
-                spriteset(set_FLATCAR_1915_BATT_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 330)
                 }
 
-                spriteset(set_FLATCAR_1915_BATT_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_BATT_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 360)
+                }
+
+                spriteset(set_FLATCAR_1915_BATT_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 390)
                 }
 
                 spritegroup sg_FLATCAR_1915_BATT_1 {
@@ -1918,25 +1953,25 @@
 
             // BUBL
                 spriteset(set_FLATCAR_1915_BUBL_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 390)
-                }
-
-                spriteset(set_FLATCAR_1915_BUBL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 420)
                 }
 
-                spriteset(set_FLATCAR_1915_BUBL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_BUBL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 450)
+                }
+
+                spriteset(set_FLATCAR_1915_BUBL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 480)
                 }
 
                 spritegroup sg_FLATCAR_1915_BUBL_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_BUBL_half_1,
                         set_FLATCAR_1915_BUBL_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_BUBL_half_1,
                         set_FLATCAR_1915_BUBL_full
                     ];
@@ -1944,12 +1979,12 @@
 
                 spritegroup sg_FLATCAR_1915_BUBL_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_BUBL_half_2,
                         set_FLATCAR_1915_BUBL_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_BUBL_half_2,
                         set_FLATCAR_1915_BUBL_full
                     ];
@@ -1962,37 +1997,37 @@
 
             // FZDR
                 spriteset(set_FLATCAR_1915_FZDR_green_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 480)
-                }
-
-                spriteset(set_FLATCAR_1915_FZDR_green_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 510)
                 }
 
-                spriteset(set_FLATCAR_1915_FZDR_green_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_FZDR_green_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 540)
                 }
 
-                spriteset(set_FLATCAR_1915_FZDR_red_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_FZDR_green_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 570)
                 }
 
-                spriteset(set_FLATCAR_1915_FZDR_red_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_FZDR_red_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 600)
                 }
 
-                spriteset(set_FLATCAR_1915_FZDR_red_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_FZDR_red_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 630)
+                }
+
+                spriteset(set_FLATCAR_1915_FZDR_red_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 660)
                 }
 
                 spritegroup sg_FLATCAR_1915_FZDR_green_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FZDR_green_half_1,
                         set_FLATCAR_1915_FZDR_green_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FZDR_green_half_1,
                         set_FLATCAR_1915_FZDR_green_full
                     ];
@@ -2000,12 +2035,12 @@
 
                 spritegroup sg_FLATCAR_1915_FZDR_green_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FZDR_green_half_2,
                         set_FLATCAR_1915_FZDR_green_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FZDR_green_half_2,
                         set_FLATCAR_1915_FZDR_green_full
                     ];
@@ -2013,12 +2048,12 @@
 
                 spritegroup sg_FLATCAR_1915_FZDR_red_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FZDR_red_half_1,
                         set_FLATCAR_1915_FZDR_red_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FZDR_red_half_1,
                         set_FLATCAR_1915_FZDR_red_full
                     ];
@@ -2026,12 +2061,12 @@
 
                 spritegroup sg_FLATCAR_1915_FZDR_red_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FZDR_red_half_2,
                         set_FLATCAR_1915_FZDR_red_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FZDR_red_half_2,
                         set_FLATCAR_1915_FZDR_red_full
                     ];
@@ -2046,15 +2081,15 @@
 
             // COPR
                 spriteset(set_FLATCAR_1915_COPR_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 660)
-                }
-
-                spriteset(set_FLATCAR_1915_COPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 690)
                 }
 
-                spriteset(set_FLATCAR_1915_COPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_COPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 720)
+                }
+
+                spriteset(set_FLATCAR_1915_COPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 750)
                 }
 
                 spritegroup sg_FLATCAR_1915_COPR_1 {
@@ -2090,31 +2125,31 @@
 
             // ENSP
                 spriteset(set_FLATCAR_1915_ENSP_full_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 750)
+                    tmpl_vehicle(80, 780)
                 }
 
                 spriteset(set_FLATCAR_1915_ENSP_full_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 780)
+                    tmpl_vehicle(80, 810)
                 }
 
                 spritegroup sg_FLATCAR_1915_ENSP_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_ENSP_full_1
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_ENSP_full_1
                     ];
                 }
 
                 spritegroup sg_FLATCAR_1915_ENSP_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_ENSP_full_2
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_ENSP_full_2
                     ];
                 }  
@@ -2127,31 +2162,31 @@
             // FMSP
                 // FMSP
                 spriteset(set_FLATCAR_1915_FMSP_full_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 810)
+                    tmpl_vehicle(80, 840)
                 }
 
                 spriteset(set_FLATCAR_1915_FMSP_full_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 840)
+                    tmpl_vehicle(80, 870)
                 }
 
                 spritegroup sg_FLATCAR_1915_FMSP_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FMSP_full_1
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FMSP_full_1
                     ];
                 }
 
                 spritegroup sg_FLATCAR_1915_FMSP_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FMSP_full_2
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_FMSP_full_2
                     ];
                 }  
@@ -2163,37 +2198,37 @@
 
             // VEHI
                 spriteset(set_FLATCAR_1915_VEHI_white_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 870)
-                }
-
-                spriteset(set_FLATCAR_1915_VEHI_white_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 900)
                 }
 
-                spriteset(set_FLATCAR_1915_VEHI_white_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_VEHI_white_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 930)
                 }
 
-                spriteset(set_FLATCAR_1915_VEHI_black_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_VEHI_white_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 960)
                 }
 
-                spriteset(set_FLATCAR_1915_VEHI_black_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_VEHI_black_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 990)
                 }
 
-                spriteset(set_FLATCAR_1915_VEHI_black_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_VEHI_black_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 1020)
+                }
+
+                spriteset(set_FLATCAR_1915_VEHI_black_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 1050)
                 }
 
                 spritegroup sg_FLATCAR_1915_VEHI_white_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VEHI_white_half_1,
                         set_FLATCAR_1915_VEHI_white_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VEHI_white_half_1,
                         set_FLATCAR_1915_VEHI_white_full
                     ];
@@ -2201,12 +2236,12 @@
 
                 spritegroup sg_FLATCAR_1915_VEHI_white_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VEHI_white_half_2,
                         set_FLATCAR_1915_VEHI_white_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VEHI_white_half_2,
                         set_FLATCAR_1915_VEHI_white_full
                     ];
@@ -2214,12 +2249,12 @@
 
                 spritegroup sg_FLATCAR_1915_VEHI_black_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VEHI_black_half_1,
                         set_FLATCAR_1915_VEHI_black_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VEHI_black_half_1,
                         set_FLATCAR_1915_VEHI_black_full
                     ];
@@ -2227,12 +2262,12 @@
 
                 spritegroup sg_FLATCAR_1915_VEHI_black_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VEHI_black_half_2,
                         set_FLATCAR_1915_VEHI_black_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VEHI_black_half_2,
                         set_FLATCAR_1915_VEHI_black_full
                     ];
@@ -2247,25 +2282,25 @@
 
             // WDPR
                 spriteset(set_FLATCAR_1915_WDPR_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 1050)
-                }
-
-                spriteset(set_FLATCAR_1915_WDPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 1080)
                 }
 
-                spriteset(set_FLATCAR_1915_WDPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_WDPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 1110)
+                }
+
+                spriteset(set_FLATCAR_1915_WDPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 1140)
                 }
 
                 spritegroup sg_FLATCAR_1915_WDPR_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_WDPR_half_1,
                         set_FLATCAR_1915_WDPR_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_WDPR_half_1,
                         set_FLATCAR_1915_WDPR_full
                     ];
@@ -2273,12 +2308,12 @@
 
                 spritegroup sg_FLATCAR_1915_WDPR_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_WDPR_half_2,
                         set_FLATCAR_1915_WDPR_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_WDPR_half_2,
                         set_FLATCAR_1915_WDPR_full
                     ];
@@ -2291,25 +2326,25 @@
 
             // PIPE
                 spriteset(set_FLATCAR_1915_PIPE_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 1140)
-                }
-
-                spriteset(set_FLATCAR_1915_PIPE_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 1170)
                 }
 
-                spriteset(set_FLATCAR_1915_PIPE_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_PIPE_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 1200)
+                }
+
+                spriteset(set_FLATCAR_1915_PIPE_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 1230)
                 }
 
                 spritegroup sg_FLATCAR_1915_PIPE_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_PIPE_half_1,
                         set_FLATCAR_1915_PIPE_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_PIPE_half_1,
                         set_FLATCAR_1915_PIPE_full
                     ];
@@ -2317,12 +2352,12 @@
 
                 spritegroup sg_FLATCAR_1915_PIPE_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_PIPE_half_2,
                         set_FLATCAR_1915_PIPE_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_PIPE_half_2,
                         set_FLATCAR_1915_PIPE_full
                     ];
@@ -2335,25 +2370,25 @@
 
             // VBOD
                 spriteset(set_FLATCAR_1915_VBOD_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
-                    tmpl_vehicle(80, 1230)
-                }
-
-                spriteset(set_FLATCAR_1915_VBOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 1260)
                 }
 
-                spriteset(set_FLATCAR_1915_VBOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                spriteset(set_FLATCAR_1915_VBOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
                     tmpl_vehicle(80, 1290)
+                }
+
+                spriteset(set_FLATCAR_1915_VBOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1915.png") {
+                    tmpl_vehicle(80, 1320)
                 }
 
                 spritegroup sg_FLATCAR_1915_VBOD_1 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VBOD_half_1,
                         set_FLATCAR_1915_VBOD_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VBOD_half_1,
                         set_FLATCAR_1915_VBOD_full
                     ];
@@ -2361,12 +2396,12 @@
 
                 spritegroup sg_FLATCAR_1915_VBOD_2 {
                     loading: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VBOD_half_2,
                         set_FLATCAR_1915_VBOD_full
                     ];
                     loaded: [
-                        set_FLATCAR_1915_empty,
+                        set_FLATCAR_1915_safetybar_empty,
                         set_FLATCAR_1915_VBOD_half_2,
                         set_FLATCAR_1915_VBOD_full
                     ];
@@ -2383,31 +2418,35 @@
                     tmpl_purchase(0, 0)
                 }
 
-                spriteset(set_FLATCAR_1937_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_safetyline_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 0)
+                }
+
+                spriteset(set_FLATCAR_1937_empty, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 30)
                 }
 
             // WOOD
                 spriteset(set_FLATCAR_1937_WOOD_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 30)
-                }
-
-                spriteset(set_FLATCAR_1937_WOOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 60)
                 }
 
-                spriteset(set_FLATCAR_1937_WOOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_WOOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 90)
+                }
+
+                spriteset(set_FLATCAR_1937_WOOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 120)
                 }
 
                 spritegroup sg_FLATCAR_1937_WOOD_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_WOOD_half_1,
                         set_FLATCAR_1937_WOOD_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_WOOD_half_1,
                         set_FLATCAR_1937_WOOD_full
                     ];
@@ -2415,12 +2454,12 @@
 
                 spritegroup sg_FLATCAR_1937_WOOD_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_WOOD_half_2,
                         set_FLATCAR_1937_WOOD_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_WOOD_half_2,
                         set_FLATCAR_1937_WOOD_full
                     ];
@@ -2433,15 +2472,15 @@
 
             // STEL
                 spriteset(set_FLATCAR_1937_STEL_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 120)
-                }
-
-                spriteset(set_FLATCAR_1937_STEL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 150)
                 }
 
-                spriteset(set_FLATCAR_1937_STEL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_STEL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 180)
+                }
+
+                spriteset(set_FLATCAR_1937_STEL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 210)
                 }
 
                 spritegroup sg_FLATCAR_1937_STEL_1 {
@@ -2477,15 +2516,15 @@
 
             // PAPR
                 spriteset(set_FLATCAR_1937_PAPR_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 210)
-                }
-
-                spriteset(set_FLATCAR_1937_PAPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 240)
                 }
 
-                spriteset(set_FLATCAR_1937_PAPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_PAPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 270)
+                }
+
+                spriteset(set_FLATCAR_1937_PAPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 300)
                 }
 
                 spritegroup sg_FLATCAR_1937_PAPR_1 {
@@ -2521,15 +2560,15 @@
 
             // BATT
                 spriteset(set_FLATCAR_1937_BATT_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 300)
-                }
-
-                spriteset(set_FLATCAR_1937_BATT_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 330)
                 }
 
-                spriteset(set_FLATCAR_1937_BATT_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_BATT_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 360)
+                }
+
+                spriteset(set_FLATCAR_1937_BATT_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 390)
                 }
 
                 spritegroup sg_FLATCAR_1937_BATT_1 {
@@ -2565,25 +2604,25 @@
 
             // BUBL
                 spriteset(set_FLATCAR_1937_BUBL_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 390)
-                }
-
-                spriteset(set_FLATCAR_1937_BUBL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 420)
                 }
 
-                spriteset(set_FLATCAR_1937_BUBL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_BUBL_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 450)
+                }
+
+                spriteset(set_FLATCAR_1937_BUBL_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 480)
                 }
 
                 spritegroup sg_FLATCAR_1937_BUBL_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_BUBL_half_1,
                         set_FLATCAR_1937_BUBL_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_BUBL_half_1,
                         set_FLATCAR_1937_BUBL_full
                     ];
@@ -2591,12 +2630,12 @@
 
                 spritegroup sg_FLATCAR_1937_BUBL_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_BUBL_half_2,
                         set_FLATCAR_1937_BUBL_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_BUBL_half_2,
                         set_FLATCAR_1937_BUBL_full
                     ];
@@ -2609,27 +2648,27 @@
 
             // FZDR
                 spriteset(set_FLATCAR_1937_FZDR_green_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 480)
-                }
-
-                spriteset(set_FLATCAR_1937_FZDR_green_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 510)
                 }
 
-                spriteset(set_FLATCAR_1937_FZDR_green_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_FZDR_green_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 540)
                 }
 
-                spriteset(set_FLATCAR_1937_FZDR_red_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_FZDR_green_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 570)
                 }
 
-                spriteset(set_FLATCAR_1937_FZDR_red_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_FZDR_red_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 600)
                 }
 
-                spriteset(set_FLATCAR_1937_FZDR_red_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_FZDR_red_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 630)
+                }
+
+                spriteset(set_FLATCAR_1937_FZDR_red_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 660)
                 }
 
                 spritegroup sg_FLATCAR_1937_FZDR_green_1 {
@@ -2693,15 +2732,15 @@
 
             // COPR
                 spriteset(set_FLATCAR_1937_COPR_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 660)
-                }
-
-                spriteset(set_FLATCAR_1937_COPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 690)
                 }
 
-                spriteset(set_FLATCAR_1937_COPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_COPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 720)
+                }
+
+                spriteset(set_FLATCAR_1937_COPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 750)
                 }
 
                 spritegroup sg_FLATCAR_1937_COPR_1 {
@@ -2737,31 +2776,31 @@
 
             // ENSP
                 spriteset(set_FLATCAR_1937_ENSP_full_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 750)
+                    tmpl_vehicle(80, 780)
                 }
 
                 spriteset(set_FLATCAR_1937_ENSP_full_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 780)
+                    tmpl_vehicle(80, 810)
                 }
 
                 spritegroup sg_FLATCAR_1937_ENSP_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_ENSP_full_1
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_ENSP_full_1
                     ];
                 }
 
                 spritegroup sg_FLATCAR_1937_ENSP_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_ENSP_full_2
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_ENSP_full_2
                     ];
                 }  
@@ -2772,33 +2811,32 @@
                 }
 
             // FMSP
-                // FMSP
                 spriteset(set_FLATCAR_1937_FMSP_full_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 810)
+                    tmpl_vehicle(80, 840)
                 }
 
                 spriteset(set_FLATCAR_1937_FMSP_full_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 840)
+                    tmpl_vehicle(80, 870)
                 }
 
                 spritegroup sg_FLATCAR_1937_FMSP_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_FMSP_full_1
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_FMSP_full_1
                     ];
                 }
 
                 spritegroup sg_FLATCAR_1937_FMSP_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_FMSP_full_2
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_FMSP_full_2
                     ];
                 }  
@@ -2810,37 +2848,37 @@
 
             // VEHI
                 spriteset(set_FLATCAR_1937_VEHI_white_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 870)
-                }
-
-                spriteset(set_FLATCAR_1937_VEHI_white_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 900)
                 }
 
-                spriteset(set_FLATCAR_1937_VEHI_white_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_VEHI_white_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 930)
                 }
 
-                spriteset(set_FLATCAR_1937_VEHI_black_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_VEHI_white_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 960)
                 }
 
-                spriteset(set_FLATCAR_1937_VEHI_black_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_VEHI_black_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 990)
                 }
 
-                spriteset(set_FLATCAR_1937_VEHI_black_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_VEHI_black_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 1020)
+                }
+
+                spriteset(set_FLATCAR_1937_VEHI_black_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 1050)
                 }
 
                 spritegroup sg_FLATCAR_1937_VEHI_white_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VEHI_white_half_1,
                         set_FLATCAR_1937_VEHI_white_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VEHI_white_half_1,
                         set_FLATCAR_1937_VEHI_white_full
                     ];
@@ -2848,12 +2886,12 @@
 
                 spritegroup sg_FLATCAR_1937_VEHI_white_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VEHI_white_half_2,
                         set_FLATCAR_1937_VEHI_white_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VEHI_white_half_2,
                         set_FLATCAR_1937_VEHI_white_full
                     ];
@@ -2861,12 +2899,12 @@
 
                 spritegroup sg_FLATCAR_1937_VEHI_black_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VEHI_black_half_1,
                         set_FLATCAR_1937_VEHI_black_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VEHI_black_half_1,
                         set_FLATCAR_1937_VEHI_black_full
                     ];
@@ -2874,12 +2912,12 @@
 
                 spritegroup sg_FLATCAR_1937_VEHI_black_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VEHI_black_half_2,
                         set_FLATCAR_1937_VEHI_black_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VEHI_black_half_2,
                         set_FLATCAR_1937_VEHI_black_full
                     ];
@@ -2894,25 +2932,25 @@
 
             // WDPR
                 spriteset(set_FLATCAR_1937_WDPR_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 1050)
-                }
-
-                spriteset(set_FLATCAR_1937_WDPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 1080)
                 }
 
-                spriteset(set_FLATCAR_1937_WDPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_WDPR_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 1110)
+                }
+
+                spriteset(set_FLATCAR_1937_WDPR_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 1140)
                 }
 
                 spritegroup sg_FLATCAR_1937_WDPR_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_WDPR_half_1,
                         set_FLATCAR_1937_WDPR_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_WDPR_half_1,
                         set_FLATCAR_1937_WDPR_full
                     ];
@@ -2920,12 +2958,12 @@
 
                 spritegroup sg_FLATCAR_1937_WDPR_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_WDPR_half_2,
                         set_FLATCAR_1937_WDPR_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_WDPR_half_2,
                         set_FLATCAR_1937_WDPR_full
                     ];
@@ -2938,25 +2976,25 @@
 
             // PIPE
                 spriteset(set_FLATCAR_1937_PIPE_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 1140)
-                }
-
-                spriteset(set_FLATCAR_1937_PIPE_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 1170)
                 }
 
-                spriteset(set_FLATCAR_1937_PIPE_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_PIPE_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 1200)
+                }
+
+                spriteset(set_FLATCAR_1937_PIPE_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 1230)
                 }
 
                 spritegroup sg_FLATCAR_1937_PIPE_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_PIPE_half_1,
                         set_FLATCAR_1937_PIPE_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_PIPE_half_1,
                         set_FLATCAR_1937_PIPE_full
                     ];
@@ -2964,12 +3002,12 @@
 
                 spritegroup sg_FLATCAR_1937_PIPE_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_PIPE_half_2,
                         set_FLATCAR_1937_PIPE_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_PIPE_half_2,
                         set_FLATCAR_1937_PIPE_full
                     ];
@@ -2982,25 +3020,25 @@
 
             // VBOD
                 spriteset(set_FLATCAR_1937_VBOD_half_1, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
-                    tmpl_vehicle(80, 1230)
-                }
-
-                spriteset(set_FLATCAR_1937_VBOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 1260)
                 }
 
-                spriteset(set_FLATCAR_1937_VBOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                spriteset(set_FLATCAR_1937_VBOD_half_2, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
                     tmpl_vehicle(80, 1290)
+                }
+
+                spriteset(set_FLATCAR_1937_VBOD_full, "./Korean_Early_Train_Set/gfx/wagon/flatcar/FLATCAR_1937.png") {
+                    tmpl_vehicle(80, 1320)
                 }
 
                 spritegroup sg_FLATCAR_1937_VBOD_1 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VBOD_half_1,
                         set_FLATCAR_1937_VBOD_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VBOD_half_1,
                         set_FLATCAR_1937_VBOD_full
                     ];
@@ -3008,12 +3046,12 @@
 
                 spritegroup sg_FLATCAR_1937_VBOD_2 {
                     loading: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VBOD_half_2,
                         set_FLATCAR_1937_VBOD_full
                     ];
                     loaded: [
-                        set_FLATCAR_1937_empty,
+                        set_FLATCAR_1937_safetyline_empty,
                         set_FLATCAR_1937_VBOD_half_2,
                         set_FLATCAR_1937_VBOD_full
                     ];
@@ -5537,7 +5575,6 @@
                 tmpl_vehicle(80, 0)
             }
 
-
         // TANK_CAR_1945
             spriteset(set_TANK_CAR_1945_purchase, "./Korean_Early_Train_Set/gfx/wagon/tank/TANK_CAR.png") {
                 tmpl_purchase(0, 30)
@@ -6641,8 +6678,8 @@
 
                     // Costs
                     cost_factor:                    80;
-                    running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            0; // 40
+                    running_cost_base:              RUNNING_COST_NONE; 
+                    // running_cost_factor:         40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6681,8 +6718,8 @@
 
                     // Costs
                     cost_factor:                    80;
-                    running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            0; // 48
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         48;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6721,8 +6758,8 @@
 
                     // Costs
                     cost_factor:                    80;
-                    running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            0; // 56
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6762,8 +6799,8 @@
 
                     // Costs
                     cost_factor:                    80;
-                    running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            0; // 64
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         64;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6802,8 +6839,8 @@
 
                     // Costs
                     cost_factor:                    80;
-                    running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            0; // 64
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         64;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6843,8 +6880,8 @@
 
                     // Costs
                     cost_factor:                    80;
-                    running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            0; // 64
+                    running_cost_base:              RUNNING_COST_NONE;
+                    //running_cost_factor:          64;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6885,8 +6922,8 @@
 
                     // Costs
                     cost_factor:                    40;
-                    running_cost_base:              RUNNING_COST_DIESEL;
-                    running_cost_factor:            0; // 32
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         32;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_PASSENGER;
@@ -6903,7 +6940,7 @@
             }
 
     // Cargo
-        // FLATCAR
+        // Flatcar
             item(FEAT_TRAINS, ko_NARROW_FLATCAR, 5507) {
                 property {
                     // Common properties
@@ -6937,8 +6974,9 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 32
-
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         32;
+                    
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
                     bitmask_vehicle_info:           0;
@@ -6957,7 +6995,7 @@
                     SASH:                           sg_NARROW_FLATCAR_GRAI_wagon;
                     WOOD:                           sw_NARROW_FLATCAR_WOOD_wagon;
                     BATT:                           sg_NARROW_FLATCAR_BATT_wagon;
-                    BUBL:                           sg_NARROW_FLATCAR_BUBL_wagon;
+                    BUBL:                           sw_NARROW_FLATCAR_BUBL_wagon;
                     FZDR:                           sw_NARROW_FLATCAR_FZDR_wagon;
                     ENSP:                           sw_NARROW_FLATCAR_ENSP_wagon;
                     FMSP:                           sw_NARROW_FLATCAR_FMSP_wagon;
@@ -7001,7 +7039,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 40
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7046,6 +7085,7 @@
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
                     length:                         5;
+                    variant_group:                  ko_FLATCAR_1915;
 
                     // Spec
                     speed:                          90*(para_speed_power)/2+1 km/h;
@@ -7070,7 +7110,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 56
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7141,7 +7182,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 32
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         32;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7227,7 +7269,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 40
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7288,6 +7331,7 @@
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
                     length:                         4;
+                    variant_group:                  ko_GONDOLA_1899;
 
                     // Spec
                     speed:                          70*(para_speed_power)/2+1 km/h;
@@ -7313,7 +7357,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 48
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         48;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7374,6 +7419,7 @@
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
                     length:                         5;
+                    variant_group:                  ko_GONDOLA_1899;
 
                     // Spec
                     speed:                          90*(para_speed_power)/2+1 km/h;
@@ -7399,7 +7445,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 56
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7490,7 +7537,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 32
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         32;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7540,7 +7588,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 40
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7562,6 +7611,7 @@
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
                     length:                         5;
+                    variant_group:                  ko_BOXCAR_1899;
 
                     // Spec
                     speed:                          70*(para_speed_power)/2+1 km/h;
@@ -7590,7 +7640,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 48
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         48;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7613,6 +7664,7 @@
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
                     length:                         6;
+                    variant_group:                  ko_BOXCAR_1899;
 
                     // Spec
                     speed:                          90*(para_speed_power)/2+1 km/h;
@@ -7641,7 +7693,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 56
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7690,7 +7743,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 40
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7711,6 +7765,7 @@
                     introduction_date:              date(1905, 1, 1);
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    variant_group:                  ko_BAGGAGE_CAR_1899;
 
                     // Spec
                     speed:                          80*(para_speed_power)/2+1 km/h;
@@ -7736,7 +7791,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 48
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         48;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7757,6 +7813,7 @@
                     introduction_date:              date(1921, 1, 1);
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    variant_group:                  ko_BAGGAGE_CAR_1899;
 
                     // Spec
                     speed:                          110*(para_speed_power)/2+1 km/h;
@@ -7781,7 +7838,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 56
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7828,7 +7886,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 40
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         40;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;
@@ -7850,6 +7909,7 @@
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
                     length:                         5;
+                    variant_group:                  ko_TANK_CAR_1907;
 
                     // Spec
                     speed:                          90*(para_speed_power)/2+1 km/h;
@@ -7874,7 +7934,8 @@
                     // Costs
                     cost_factor:                    80;
                     refit_cost:                     1;
-                    running_cost_factor:            0; // 56
+                    running_cost_base:              RUNNING_COST_NONE;
+                    // running_cost_factor:         56;
 
                     // Flags
                     ai_special_flag:                AI_FLAG_CARGO;

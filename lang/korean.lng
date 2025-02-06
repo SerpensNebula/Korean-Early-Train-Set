@@ -1,8 +1,8 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME                                      :한국 초기 열차 세트 1.1.0
-STR_GRF_DESC                                      :이 NewGRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. {}{}{YELLOW}한국 초기 열차 세트는 한국 열차 세트보다 뒤/아래에 배치할 것을 권장합니다.
+STR_GRF_NAME                                      :한국 초기 열차 세트 1.1.1
+STR_GRF_DESC                                      :이 NewGRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. {}{}{YELLOW}한국 초기 열차 세트는 한국 열차 세트보다 뒤/아래에 배치할 것을 권장합니다. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 
@@ -59,7 +59,7 @@ STR_NAME_PASS_SEMI_STEEL                          :반강제 객차
 STR_NAME_PASS_LIGHTWEIGHT                         :반강제 경량 객차
 
 # Cargo Wagons
-STR_NAME_NARROW_FLATCAR                           :협궤 무측차
+STR_NAME_NARROW_FLATCAR                           :협궤 평판화차
 STR_NAME_NARROW_GONDOLA                           :협궤 무개화차
 STR_NAME_NARROW_BOXCAR                            :협궤 유개화차
 STR_NAME_FLATCAR_1915                             :평판화차
