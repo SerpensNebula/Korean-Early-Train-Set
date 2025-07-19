@@ -1,7 +1,7 @@
 ##grflangid 0x39
 
 # GRF name and description
-STR_GRF_NAME                                      :韓国初期列車セット1.1.1
+STR_GRF_NAME                                      :韓国初期列車セット1.2.0
 STR_GRF_DESC                                      :このNewGRFは大韓帝国と初期の大韓民国で使用された列車を追加します。　{}{}{YELLOW}韓国初期列車セットは韓国列車セットより下に配置することをお勧めします。　 {}{}{BLACK}ライセンス: {YELLOW}GNU GPL v3
 
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
