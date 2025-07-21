@@ -10,7 +10,7 @@
 한국 초기 열차 세트를 다른 언어로 번역하시려면, 이 Github 프로젝트에 Pull Request를 열어주세요.  
 Pull Request를 열 줄 모르신다면, Issues에 올리셔도 괜찮습니다.
 이 파일을 번역하시면 됩니다:
-- [./lang/english.lng](../lang/english.lng)  
+- [/lang/english.lng](https://github.com/CoconutKR/Korean-Early-Train-Set/blob/main/lang/english.lng)
 
 ## 기여하신 분들
 모든 기여하신 분들의 이름은 이 저장소의 [Contributors](https://github.com/SerpensNebula/Korean-Early-Train-Set/blob/main/contributors.md)에서 볼 수 있습니다.
