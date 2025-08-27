@@ -1,7 +1,7 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                      :Korean Early Train Set 1.2.0
+STR_GRF_NAME                                      :Korean Early Train Set 1.2.1
 STR_GRF_DESC                                      :Korean Early Train Set includes train vehicles which are used in Korean Peninsula from Empire of Korea to early Republic of Korea. It's WORK IN PROGRESS. {}{}{YELLOW}Korean Early Train Set is recommended to be loaded after Korean Train Set. {}{}{BLACK}Inspired by: {SILVER}JapanSet3: Trains, Korean Train Set {}{}{BLACK}License: {SILVER}GNU GPL v3
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
 
