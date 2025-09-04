@@ -3,7 +3,7 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :250205;
+        version                            :250827;
         min_compatible_version             :230507;
 
         // Parameters
@@ -34,14 +34,16 @@
         // Toys
             BATT, BUBL, COLA, CTCD, FZDR, PLST, SWET, TOFF, TOYS,
 
-        // FIRS 4.15.1~ https://grf.farm/firs/4.15.1/html/get_started.html
+        // FIRS 4.15.1~ https://grf.farm/firs/4.15.1/html/code_reference.html
             AORE, BDMT, BEAN, BEER, BOOM, CBLK, CLAY, CMNT, COPR, CSTI, CTAR, ENSP, FECR, FERT, FICR, FISH,
             FMSP, FRVL, GRVL, JAVA, KAOL, MILK, PEAT, PETR, PHOS, PORE, POTA, RFPR, SAND, SCMT, SULP, TYRE,  
             VEHI, WDPR, WOOL, ZINC, ACID, ALUM, CASS, CHLO, COAT, COKE, EOIL, IRON, LYE_, METL, MNO2, MNSP, 
             NH3_, NUTS, NITR, NKOR, O2__, PIPE, POWR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, SOAP, STAL,  
-            STCB, STSE, STSH, STST, STWR, VBOD, VENG, VPTS,
-        
-            PLAS, LIME
+            STCB, STSE, STSH, STST, STWR, VBOD, VENG, VPTS, LIME, PLAS,
+
+        // FIRS 5.0.0-beta-3 https://grf.farm/firs/5.0.0-beta-3/html/code_reference.html
+            STBL, CCPR, FEAL, FOCA, HWAR, STBR, N7__, PPWK, PUMP, RBAR, SEAL, STIG, STPP, STSL, STTB, TYCO,
+            WELD
     }
 
     railtypetable {
@@ -7033,7 +7035,9 @@
                                                     // TTD FANTASY
                                                      BATT, BUBL, FZDR,
                                                     // FIRS 4.15.1
-                                                     COPR, ENSP, FMSP, VEHI, WDPR, ZINC, IRON, METL, PIPE, STAL, STCB, STSE, STSH, STST, STWR, VBOD];
+                                                     COPR, ENSP, FMSP, VEHI, WDPR, ZINC, IRON, METL, PIPE, STAL, STCB, STSE, STSH, STST, STWR, VBOD,
+                                                    // FIRS 5.0.0
+                                                     STBL, STBR, RBAR, STPP, STSL, STTB];
                     loading_speed:                  5;
 
                     // Costs
@@ -7066,9 +7070,15 @@
                     PIPE:                           sw_FLATCAR_1915_PIPE_wagon;
                     STAL:                           sw_FLATCAR_1915_PIPE_wagon;
                     STCB:                           sw_FLATCAR_1915_PIPE_wagon;
-                    STSE:                           sw_FLATCAR_1915_PIPE_wagon;
                     STST:                           sw_FLATCAR_1915_PIPE_wagon;
                     STSH:                           sw_FLATCAR_1915_PIPE_wagon; // 임시
+                    STBL:                           sw_FLATCAR_1915_PIPE_wagon;
+                    STBR:                           sw_FLATCAR_1915_PIPE_wagon;
+                    RBAR:                           sw_FLATCAR_1915_PIPE_wagon;
+                    STPP:                           sw_FLATCAR_1915_PIPE_wagon;
+                    STSL:                           sw_FLATCAR_1915_PIPE_wagon;
+                    STTB:                           sw_FLATCAR_1915_PIPE_wagon;
+                    STSE:                           sw_FLATCAR_1915_PIPE_wagon;
                     VBOD:                           sw_FLATCAR_1915_VBOD_wagon;                    
 
                     default:                        set_FLATCAR_1915_empty;
@@ -7104,7 +7114,9 @@
                                                     // TTD FANTASY
                                                      BATT, BUBL, FZDR,
                                                     // FIRS 4.15.1
-                                                     COPR, ENSP, FMSP, VEHI, WDPR, ZINC, IRON, METL, PIPE, STAL, STCB, STSE, STSH, STST, STWR, VBOD];
+                                                     COPR, ENSP, FMSP, VEHI, WDPR, ZINC, IRON, METL, PIPE, STAL, STCB, STSE, STSH, STST, STWR, VBOD,
+                                                    // FIRS 5.0.0
+                                                     STBL, STBR, RBAR, STPP, STSL, STTB];
                     loading_speed:                  5;
 
                     // Costs
@@ -7137,9 +7149,15 @@
                     PIPE:                           sw_FLATCAR_1937_PIPE_wagon;
                     STAL:                           sw_FLATCAR_1937_PIPE_wagon;
                     STCB:                           sw_FLATCAR_1937_PIPE_wagon;
-                    STSE:                           sw_FLATCAR_1937_PIPE_wagon;
                     STST:                           sw_FLATCAR_1937_PIPE_wagon;
                     STSH:                           sw_FLATCAR_1937_PIPE_wagon;
+                    STBL:                           sw_FLATCAR_1937_PIPE_wagon;
+                    STBR:                           sw_FLATCAR_1937_PIPE_wagon;
+                    RBAR:                           sw_FLATCAR_1937_PIPE_wagon;
+                    STPP:                           sw_FLATCAR_1937_PIPE_wagon;
+                    STSL:                           sw_FLATCAR_1937_PIPE_wagon;
+                    STTB:                           sw_FLATCAR_1937_PIPE_wagon;
+                    STSE:                           sw_FLATCAR_1937_PIPE_wagon;
                     VBOD:                           sw_FLATCAR_1937_VBOD_wagon;
 
                     default:                        set_FLATCAR_1937_empty;
@@ -7176,7 +7194,9 @@
                                                      CTCD, TOFF,
                                                     // FIRS 4.15.1
                                                      AORE, BEAN, CBLK, CLAY, CMNT, CSTI, FECR, FICR, GRVL, PEAT, PHOS, PORE, POTA, SAND, SCMT, SULP, CASS, COKE, MNO2, NUTS, 
-                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG];
+                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, LIME,
+                                                    // FIRS 5.0.0
+                                                     FEAL];
                     loading_speed:                  5;
 
                     // Costs
@@ -7216,6 +7236,7 @@
                     FECR:                           sg_NARROW_GONDOLA_CMNT_wagon;
                     MNO2:                           sg_NARROW_GONDOLA_CMNT_wagon;                    
                     COKE:                           sg_NARROW_GONDOLA_CMNT_wagon;
+                    FEAL:                           sg_NARROW_GONDOLA_CMNT_wagon;
                     FICR:                           sg_NARROW_GONDOLA_FICR_wagon;                    
                     QLME:                           sg_NARROW_GONDOLA_FICR_wagon;
                     GRVL:                           sg_NARROW_GONDOLA_GRVL_wagon;
@@ -7223,6 +7244,7 @@
                     PHOS:                           sg_NARROW_GONDOLA_PHOS_wagon;
                     PORE:                           sg_NARROW_GONDOLA_PORE_wagon;
                     NITR:                           sg_NARROW_GONDOLA_PORE_wagon;
+                    LIME:                           sg_NARROW_GONDOLA_PORE_wagon;
                     POTA:                           sg_NARROW_GONDOLA_POTA_wagon;                    
                     SAND:                           sg_NARROW_GONDOLA_SAND_wagon;                    
                     SCMT:                           sg_NARROW_GONDOLA_SCMT_wagon;
@@ -7263,7 +7285,9 @@
                                                      CTCD, TOFF,
                                                     // FIRS 4.15.1
                                                      AORE, BEAN, CBLK, CLAY, CMNT, CSTI, FECR, FICR, GRVL, PEAT, PHOS, PORE, POTA, SAND, SCMT, SULP, CASS, COKE, MNO2, NUTS, 
-                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG];
+                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, LIME,
+                                                    // FIRS 5.0.0
+                                                     FEAL];
                     loading_speed:                  5;
 
                     // Costs
@@ -7302,7 +7326,8 @@
                     CMNT:                           sg_GONDOLA_1899_CMNT_wagon;
                     FECR:                           sg_GONDOLA_1899_CMNT_wagon;
                     MNO2:                           sg_GONDOLA_1899_CMNT_wagon;                    
-                    COKE:                           sg_GONDOLA_1899_CMNT_wagon;
+                    COKE:                           sg_GONDOLA_1899_CMNT_wagon;                    
+                    FEAL:                           sg_GONDOLA_1899_CMNT_wagon;
                     FICR:                           sg_GONDOLA_1899_FICR_wagon;                    
                     QLME:                           sg_GONDOLA_1899_FICR_wagon;
                     GRVL:                           sg_GONDOLA_1899_GRVL_wagon;
@@ -7310,6 +7335,7 @@
                     PHOS:                           sg_GONDOLA_1899_PHOS_wagon;
                     PORE:                           sg_GONDOLA_1899_PORE_wagon;
                     NITR:                           sg_GONDOLA_1899_PORE_wagon;
+                    LIME:                           sg_GONDOLA_1899_PORE_wagon;
                     POTA:                           sg_GONDOLA_1899_POTA_wagon;                    
                     SAND:                           sg_GONDOLA_1899_SAND_wagon;                    
                     SCMT:                           sg_GONDOLA_1899_SCMT_wagon;
@@ -7351,7 +7377,9 @@
                                                      CTCD, TOFF,
                                                     // FIRS 4.15.1
                                                      AORE, BEAN, CBLK, CLAY, CMNT, CSTI, FECR, FICR, GRVL, PEAT, PHOS, PORE, POTA, SAND, SCMT, SULP, CASS, COKE, MNO2, NUTS, 
-                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG];
+                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, LIME,
+                                                    // FIRS 5.0.0
+                                                     FEAL];
                     loading_speed:                  5;
 
                     // Costs
@@ -7390,7 +7418,8 @@
                     CMNT:                           sg_GONDOLA_1917_CMNT_wagon;
                     FECR:                           sg_GONDOLA_1917_CMNT_wagon;
                     MNO2:                           sg_GONDOLA_1917_CMNT_wagon;                    
-                    COKE:                           sg_GONDOLA_1917_CMNT_wagon;
+                    COKE:                           sg_GONDOLA_1917_CMNT_wagon;                   
+                    FEAL:                           sg_GONDOLA_1917_CMNT_wagon;
                     FICR:                           sg_GONDOLA_1917_FICR_wagon;                    
                     QLME:                           sg_GONDOLA_1917_FICR_wagon;
                     GRVL:                           sg_GONDOLA_1917_GRVL_wagon;
@@ -7398,6 +7427,7 @@
                     PHOS:                           sg_GONDOLA_1917_PHOS_wagon;
                     PORE:                           sg_GONDOLA_1917_PORE_wagon;
                     NITR:                           sg_GONDOLA_1917_PORE_wagon;
+                    LIME:                           sg_GONDOLA_1917_PORE_wagon;
                     POTA:                           sg_GONDOLA_1917_POTA_wagon;                    
                     SAND:                           sg_GONDOLA_1917_SAND_wagon;                    
                     SCMT:                           sg_GONDOLA_1917_SCMT_wagon;
@@ -7439,7 +7469,9 @@
                                                      CTCD, TOFF,
                                                     // FIRS 4.15.1
                                                      AORE, BEAN, CBLK, CLAY, CMNT, CSTI, FECR, FICR, GRVL, PEAT, PHOS, PORE, POTA, SAND, SCMT, SULP, CASS, COKE, MNO2, NUTS, 
-                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG];
+                                                     NITR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, LIME,
+                                                    // FIRS 5.0.0
+                                                     FEAL];
                     loading_speed:                  5;
 
                     // Costs
@@ -7478,7 +7510,8 @@
                     CMNT:                           sw_GONDOLA_1934_CMNT_wagon;
                     FECR:                           sw_GONDOLA_1934_CMNT_wagon;
                     MNO2:                           sw_GONDOLA_1934_CMNT_wagon;                    
-                    COKE:                           sw_GONDOLA_1934_CMNT_wagon;
+                    COKE:                           sw_GONDOLA_1934_CMNT_wagon;                    
+                    FEAL:                           sw_GONDOLA_1934_CMNT_wagon;
                     FICR:                           sw_GONDOLA_1934_FICR_wagon;                    
                     QLME:                           sw_GONDOLA_1934_FICR_wagon;
                     GRVL:                           sw_GONDOLA_1934_GRVL_wagon;
@@ -7486,6 +7519,7 @@
                     PHOS:                           sw_GONDOLA_1934_PHOS_wagon;
                     PORE:                           sw_GONDOLA_1934_PORE_wagon;
                     NITR:                           sw_GONDOLA_1934_PORE_wagon;
+                    LIME:                           sw_GONDOLA_1934_PORE_wagon;
                     POTA:                           sw_GONDOLA_1934_POTA_wagon;                    
                     SAND:                           sw_GONDOLA_1934_SAND_wagon;                    
                     SCMT:                           sw_GONDOLA_1934_SCMT_wagon;
@@ -7531,7 +7565,9 @@
                                                      PETR, PHOS, POTA, RFPR, SAND, SCMT, SULP, TYRE, VEHI, WDPR, WOOL, ZINC, ACID, ALUM, CASS, CHLO, COAT, EOIL, LYE_, MNSP,
                                                      NH3_, NUTS, NITR, POWR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, SOAP, STSH, STWR, VBOD, VENG, VPTS,
 
-                                                     PLAS];
+                                                     PLAS,
+                                                    // FIRS 5.0.0
+                                                     STBL, CCPR, FOCA, HWAR, PPWK, PUMP, SEAL, TYCO, WELD, STIG];
                     loading_speed:                  5;
 
                     // Costs
@@ -7582,7 +7618,9 @@
                                                      PETR, PHOS, POTA, RFPR, SAND, SCMT, SULP, TYRE, VEHI, WDPR, WOOL, ZINC, ACID, ALUM, CASS, CHLO, COAT, EOIL, LYE_, MNSP,
                                                      NH3_, NUTS, NITR, POWR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, SOAP, STSH, STWR, VBOD, VENG, VPTS,
 
-                                                     PLAS];
+                                                     PLAS,
+                                                    // FIRS 5.0.0
+                                                     STBL, CCPR, FOCA, HWAR, PPWK, PUMP, SEAL, TYCO, WELD, STIG];
                     loading_speed:                  5;
 
                     // Costs
@@ -7634,7 +7672,9 @@
                                                      PETR, PHOS, POTA, RFPR, SAND, SCMT, SULP, TYRE, VEHI, WDPR, WOOL, ZINC, ACID, ALUM, CASS, CHLO, COAT, EOIL, LYE_, MNSP,
                                                      NH3_, NUTS, NITR, POWR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, SOAP, STSH, STWR, VBOD, VENG, VPTS,
 
-                                                     PLAS];
+                                                     PLAS,
+                                                    // FIRS 5.0.0
+                                                     STBL, CCPR, FOCA, HWAR, PPWK, PUMP, SEAL, TYCO, WELD, STIG];
                     loading_speed:                  5;
 
                     // Costs
@@ -7687,7 +7727,9 @@
                                                      PETR, PHOS, POTA, RFPR, SAND, SCMT, SULP, TYRE, VEHI, WDPR, WOOL, ZINC, ACID, ALUM, CASS, CHLO, COAT, EOIL, LYE_, MNSP,
                                                      NH3_, NUTS, NITR, POWR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, SOAP, STSH, STWR, VBOD, VENG, VPTS,
 
-                                                     PLAS];
+                                                     PLAS,
+                                                    // FIRS 5.0.0
+                                                     STBL, CCPR, FOCA, HWAR, PPWK, PUMP, SEAL, TYCO, WELD, STIG];
                     loading_speed:                  5;
 
                     // Costs
@@ -7880,7 +7922,9 @@
                                                     // TTD FANTASY
                                                      COLA, PLST, 
                                                     // FIRS 4.15.1 
-                                                     BEER, CTAR, KAOL, MILK, PETR, RFPR, SULP, ACID, CHLO, COAT, EOIL, LYE_, NH3_, O2__, SOAP];
+                                                     BEER, CTAR, KAOL, MILK, PETR, RFPR, SULP, ACID, CHLO, COAT, EOIL, LYE_, NH3_, O2__, SOAP,
+                                                    // FIRS 5.0.0
+                                                     N7__];
                     loading_speed:                  5;
 
                     // Costs
@@ -7928,7 +7972,9 @@
                                                     // TTD FANTASY
                                                      COLA, PLST, 
                                                     // FIRS 4.15.1 
-                                                     BEER, CTAR, KAOL, MILK, PETR, RFPR, SULP, ACID, CHLO, COAT, EOIL, LYE_, NH3_, O2__, SOAP];
+                                                     BEER, CTAR, KAOL, MILK, PETR, RFPR, SULP, ACID, CHLO, COAT, EOIL, LYE_, NH3_, O2__, SOAP,
+                                                    // FIRS 5.0.0
+                                                     N7__];
                     loading_speed:                  5;
 
                     // Costs

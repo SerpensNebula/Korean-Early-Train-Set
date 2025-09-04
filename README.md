@@ -18,4 +18,3 @@ Pull Request를 열 줄 모르신다면, Issues에 올리셔도 괜찮습니다.
 ## 라이선스
 이 NewGRF는 **[GNU 일반 공중 사용 허가서 버전 3](https://www.gnu.org/licenses/gpl-3.0.html#top)** (GPLv3)을 따릅니다.  
 이 프로젝트에 기여함은 이 라이선스에 동의함을 의미합니다.
-
