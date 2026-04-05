@@ -1,7 +1,7 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME                                      :한국 초기 열차 세트 1.2.1
+STR_GRF_NAME                                      :한국 초기 열차 세트 1.3.0
 STR_GRF_DESC                                      :이 NewGRF는 대한제국 시기부터 해방 후 초기 한국까지 쓰인 열차들을 추가해줍니다. {}{}{YELLOW}한국 초기 열차 세트는 한국 열차 세트보다 뒤/아래에 배치할 것을 권장합니다. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 
 STR_GRF_URL                                       :https://github.com/SerpensNebula/Korean-Early-Train-Set
@@ -43,6 +43,7 @@ STR_PASHI5_NAME                                   :파시 5형 증기기관차
 STR_SATA_NAME                                     :사타형 증기기관차
 STR_MATEO1_NAME                                   :마터 1형 증기기관차
 STR_MATEO2_NAME                                   :마터 2형 증기기관차
+STR_DERO1_NAME                                    :데로 1~3형 전기기관차
 STR_901_NAME                                      :901호 증기기관차
 
 # Passenger Wagons
