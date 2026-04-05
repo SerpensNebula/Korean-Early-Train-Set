@@ -5,6 +5,7 @@
 ## **Graphic / 그래픽**
   * **NEBULA** ([@SerpensNebula](https://github.com/SerpensNebula))
   * **Coconut** ([@CoconutKR](https://github.com/CoconutKR))
+  * **JukjeonWani** ([@JukjeonWani](https://github.com/JukjeonWani))
 
 ## **Translation / 번역**
-  * **NEBULA** - Korean, English (UK, US)
+  * **NEBULA** - Korean, English, Japanese (UK, US, JP)
