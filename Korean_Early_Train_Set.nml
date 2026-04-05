@@ -3,7 +3,7 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :250827;
+        version                            :260405;
         min_compatible_version             :230507;
 
         // Parameters
@@ -1307,6 +1307,15 @@
             switch(FEAT_TRAINS, SELF, sw_MATEO2_length, position_in_vehid_chain % 2) {
                 1: return 4;
                 return 8;
+            }
+
+        // DERO1
+            spriteset(set_DERO1_purchase, "./Korean_Early_Train_Set/gfx/loco/DERO.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_DERO1_graphic, "./Korean_Early_Train_Set/gfx/loco/DERO.png") {
+                tmpl_vehicle(80, 0)
             }
 
     // Diesel
@@ -6603,6 +6612,51 @@
                 }
             }
 
+        // DERO1
+            item(FEAT_TRAINS, ko_DERO1, 5304) {
+                property {
+                    // Common properties
+                    name:                           string(STR_DERO1_NAME);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1943, 1, 1);
+                    track_type:                     ELRL;
+                    engine_class:                   ENGINE_CLASS_ELECTRIC;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    length:                         8;
+
+                    // Spec
+                    speed:                          75*(para_speed_power)/2+1 km/h;
+                    power:                          2310*(para_speed_power)/2*(para_speed_power)/2 kW; 
+                    weight:                         52 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    running_cost_base:              RUNNING_COST_ELECTRIC;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        set_DERO1_graphic; 
+                    purchase:                       set_DERO1_purchase;
+                    // additional_text:                string(STR_ADDITIONAL_DERO1);
+                }
+            }
+
     // Diesel
         // Narrow 
             item(FEAT_TRAINS, ko_NARROW_DIESEL, 5522) {
@@ -8017,6 +8071,7 @@
         ko_SATA,                                    // 5291
         ko_MATEO1,                                  // 5311
         ko_MATEO2,                                  // 5303
+        ko_DERO1,                                   // 5304
         ko_901,                                     // 5278
 
         ko_NARROW_PASS,                             // 5904
