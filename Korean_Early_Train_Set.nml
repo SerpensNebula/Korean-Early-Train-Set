@@ -3,7 +3,7 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :260405;
+        version                            :260517;
         min_compatible_version             :230507;
 
         // Parameters
@@ -6612,7 +6612,7 @@
                 }
             }
 
-        // DERO1
+        // DERO
             item(FEAT_TRAINS, ko_DERO1, 5304) {
                 property {
                     // Common properties
@@ -6627,7 +6627,7 @@
                     // Spec
                     speed:                          75*(para_speed_power)/2+1 km/h;
                     power:                          2310*(para_speed_power)/2*(para_speed_power)/2 kW; 
-                    weight:                         52 ton;
+                    weight:                         134 ton;
                     tractive_effort_coefficient:    0.25;
                     air_drag_coefficient:           0.01;
 
